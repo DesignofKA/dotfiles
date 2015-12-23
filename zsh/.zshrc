@@ -31,7 +31,7 @@ alias s.c="mux start scotch"
 alias v.c="vim ~/.vimrc"
 alias t.c="vim ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-alias t.r="tmux source-file ~/.tmux.conf"
+alias treload="tmux source-file ~/.tmux.conf"
 alias perm="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -rf"
@@ -50,11 +50,18 @@ alias s.up="~/Sites/wp_projects/ && sudo vagrant up"
 alias s.stop="~/Sites/wp_projects/ && sudo vagrant suspend"
 alias s.refresh="~/Sites/wp_projects/ && sudo vagrant provision"
 
-alias gulp="sudo gulp"
+# Gulp
+alias g="sudo gulp"
+alias g.install
+
+# Tmux & Tmuxinator
 alias t.n="tmux new -s"
 alias t.k="tmux kill-session -t"
 alias t.a="tmux a -t"
 alias t.l="tmux ls"
+alias develop="mux start wordpress"
+
+alias ga="sudo git add -A"
 alias gs="sudo git status"
 alias gm="sudo git commit -m"
 alias gc="sudo git checkout"
