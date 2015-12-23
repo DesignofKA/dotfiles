@@ -1,6 +1,7 @@
 nnoremap <Leader>b :Buffers<return>
 nnoremap <Leader>f :Lines<return>
 nnoremap <Leader>i :Snippets<return>
+inoremap <Leader>i <ESC>:Snippets<return>
 nnoremap <Leader>m :History<return>
 
 let g:unite_source_menu_menus = {}
@@ -15,7 +16,7 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit $MYVIMRC'],
     \['▷ Edit Key Bindings',
         \'edit ~/.vim/setup/bindings.vim'],
-    \['▷ Edit Vim-Unite',
+    \['▷ Edit Vim-Unite-FZF',
         \'edit ~/.vim/setup/unite.vim'],
     \['▷ Edit Vim-Style',
         \'edit ~/.vim/setup/style.vim'],

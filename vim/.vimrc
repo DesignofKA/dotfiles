@@ -27,6 +27,7 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-haml'
