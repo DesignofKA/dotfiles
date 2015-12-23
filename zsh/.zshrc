@@ -35,6 +35,7 @@ alias t.r="tmux source-file ~/.tmux.conf"
 alias perm="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -rf"
+alias dotfiles="cd ~/.dotfiles"
 
 alias ga="sudo git add -A"
 alias gm="sudo git commit -m"
