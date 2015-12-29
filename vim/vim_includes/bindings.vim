@@ -57,6 +57,8 @@ nmap > >>
 vmap < <gv
 vmap > >gv
 
+" Gundo Toggle
+nnoremap <leader>u :GundoToggle<Return>
 " Comments toggle
 map <c-_> :Commentary<cr>
 

@@ -31,21 +31,29 @@ alias s.c="mux start scotch"
 alias v.c="vim ~/.vimrc"
 alias t.c="vim ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-alias treload="tmux source-file ~/.tmux.conf"
+alias t.r="tmux source-file ~/.tmux.conf"
 alias perm="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -rf"
+alias ex="exit"
+alias x="exit"
+alias f="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
+alias sites="~/Sites/"
 
-alias ga="sudo git add -A"
-alias gm="sudo git commit -m"
-alias gp="git push"
-
+# Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
 alias h.up="sudo ~/.composer/vendor/bin/homestead up"
 alias h.stop="sudo ~/.composer/vendor/bin/homestead halt"
 alias h.c="sudo vim ~/.homestead/homestead.yaml"
 alias hostsconfig="sudo vim /etc/hosts"
+
+# Laravel Commands
+alias composer="sudo composer"
+alias pha="sudo php artisan"
+alias laravel="sudo ~/.composer/vendor/bin/laravel"
+alias lv="~/Sites/lara_projects"
+alias lv.goodcv="kv && goodcv/public"
 
 # Scotch Box Start & Stop
 alias s.up="~/Sites/wp_projects/ && sudo vagrant up"
@@ -63,6 +71,7 @@ alias t.a="tmux a -t"
 alias t.l="tmux ls"
 alias develop="mux start wordpress"
 
+# Git Commands
 alias ga="sudo git add -A"
 alias gs="sudo git status"
 alias gm="sudo git commit -m"
@@ -71,15 +80,13 @@ alias gcb="sudo git checkout -b"
 alias gb="sudo git branch"
 alias gcl="sudo git clone"
 
-alias composer="sudo composer"
-alias pha="sudo php artisan"
-alias laravel="sudo ~/.composer/vendor/bin/laravel"
-
+# Wordjar Shortcuts
 alias wsites="~/Sites/wp_projects"
+alias ws="~/Sites/wp_projects"
+alias ws.wordjar="ws && wordjar.dev/public"
+alias ws.designofka="ws && designofka.dev/public"
 alias theme="/wp-content/themes/"
 
-alias ex="exit"
-alias f="fzf -m | pbcopy"
 
 # alias vim= "sudo vim -u /usr/local/Cellar/vim/7.4.488/share/vim/vim74"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
