@@ -47,9 +47,11 @@ autocmd! bufwritepost .vimrc source %
 :set laststatus=2
 :set number
 :set backspace=2
+:set cursorline
 :set mouse=a
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
+set list
 set noswapfile
 set relativenumber "Prefer relative line numbering?
 set hidden "Switch between buffers without saving

@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bullet-train"
+ZSH_THEME="pure"
 
 plugins=(git)
 
@@ -41,8 +41,10 @@ alias ga="sudo git add -A"
 alias gm="sudo git commit -m"
 alias gp="git push"
 
-alias homestead="sudo ~/.composer/vendor/bin/homestead"
-alias homestead:e="sudo vim ~/.homestead/homestead.yaml"
+alias h="sudo ~/.composer/vendor/bin/homestead up"
+alias h.up="sudo ~/.composer/vendor/bin/homestead up"
+alias h.stop="sudo ~/.composer/vendor/bin/homestead halt"
+alias h.c="sudo vim ~/.homestead/homestead.yaml"
 alias hostsconfig="sudo vim /etc/hosts"
 
 # Scotch Box Start & Stop

@@ -23,13 +23,14 @@ noremap <C-K> 5k
 "ctrl + D will delete current line and go into insert mode
 noremap <c-d> <esc>ddi
 
-nnoremap <leader>w :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>f :FZF<return>
-nnoremap W :wa<CR>
-nnoremap <leader>q :q!<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>W :w !sudo tee % > /dev/null %<return>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 
 " : now becomes ; - much easier
-nnoremap ; :
+" nnoremap ; :
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
@@ -60,7 +61,7 @@ vmap > >gv
 map <c-_> :Commentary<cr>
 
 " Removes Hightlights from search
-" nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :noh<return><esc>
 
 noremap <buffer> <silent> k gk
 noremap <buffer> <silent> j gj
