@@ -76,6 +76,10 @@ set autoread " Set to auto read when a file is changed from the outside
 let mapleader = ","
 nmap <space> :
 
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
+nmap <leader>sv :source $MYVIMRC<CR>
+
 " Airline status bar config
 set encoding=utf8
 let g:airline_powerline_fonts = 1
