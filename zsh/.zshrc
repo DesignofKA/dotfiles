@@ -40,6 +40,9 @@ alias x="exit"
 alias f="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
 alias sites="~/Sites/"
+alias vm="nvim"
+alias vim="nvim"
+alias oldvim="vim"
 
 # Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
@@ -53,7 +56,7 @@ alias composer="sudo composer"
 alias pha="sudo php artisan"
 alias laravel="sudo ~/.composer/vendor/bin/laravel"
 alias lv="~/Sites/lara_projects"
-alias lv.goodcv="kv && goodcv/public"
+alias lv.goodcv="lv && goodcv/public"
 
 # Scotch Box Start & Stop
 alias s.up="~/Sites/wp_projects/ && sudo vagrant up"

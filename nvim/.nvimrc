@@ -1,45 +1,62 @@
-set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin on
 
-" ================ Vundler Includes  ======================
-" Set runtime path to Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp^=~/.vim/bundle/vim-airline
-set rtp+=~/.fzf
-call vundle#begin()
+if has('vim_starting')
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/unite.vim'
-Plugin 'tsukkee/unite-tag'
-Plugin 'mhinz/vim-signify'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-commentary'
-Plugin 'sjl/gundo.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'SirVer/ultisnips'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ervandew/supertab'
-Plugin 'docunext/closetag.vim'
-Plugin 'edsono/vim-matchit'
+		" Required
+		set runtimepath+=~/.vim/bundle/neobundle.vim/
+		set rtp^=~/.vim/bundle/vim-airline
+		set rtp+=~/.fzf
+ endif
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-haml'
-Plugin 'vim-scripts/BusyBee'
-Plugin 'gorodinskiy/vim-coloresque' " Shows colours in css
-Plugin 'ryanoasis/vim-devicons' " Icons shown in vim
+" Required
+ call neobundle#begin(expand('~/.vim/bundle/'))
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+ " Let NeoBundle manage NeoBundle
+" Required
+ NeoBundleFetch 'Shougo/neobundle.vim'
+
+ " My Bundles here:
+ " Refer to |:NeoBundle-examples|.
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'StanAngeloff/php.vim'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'docunext/closetag.vim'
+NeoBundle 'edsono/vim-matchit'
+
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'vim-scripts/BusyBee'
+NeoBundle 'kristijanhusak/vim-hybrid-material'
+NeoBundle 'gorodinskiy/vim-coloresque' " Shows colours in css
+NeoBundle 'ryanoasis/vim-devicons' " Icons shown in vim
+
+ call neobundle#end()
+
+" Required
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
 
 " ================ General Configuration  ======================
 
@@ -119,3 +136,4 @@ let g:multi_cursor_next_key='<S-q>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 " let g:multi_cursor_quit_key='<esc>'
+

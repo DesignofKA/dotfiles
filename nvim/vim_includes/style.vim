@@ -1,6 +1,6 @@
 syntax enable
-"set t_Co=256
-"set background=dark
+" set t_Co=256
+" set background=dark
 colorscheme hybrid_material
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
