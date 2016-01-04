@@ -1,7 +1,3 @@
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
-nmap <leader>sv :source $MYVIMRC<CR>
-
 " Escape using jj
 ino jk <esc>
 cno jk <c-c>

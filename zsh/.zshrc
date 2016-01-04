@@ -4,8 +4,10 @@ export ZSH=$HOME/.oh-my-zsh
 export EDITOR=/usr/local/bin/vim  
 export VISUAL=/usr/local/bin/vim  
 export TERM="xterm-256color"
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Look in ~/.oh-my-zsh/themes/
+ #Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="pure"
@@ -37,7 +39,8 @@ alias c="clear"
 alias remove="sudo rm -rf"
 alias ex="exit"
 alias x="exit"
-alias f="fzf -m | pbcopy"
+alias f-"ag -g "" | fzf -m | pbcopy"
+alias oldf="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
 alias sites="~/Sites/"
 alias vm="nvim"
