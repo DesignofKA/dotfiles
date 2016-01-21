@@ -20,12 +20,17 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # Aliases
 alias z.c="vim ~/.zshrc"
@@ -34,7 +39,8 @@ alias v.c="vim ~/.vimrc"
 alias t.c="vim ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
-alias perm="sudo chown -R kelvinakposoe:admin *"
+alias perm.file="sudo chown -R kelvinakposoe:admin"
+alias perm.all="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -rf"
 alias ex="exit"
@@ -43,9 +49,8 @@ alias f-"ag -g "" | fzf -m | pbcopy"
 alias oldf="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
 alias sites="~/Sites/"
-alias vm="nvim"
-alias vim="nvim"
-alias oldvim="vim"
+alias oldvim="/usr/local/bin/vim"
+alias o="/usr/local/bin/vim"
 
 # Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
@@ -86,15 +91,14 @@ alias gcb="sudo git checkout -b"
 alias gb="sudo git branch"
 alias gcl="sudo git clone"
 
-# Wordjar Shortcuts
+# Wordpress Shortcuts
 alias wsites="~/Sites/wp_projects"
 alias ws="~/Sites/wp_projects"
 alias ws.wordjar="ws && wordjar.dev/public"
 alias ws.designofka="ws && designofka.dev/public"
 alias theme="/wp-content/themes/"
 
-
-# alias vim= "sudo vim -u /usr/local/Cellar/vim/7.4.488/share/vim/vim74"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# YCM Compile
+alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

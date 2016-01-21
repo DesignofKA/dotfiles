@@ -1,11 +1,3 @@
-nnoremap <Leader>b :Buffers<return>
-nnoremap <Leader>l :BLines<return>
-nnoremap <Leader>m :History<return>
-
-" Snippets
-nnoremap <Leader>i :Snippets<return>
-inoremap <Leader>i <ESC>:Snippets<return>
-
 let g:unite_source_menu_menus = {}
 
 " vim menu {{{
@@ -26,6 +18,7 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit ~/.zshrc'],
     \['▷ Edit Tmux',
         \'edit ~/.tmux.conf'],
+    \['▷ Edit UltiSnips',
+        \'edit ~/.vim/UltiSnips/all.snippets'],
     \]
-nnoremap <silent><Leader>t :Unite menu:vim -silent<return>
 " }}}
