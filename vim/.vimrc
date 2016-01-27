@@ -28,10 +28,12 @@ Plug 'ervandew/supertab'
 Plug 'docunext/closetag.vim'
 Plug 'edsono/vim-matchit'
 Plug 'vim-scripts/repeat-motion'
+Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-haml'
 Plug 'Valloric/YouCompleteMe',
 Plug 'vim-scripts/BusyBee'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 
@@ -52,6 +54,7 @@ augroup END
 call plug#end()
 
 filetype plugin indent on    " required
+
 
 " ================ General Configuration  ======================
 

@@ -33,16 +33,18 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # Aliases
-alias z.c="vim ~/.zshrc"
+alias z.c="o ~/.zshrc"
 alias s.c="mux start scotch"
-alias v.c="vim ~/.vimrc"
-alias t.c="vim ~/.tmux.conf"
+alias v.c="o ~/.vimrc"
+alias t.c="o ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
 alias perm.file="sudo chown -R kelvinakposoe:admin"
 alias perm.all="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -rf"
+alias mv="sudo mv"
+alias file="sudo touch"
 alias ex="exit"
 alias x="exit"
 alias f-"ag -g "" | fzf -m | pbcopy"
@@ -51,7 +53,8 @@ alias dotfiles="cd ~/.dotfiles"
 alias sites="~/Sites/"
 alias oldvim="/usr/local/bin/vim"
 alias o="/usr/local/bin/vim"
-
+alias p="php"
+ 
 # Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
 alias h.up="sudo ~/.composer/vendor/bin/homestead up"

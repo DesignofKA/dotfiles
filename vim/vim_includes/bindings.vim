@@ -1,6 +1,8 @@
 " Escape using jj
+nmap '' <esc>
 ino jk <esc>
 cno jk <c-c>
+vno jk <esc> 
 
 nnoremap Q <nop>
 map q <Nop>
@@ -16,6 +18,8 @@ nmap <leader><leader> V
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+map <Leader>e <Plug>(easymotion-prefix)
+map  / <Plug>(easymotion-sn)
 
 vmap <Leader>y "+y 
 vmap <Leader>d "+d
@@ -30,18 +34,18 @@ nnoremap <silent> p p`]
 
 " vp doesn't replace paste buffer
 function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
+	let @" = s:restore_reg
+	return ''
 endfunction
 function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
+	let s:restore_reg = @"
+	return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " Change search result using cs then . to repeat
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+			\:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
 
 nnoremap <leader>f :FZF<return>
@@ -50,6 +54,7 @@ nnoremap <leader>W :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>v :vsp<CR>
+nnoremap <leader>x :x<CR>
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
@@ -58,12 +63,15 @@ map <Leader>d :bd<Return>
 " Enter to end, Backspace to top
 nnoremap <CR> G
 nnoremap <BS> gg
+vnoremap <CR> G
+vnoremap <BS> gg
+
 " tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
 nmap <Leader>ta :tabprevious<CR>
-nmap <Leader>ts   :tabnext<CR>
+nmap <Leader>ts :tabnext<CR>
 nmap <Leader>tn :tabnew<CR>
 
 "Show hidden files in NerdTree
@@ -83,27 +91,34 @@ vmap > >gv
 
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<Return>
+
 " Comments toggle
+imap cc <esc>:Commentary<cr>i
 nmap <Leader>cc :Commentary<cr>
+vmap <Leader>cc :Commentary<cr>
 
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
 
-noremap <buffer> <silent> k gk
-noremap <buffer> <silent> j gj
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
 " Emmet Completion
 imap hh <C-Y>,<esc>li
 
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
 nnoremap <Leader>b :Buffers<return>
 nnoremap <Leader>l :BLines<return>
-nnoremap <Leader>m :History<return>
+nmap <Leader>mh <C-w><left>
+nmap <Leader>ml <C-w><right>
 
 " Snippets
-nnoremap <Leader>i :Snippets<return>
-inoremap <Leader>i <ESC>:Snippets<return>
+" nnoremap <Leader>i :Snippets<return>
+" inoremap <Leader>i <ESC>:Snippets<return>
 
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
-nmap ;; :
+nmap <Leader>; :
