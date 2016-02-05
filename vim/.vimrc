@@ -36,11 +36,11 @@ Plug 'vim-scripts/BusyBee'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
+Plug 'SirVer/ultisnips'
 
 " Lazy Loaded Plugins
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'SirVer/ultisnips', { 'on': 'EnterInsertMode' }
 Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }

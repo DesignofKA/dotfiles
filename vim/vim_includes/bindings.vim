@@ -1,8 +1,8 @@
-" Escape using jj
-nmap '' <esc>
+" Escape commands
+nmap <tab> <esc>
 ino jk <esc>
 cno jk <c-c>
-vno jk <esc> 
+vno v <esc> 
 
 nnoremap Q <nop>
 map q <Nop>
