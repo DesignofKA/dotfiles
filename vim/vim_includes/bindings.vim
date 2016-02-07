@@ -1,8 +1,10 @@
 " Escape commands
-nmap <tab> <esc>
 ino jk <esc>
 cno jk <c-c>
 vno v <esc> 
+
+" Save on Enter (Normal)
+nmap <leader><cr> :write<cr>
 
 nnoremap Q <nop>
 map q <Nop>
@@ -14,6 +16,7 @@ noremap <C-K> 5k
 
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
+
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -66,13 +69,15 @@ nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
+nmap \ :Ag
+
 " tab navigation
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-nmap <Leader>ta :tabprevious<CR>
-nmap <Leader>ts :tabnext<CR>
-nmap <Leader>tn :tabnew<CR>
+" nnoremap <C-S-tab> :tabprevious<CR>
+" nnoremap <C-tab>   :tabnext<CR>
+" nnoremap <C-t>     :tabnew<CR>
+" nmap <Leader>ta :tabprevious<CR>
+" nmap <Leader>ts :tabnext<CR>
+" nmap <Leader>tn :tabnew<CR>
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
@@ -94,8 +99,8 @@ nnoremap <leader>u :GundoToggle<Return>
 
 " Comments toggle
 imap cc <esc>:Commentary<cr>i
-nmap <Leader>cc :Commentary<cr>
-vmap <Leader>cc :Commentary<cr>
+nmap <Leader>c :Commentary<cr>
+vmap <Leader>c :Commentary<cr>
 
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
@@ -111,14 +116,34 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
+
 nnoremap <Leader>b :Buffers<return>
 nnoremap <Leader>l :BLines<return>
 nmap <Leader>mh <C-w><left>
 nmap <Leader>ml <C-w><right>
 
-" Snippets
-" nnoremap <Leader>i :Snippets<return>
-" inoremap <Leader>i <ESC>:Snippets<return>
-
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
+
+" Got to command line using Leader ;
 nmap <Leader>; :
+
+" Searches tags in current buffer
+nmap <Leader>T :BTags<cr>
+nmap <leader>tt :Tags<cr>
+nmap <leader>tb :TagbarToggle<cr><C-w><right>
+
+" Will only work if build folder is at root
+function! JumpToSCSS()
+  let id_pos = searchpos("id", "nb", line('.'))[1]
+  let class_pos = searchpos("class", "nb", line('.'))[1]
+
+  if class_pos > 0 || id_pos > 0
+    if class_pos < id_pos
+      execute ":vim '#".expand('<cword>')."' ./build/**/*.scss"
+    elseif class_pos > id_pos
+      execute ":vim '.".expand('<cword>')."' ./build/**/*.scss"
+    endif
+  endif
+endfunction
+
+nnoremap <leader>j :call JumpToSCSS()<CR>zz

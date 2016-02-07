@@ -1,77 +1,77 @@
+" ================ Startup  ======================
+set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin on
 
-if has('vim_starting')
-   if &compatible
-     set nocompatible               " Be iMproved
-   endif
+" ================ Vim-Plug Includes  ======================
+" Set runtime path to Vundle
+set rtp^=~/.vim/bundle/vim-airline
+set rtp+=~/.fzf
+call plug#begin('~/.vim/plugged')
+"
+" let Vundle manage Vundle, required
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/unite.vim'
+Plug 'tsukkee/unite-tag'
+Plug 'mhinz/vim-signify'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-expand-region'
+Plug 'hlissner/vim-multiedit' 
+Plug 'StanAngeloff/php.vim'
+Plug 'tpope/vim-repeat', 
+Plug 'majutsushi/tagbar', 
+Plug 'mtscout6/vim-tagbar-css', 
+Plug 'junegunn/fzf.vim'
+" Plug 'ervandew/supertab'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'docunext/closetag.vim'
+Plug 'edsono/vim-matchit'
+Plug 'vim-scripts/repeat-motion'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-haml'
+Plug 'Valloric/YouCompleteMe',
+Plug 'kristijanhusak/vim-hybrid-material',
+Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
+Plug 'ryanoasis/vim-devicons' " Icons shown in vim
+Plug 'SirVer/ultisnips'
 
-		" Required
-		set runtimepath+=~/.vim/bundle/neobundle.vim/
-		set rtp^=~/.vim/bundle/vim-airline
-		set rtp+=~/.fzf
- endif
+" Lazy Loaded Plugins
+Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
+Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
+Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
+Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+augroup lazy_load
+	autocmd!
+	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
+augroup END
 
-" Required
- call neobundle#begin(expand('~/.vim/bundle/'))
+" All of your Plugins must be added before the following line
+call plug#end()
 
- " Let NeoBundle manage NeoBundle
-" Required
- NeoBundleFetch 'Shougo/neobundle.vim'
+filetype plugin indent on    " required
 
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
-
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'StanAngeloff/php.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'ggreer/the_silver_searcher'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'docunext/closetag.vim'
-NeoBundle 'edsono/vim-matchit'
-
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'vim-scripts/BusyBee'
-NeoBundle 'kristijanhusak/vim-hybrid-material'
-NeoBundle 'gorodinskiy/vim-coloresque' " Shows colours in css
-NeoBundle 'ryanoasis/vim-devicons' " Icons shown in vim
-
- call neobundle#end()
-
-" Required
- filetype plugin indent on
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
 
 " ================ General Configuration  ======================
 
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
 
+" Set Configurations
 :set laststatus=2
 :set number
 :set backspace=2
 :set cursorline
 :set mouse=a
+:set nowrap
+set selection=inclusive
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
-set list
+" set list
 set noswapfile
 set relativenumber "Prefer relative line numbering?
 set hidden "Switch between buffers without saving
@@ -88,23 +88,31 @@ set hlsearch            " highlight matches
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autoread " Set to auto read when a file is changed from the outside
+set autoindent
+set cindent
 
+" Save Folding
+autocmd BufWinLeave .* mkview
+autocmd BufWinEnter .* silent loadview 
 
-
-let mapleader = ","
-nmap <space> :
+let mapleader = "\<Space>"
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :vsp ~/.nvimrc<CR>
+nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
-" Airline status bar config
+" ================ Airline Configuration  ======================
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" ================ IndentLine Configuration  ======================
+let g:indent_guides_start = 2
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
+let g:indent_guides_enable_on_vim_startup = 1
+
 
 " ================ Completion =====================
 set wildmode=list:longest
@@ -120,25 +128,29 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
  
-"testing source files
+" ================ Source Files =====================
 source ~/.vim/setup/btags.vim
 source ~/.vim/setup/unite.vim
 source ~/.vim/setup/style.vim
 source ~/.vim/setup/bindings.vim
 set timeoutlen=500
 
+" ================ Ultisnips =====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-let g:multi_cursor_use_default_mapping=0
-" Default mapping
-let g:multi_cursor_next_key='<S-q>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-" let g:multi_cursor_quit_key='<esc>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" ================ MultiEdit Includes  ======================
+nmap <leader>ma :MultieditAddMark a<CR>
+nmap <leader>mi :MultieditAddMark i<CR>
+nmap <leader>M :Multiedit<CR>
+
+
 

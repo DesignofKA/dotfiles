@@ -52,10 +52,11 @@ alias f-"ag -g "" | fzf -m | pbcopy"
 alias oldf="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
 alias sites="~/Sites/"
-alias oldvim="/usr/local/bin/vim"
-alias o="/usr/local/bin/vim"
+# alias oldvim="/usr/local/bin/vim"
+alias n="nvim"
 alias p="php"
- 
+alias ctags="/usr/local/bin/ctags -R ."
+
 # Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
 alias h.up="sudo ~/.composer/vendor/bin/homestead up"
@@ -106,3 +107,5 @@ alias theme="/wp-content/themes/"
 alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# - zz - will center the screen based on the line your on
