@@ -21,10 +21,9 @@ Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-repeat', 
-Plug 'majutsushi/tagbar', 
+Plug 'tpope/vim-dispatch'
 Plug 'mtscout6/vim-tagbar-css', 
 Plug 'junegunn/fzf.vim'
-" Plug 'ervandew/supertab'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'docunext/closetag.vim'
 Plug 'edsono/vim-matchit'
@@ -32,6 +31,7 @@ Plug 'vim-scripts/repeat-motion'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-haml'
+Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe',
 Plug 'kristijanhusak/vim-hybrid-material',
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
@@ -147,10 +147,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"
 " ================ MultiEdit Includes  ======================
 nmap <leader>ma :MultieditAddMark a<CR>
 nmap <leader>mi :MultieditAddMark i<CR>
 nmap <leader>M :Multiedit<CR>
-
-
 

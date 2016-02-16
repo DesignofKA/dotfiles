@@ -17,7 +17,6 @@ noremap <C-K> 5k
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
 
-
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
@@ -30,7 +29,6 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
@@ -90,9 +88,18 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 
 nmap < <<
+nmap <Left> <<
 nmap > >>
+nmap <Right> >>
 vmap < <gv
+vmap <Left> <gv
 vmap > >gv
+vmap <Right> >gv
+
+nmap <Up> [e
+nmap <Down> ]e
+vmap <Up> [egv
+vmap <Down> ]egv
 
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<Return>
@@ -116,21 +123,23 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
-
-nnoremap <Leader>b :Buffers<return>
-nnoremap <Leader>l :BLines<return>
+nnoremap <Leader>b :Buffers<return> 
+nnoremap <Leader>l :BLines<return> 
 nmap <Leader>mh <C-w><left>
 nmap <Leader>ml <C-w><right>
 
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
+nnoremap <Leader>ed :Dispatch! 
+nnoremap <Leader>ec :Dispatch! /usr/local/bin/ctags -R .<return> 
+nnoremap <Leader>eo :Copen<cr> 
 
 " Got to command line using Leader ;
 nmap <Leader>; :
 
 " Searches tags in current buffer
 nmap <Leader>T :BTags<cr>
-nmap <leader>tt :Tags<cr>
-nmap <leader>tb :TagbarToggle<cr><C-w><right>
+nmap <leader>t :Tags<cr>
+" nmap <leader>tb :TagbarToggle<cr><C-w><right>
 
 " Will only work if build folder is at root
 function! JumpToSCSS()
@@ -146,4 +155,4 @@ function! JumpToSCSS()
   endif
 endfunction
 
-nnoremap <leader>j :call JumpToSCSS()<CR>zz
+nnoremap <silent><leader>j :call JumpToSCSS()<CR>zz
