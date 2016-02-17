@@ -1,0 +1,104 @@
+# CSS/SCSS
+snippet inc
+@include $0
+endsnippet
+
+snippet ex
+@extend .$0
+endsnippet
+
+snippet rel
+relative;$0
+endsnippet
+
+snippet break
+@include breakpoint($mobile-tablet) {
+	$1
+} // End of Breakpoint
+$0
+endsnippet
+
+snippet md-
+col-md-$1
+$0
+endsnippet
+
+snippet mdoff-
+col-md-offset-$1
+$0
+endsnippet
+
+snippet imp
+!important;
+$0
+endsnippet
+
+# PHP
+snippet acf
+the_field('$1');
+$0
+endsnippet
+
+snippet aco
+the_field('$1', 'option');
+$0
+endsnippet
+
+snippet acr
+if( have_rows('repeater_field_name') ):
+while ( have_rows('repeater_field_name') ) : the_row();
+	$1 = the_sub_field('$2');
+endwhile;
+endif;
+$0
+endsnippet
+
+snippet php
+<?php $1 ?>
+$0
+endsnippet
+
+snippet ephp
+<?= $1 ?>
+$0
+endsnippet
+
+snippet vardump
+<?php vardump($1) ?>
+$0
+endsnippet
+
+snippet phpif
+<?php 
+	if($1)
+	{
+		$2
+	} 
+?>
+$0
+endsnippet
+
+snippet if
+if($1)
+{
+	$2
+} 
+$0
+endsnippet
+
+snippet constrant
+public function __constrant {
+	$1
+}
+$0
+endsnippet
+
+snippet part
+get_template_part( 'partials/$1', '$2' ); 
+$0
+endsnippet
+
+snippet ec'
+echo '$1';
+$0
+endsnippet
