@@ -9,10 +9,19 @@ nmap <leader><cr> :write<cr>
 nnoremap Q <nop>
 map q <Nop>
 
-noremap <C-H> ^
-noremap <C-L> g_
+" noremap <C-H> ^
+" noremap <C-L> g_
 noremap <C-J> 5j
 noremap <C-K> 5k
+
+" map CTRL-E to end-of-line (insert mode)
+nmap <C-e> $
+vmap <C-e> $
+imap <C-e> <esc>$i<right>
+" map CTRL-A to beginning-of-line (insert mode)
+nmap <C-a> 0
+vmap <C-a> 0
+imap <C-a> <esc>0i
 
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
@@ -55,11 +64,19 @@ nnoremap <leader>W :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>v :vsp<CR>
+nnoremap <leader>h :sp<CR>
+nnoremap <leader>r <C-W>R
 nnoremap <leader>x :x<CR>
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
 map <Leader>d :bd<Return>
+
+" resize current buffer by +/- 5 
+" nnoremap <D-left> :vertical resize -5<cr>
+" nnoremap <D-down> :resize +5<cr>
+" nnoremap <D-up> :resize -5<cr>
+" nnoremap <D-right> :vertical resize +5<cr>
 
 " Enter to end, Backspace to top
 nnoremap <CR> G
@@ -89,10 +106,13 @@ nnoremap <Right> <Nop>
 
 nmap < <<
 nmap <Left> <<
+
 nmap > >>
 nmap <Right> >>
+
 vmap < <gv
 vmap <Left> <gv
+
 vmap > >gv
 vmap <Right> >gv
 
@@ -125,8 +145,9 @@ imap <C-l> <Right>
 
 nnoremap <Leader>b :Buffers<return> 
 nnoremap <Leader>l :BLines<return> 
-nmap <Leader>mh <C-w><left>
-nmap <Leader>ml <C-w><right>
+
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
 
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
 nnoremap <Leader>ed :Dispatch! 

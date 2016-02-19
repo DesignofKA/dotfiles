@@ -1,5 +1,5 @@
-# CSS/SCSS
-snippet inc
+# CSS/SCSS snippet inc
+snippet ex
 @include $0
 endsnippet
 
@@ -14,7 +14,7 @@ endsnippet
 snippet break
 @include breakpoint($mobile-tablet) {
 	$1
-} // End of Breakpoint
+} // End of Breakpoint - See _variables.scss within build folder for breakpoints
 $0
 endsnippet
 
@@ -93,6 +93,12 @@ public function __constrant {
 $0
 endsnippet
 
+snippet colmd
+<div class="col-md-$1">
+	$0
+</div>
+endsnippet
+
 snippet part
 get_template_part( 'partials/$1', '$2' ); 
 $0
@@ -100,5 +106,29 @@ endsnippet
 
 snippet ec'
 echo '$1';
+$0
+endsnippet
+
+snippet com
+// $1
+$0
+endsnippet
+
+snippet comblock
+/*
+|===============================================================
+|	$1
+|===============================================================
+*/
+$0
+endsnippet
+
+snippet stag
+<% $1 %>
+$0
+endsnippet
+
+snippet %
+<% $1 %>
 $0
 endsnippet

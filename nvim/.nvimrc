@@ -90,6 +90,8 @@ set noerrorbells         " don't beep
 set autoread " Set to auto read when a file is changed from the outside
 set autoindent
 set cindent
+set splitbelow
+set splitright
 
 " Save Folding
 autocmd BufWinLeave .* mkview
@@ -153,3 +155,4 @@ nmap <leader>ma :MultieditAddMark a<CR>
 nmap <leader>mi :MultieditAddMark i<CR>
 nmap <leader>M :Multiedit<CR>
 
+au BufNewFile,BufRead *.ss      setf xhtml
