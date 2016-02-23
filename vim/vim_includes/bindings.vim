@@ -1,72 +1,78 @@
-" Escape commands
+" escape commands
 ino jk <esc>
 cno jk <c-c>
 vno v <esc> 
 
-" Save on Enter (Normal)
+" save on enter (normal)
 nmap <leader><cr> :write<cr>
 
-nnoremap Q <nop>
-map q <Nop>
+nnoremap q <nop>
+map q <nop>
 
-" noremap <C-H> ^
-" noremap <C-L> g_
-noremap <C-J> 5j
-noremap <C-K> 5k
+noremap <c-j> 5j
+noremap <c-k> 5k
 
-" map CTRL-E to end-of-line (insert mode)
-nmap <C-e> $
-vmap <C-e> $
-imap <C-e> <esc>$i<right>
-" map CTRL-A to beginning-of-line (insert mode)
-nmap <C-a> 0
-vmap <C-a> 0
-imap <C-a> <esc>0i
+" map ctrl-e to end-of-line (insert mode)
+nmap <c-e> $
+vmap <c-e> $
+imap <c-e> <esc>$i<right>
+" map ctrl-a to beginning-of-line (insert mode)
+nmap <c-a> 0
+vmap <c-a> 0
+imap <c-a> <esc>0i
 
-" Enter Visual Mode with Leader x 2
-nmap <leader><leader> V
+vmap v <plug>(expand_region_expand)
+vmap <c-v> <plug>(expand_region_shrink)
 
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+" map <leader>e <plug>(easymotion-prefix)
+map  / <plug>(easymotion-sn)
+map  <leader>z <plug>(easymotion-sl)
+map f <plug>(easymotion-sl)
 
-map <Leader>e <Plug>(easymotion-prefix)
-map  / <Plug>(easymotion-sn)
-
-vmap <Leader>y "+y 
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+vmap <leader>y "+y 
+vmap <leader>d "+d
+nmap <leader>p "+p
+nmap <leader>p "+p
+vmap <leader>p "+p
+vmap <leader>p "+p
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " vp doesn't replace paste buffer
-function! RestoreRegister()
+function! Restoreregister()
 	let @" = s:restore_reg
 	return ''
 endfunction
-function! s:Repl()
+function! s:repl()
 	let s:restore_reg = @"
-	return "p@=RestoreRegister()\<cr>"
+	return "p@=restoreregister()\<cr>"
 endfunction
-vmap <silent> <expr> p <sid>Repl()
+vmap <silent> <expr> p <sid>repl()
 
-" Change search result using cs then . to repeat
-vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-			\:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-omap s :normal vs<CR>
+" change search result using cs then . to repeat
+vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
+			\:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
+omap s :normal vs<cr>
 
-nnoremap <leader>f :FZF<return>
-nnoremap <leader>w :w<CR>
+nnoremap <leader>ff :fzf<return>
+nnoremap <leader>fb :Buffers<return>
+nnoremap <leader>ft :Tags<return>
+nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w !sudo tee % > /dev/null %<return>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
-nnoremap <leader>v :vsp<CR>
-nnoremap <leader>h :sp<CR>
-nnoremap <leader>r <C-W>R
-nnoremap <leader>x :x<CR>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>Q :q!<cr>
+nnoremap <leader>v :vsp<cr>
+nnoremap <leader>h :sp<cr>
+nnoremap <leader>r <c-w>r
+nnoremap <leader>x :x<cr>
+nnoremap <Leader>l :BLines<return> 
+nnoremap <Leader>b :sp<return> 
+
+" searches tags in current buffer
+" nmap <leader>t :btags<cr>
+" nmap <leader>t :Tags<cr>
+" nmap <leader>tb :TagbarToggle<cr><C-w><right>
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
@@ -85,14 +91,6 @@ vnoremap <CR> G
 vnoremap <BS> gg
 
 nmap \ :Ag
-
-" tab navigation
-" nnoremap <C-S-tab> :tabprevious<CR>
-" nnoremap <C-tab>   :tabnext<CR>
-" nnoremap <C-t>     :tabnew<CR>
-" nmap <Leader>ta :tabprevious<CR>
-" nmap <Leader>ts :tabnext<CR>
-" nmap <Leader>tn :tabnew<CR>
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
@@ -143,11 +141,13 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
-nnoremap <Leader>b :Buffers<return> 
-nnoremap <Leader>l :BLines<return> 
+nnoremap gh <C-W><C-H>
+nnoremap gj <C-W><C-J>
+nnoremap gk <C-W><C-K>
+nnoremap gl <C-W><C-L>
 
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-L> <C-W><C-L>
 
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
 nnoremap <Leader>ed :Dispatch! 
@@ -156,11 +156,6 @@ nnoremap <Leader>eo :Copen<cr>
 
 " Got to command line using Leader ;
 nmap <Leader>; :
-
-" Searches tags in current buffer
-nmap <Leader>T :BTags<cr>
-nmap <leader>t :Tags<cr>
-" nmap <leader>tb :TagbarToggle<cr><C-w><right>
 
 " Will only work if build folder is at root
 function! JumpToSCSS()
@@ -177,3 +172,6 @@ function! JumpToSCSS()
 endfunction
 
 nnoremap <silent><leader>j :call JumpToSCSS()<CR>zz
+
+" Enter Visual Mode with Leader x 2
+nmap <leader><leader> V
