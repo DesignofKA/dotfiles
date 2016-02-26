@@ -132,3 +132,15 @@ snippet %
 <% $1 %>
 $0
 endsnippet
+
+snippet var
+var $1 = $('$2');
+$0
+endsnippet
+
+snippet tween
+TweenMax.to("$1", .5, {
+	$2:'$3',
+});
+$0
+endsnippet

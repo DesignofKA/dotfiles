@@ -26,7 +26,7 @@ vmap <c-v> <plug>(expand_region_shrink)
 
 " map <leader>e <plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
-map  <leader>z <plug>(easymotion-sl)
+map <leader>z <plug>(easymotion-sl)
 map f <plug>(easymotion-sl)
 
 vmap <leader>y "+y 
@@ -55,7 +55,11 @@ vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
 			\:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
 omap s :normal vs<cr>
 
-nnoremap <leader>ff :fzf<return>
+" |===============================================================
+" | Most Leader Key Bindings	
+" |===============================================================
+
+nnoremap <leader>t :FZF<return>
 nnoremap <leader>fb :Buffers<return>
 nnoremap <leader>ft :Tags<return>
 nnoremap <leader>w :w<cr>
@@ -175,3 +179,6 @@ nnoremap <silent><leader>j :call JumpToSCSS()<CR>zz
 
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
+
+
+" gi - goes to the last edit location
