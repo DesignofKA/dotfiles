@@ -16,6 +16,7 @@ Plug 'tsukkee/unite-tag'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'roman/golden-ratio'
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 Plug 'StanAngeloff/php.vim'
@@ -23,6 +24,7 @@ Plug 'tpope/vim-repeat',
 Plug 'tpope/vim-dispatch'
 Plug 'mtscout6/vim-tagbar-css', 
 Plug 'junegunn/fzf.vim'
+Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'docunext/closetag.vim'
 Plug 'edsono/vim-matchit'

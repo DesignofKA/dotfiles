@@ -85,7 +85,7 @@ nnoremap <Leader>b :sp<return>
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
-map <Leader>d :bd<Return>
+map <Leader>d :BD<Return>
 
 " resize current buffer by +/- 5 
 " nnoremap <D-left> :vertical resize -5<cr>
@@ -187,5 +187,8 @@ nunmap <leader><leader>
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
 
+" Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
+nnoremap <tab> <c-w>
+nnoremap <tab><tab> <c-w><c-w>
 
 " gi - goes to the last edit location
