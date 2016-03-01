@@ -123,6 +123,7 @@ alias ta="tmux a"
 alias t.l="tmux ls"
 alias tl="tmux ls"
 alias develop="mux start wordpress"
+alias fse="mux start fse"
 
 # Git Commands
 alias ga="sudo git add -A"
