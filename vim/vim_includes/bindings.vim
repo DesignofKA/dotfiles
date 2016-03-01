@@ -12,14 +12,19 @@ map q <nop>
 noremap <c-j> 5j
 noremap <c-k> 5k
 
-" map ctrl-e to end-of-line (insert mode)
-nmap <c-e> $
-vmap <c-e> $
-imap <c-e> <esc>$i<right>
-" map ctrl-a to beginning-of-line (insert mode)
-nmap <c-a> 0
-vmap <c-a> 0
-imap <c-a> <esc>0i
+" map ctrl-p to end-of-line (insert mode)
+nunmap <c-p>
+nmap <c-p> $
+vunmap <c-p>
+vmap <c-p> $
+imap <c-p> <esc>$i<right>
+
+" map ctrl-o to beginning-of-line (insert mode)
+nunmap <c-o>
+nmap <c-o> 0
+vunmap <c-o>
+vmap <c-o> 0
+imap <c-o> <esc>0i
 
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
@@ -107,10 +112,10 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 
 nmap < <<
-nmap <Left> <<
+nmap <Left> <
 
 nmap > >>
-nmap <Right> >>
+nmap <Right> >
 
 vmap < <gv
 vmap <Left> <gv
@@ -175,8 +180,10 @@ function! JumpToSCSS()
   endif
 endfunction
 
+" Removes Easy Motion Leader Leader Map
 nnoremap <silent><leader>j :call JumpToSCSS()<CR>zz
 
+nunmap <leader><leader>
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
 

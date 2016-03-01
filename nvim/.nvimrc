@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'tsukkee/unite-tag'
-Plug 'mhinz/vim-signify'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'

@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
 source ~/.bin/tmuxinator.zsh
+source $HOME/.oh-my-zsh/custom/plugins/k/k.sh
+
+export ZSH=$HOME/.oh-my-zsh
 export EDITOR=/usr/local/bin/vim  
 export VISUAL=/usr/local/bin/vim  
 export TERM="xterm-256color"
