@@ -143,9 +143,10 @@ alias theme="/wp-content/themes/"
 
 # Phploy Shortcuts
 alias px="Phploy"
+alias pxi="Phploy --init"
 alias pxl="Phploy -l"
 alias pxs="Phploy --sync"
-
+alias push="gp && px"
 # YCM Compile
 alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
