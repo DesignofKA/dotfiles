@@ -141,6 +141,11 @@ alias ws.wordjar="ws && wordjar.dev/public"
 alias ws.designofka="ws && designofka.dev/public"
 alias theme="/wp-content/themes/"
 
+# Phploy Shortcuts
+alias px="Phploy"
+alias pxl="Phploy -l"
+alias pxs="Phploy --sync"
+
 # YCM Compile
 alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 

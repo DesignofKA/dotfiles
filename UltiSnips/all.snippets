@@ -11,6 +11,10 @@ snippet rel
 position: relative;$0
 endsnippet
 
+snippet abs
+position: absolute;$0
+endsnippet
+
 snippet break
 @include breakpoint($mobile-tablet) {
 	$1
@@ -153,17 +157,23 @@ $0
 endsnippet
 
 snippet tween
-TweenMax.to("$1", .5, {
-	$2:'$3',
-});
-$0
+TweenMax.to($1, 1, { $2:'$3', });$0
 endsnippet
 
 snippet tweentime
 var $1 = new TimelineLite ({$2});
 tl
-	.from(element, 0.5, { 
-		opacity: '0',
-	})
+	.from($3, 1, { opacity: '0', })$0
+endsnippet
+
+snippet tweenstag
+.staggerFrom($1, $2, { $3:$4 }, 0.2),
+endsnippet
+
+snippet flex 
+display: flex;
+justify-content: center;
+align-items: center;
 $0
 endsnippet
+

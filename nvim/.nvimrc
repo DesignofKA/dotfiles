@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat',
 Plug 'tpope/vim-dispatch'
 Plug 'mtscout6/vim-tagbar-css', 
 Plug 'junegunn/fzf.vim'
+Plug 'wellle/targets.vim'
 Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'docunext/closetag.vim'
