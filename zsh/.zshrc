@@ -134,6 +134,10 @@ alias gcb="sudo git checkout -b"
 alias gb="sudo git branch"
 alias gcl="sudo git clone"
 
+# HTML Boilerplate
+alias html="gcl https://github.com/DesignofKA/HTML5-Starter"
+alias html.here="gcl https://github.com/DesignofKA/HTML5-Starter ."
+
 # Wordpress Shortcuts
 alias wsites="~/Sites/wp_projects"
 alias ws="~/Sites/wp_projects"
