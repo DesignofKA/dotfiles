@@ -20,14 +20,17 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 Plug 'StanAngeloff/php.vim'
-Plug 'tpope/vim-repeat', 
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
-Plug 'mtscout6/vim-tagbar-css', 
+Plug 'mtscout6/vim-tagbar-css' 
+Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
+Plug 'mattn/webapi-vim' " Needed for Gist to work
+Plug 'mattn/gist-vim' " Post a Gist
 Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides' " Shows tabs
 Plug 'docunext/closetag.vim'
 Plug 'edsono/vim-matchit'
 Plug 'easymotion/vim-easymotion'
@@ -35,8 +38,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe',
-Plug 'kristijanhusak/vim-hybrid-material',
+Plug 'Valloric/YouCompleteMe'
+Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'SirVer/ultisnips'
@@ -138,6 +141,9 @@ source ~/.vim/setup/unite.vim
 source ~/.vim/setup/style.vim
 source ~/.vim/setup/bindings.vim
 set timeoutlen=500
+
+let g:gist_use_password_in_gitconfig = 1
+let g:gist_post_private = 1
 
 " ================ Ultisnips =====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.

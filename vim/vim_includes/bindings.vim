@@ -31,8 +31,10 @@ vmap <c-v> <plug>(expand_region_shrink)
 
 map <leader>e <plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
-map <leader>z <plug>(easymotion-sl)
-map f <plug>(easymotion-sl)
+" map <leader>z <plug>(easymotion-sl)
+nmap s <plug>(easymotion-s2)
+nmap f <plug>(easymotion-sl)
+
 
 vmap <leader>y "+y 
 vmap <leader>d "+d
@@ -43,6 +45,8 @@ vmap <leader>p "+p
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
+
+vmap <leader>; :
 
 " vp doesn't replace paste buffer
 function! Restoreregister()
@@ -160,7 +164,7 @@ nnoremap gl <C-W><C-L>
 
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
 nnoremap <Leader>ed :Dispatch! 
-nnoremap <Leader>ec :Dispatch! /usr/local/bin/ctags -R .<return> 
+nnoremap <Leader>ec :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>eo :Copen<cr> 
 
 " Got to command line using Leader ;
@@ -173,9 +177,9 @@ function! JumpToSCSS()
 
   if class_pos > 0 || id_pos > 0
     if class_pos < id_pos
-      execute ":vim '#".expand('<cword>')."' ./build/**/*.scss"
+      execute ":vim '#".expand('<cword>')."' ./**/*.scss"
     elseif class_pos > id_pos
-      execute ":vim '.".expand('<cword>')."' ./build/**/*.scss"
+      execute ":vim '.".expand('<cword>')."' ./**/*.scss"
     endif
   endif
 endfunction
