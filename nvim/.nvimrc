@@ -14,9 +14,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'tsukkee/unite-tag'
 Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary' " Comments out code
 Plug 'terryma/vim-multiple-cursors'
-Plug 'roman/golden-ratio'
+Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 Plug 'StanAngeloff/php.vim'
@@ -26,13 +26,14 @@ Plug 'mtscout6/vim-tagbar-css',
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
 Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
+Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'docunext/closetag.vim'
 Plug 'edsono/vim-matchit'
-Plug 'vim-scripts/repeat-motion'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-haml'
+Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe',
 Plug 'kristijanhusak/vim-hybrid-material',
@@ -156,4 +157,13 @@ nmap <leader>ma :MultieditAddMark a<CR>
 nmap <leader>mi :MultieditAddMark i<CR>
 nmap <leader>M :Multiedit<CR>
 
-au BufNewFile,BufRead *.ss      setf xhtml
+" ================ Camel Case Motion Settings  ======================
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge

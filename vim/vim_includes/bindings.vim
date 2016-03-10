@@ -29,7 +29,7 @@ imap <c-o> <esc>0i
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
 
-" map <leader>e <plug>(easymotion-prefix)
+map <leader>e <plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
 map <leader>z <plug>(easymotion-sl)
 map f <plug>(easymotion-sl)
