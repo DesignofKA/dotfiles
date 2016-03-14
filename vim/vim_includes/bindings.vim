@@ -13,18 +13,13 @@ noremap <c-j> 5j
 noremap <c-k> 5k
 
 " map ctrl-p to end-of-line (insert mode)
-nunmap <c-p>
-nmap <c-p> $
-vunmap <c-p>
-vmap <c-p> $
-imap <c-p> <esc>$i<right>
 
-" map ctrl-o to beginning-of-line (insert mode)
-nunmap <c-o>
-nmap <c-o> 0
-vunmap <c-o>
-vmap <c-o> 0
-imap <c-o> <esc>0i
+noremap <buffer> <silent> 0 g0
+noremap <buffer> <silent> $ g$
+nnoremap 0 $
+nnoremap 9 0
+vnoremap 0 $
+vnoremap 9 0
 
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
@@ -35,7 +30,7 @@ map  / <plug>(easymotion-sn)
 nmap s <plug>(easymotion-s2)
 nmap f <plug>(easymotion-sl)
 
-
+" Paste to clipboard
 vmap <leader>y "+y 
 vmap <leader>d "+d
 nmap <leader>p "+p
@@ -70,7 +65,6 @@ omap s :normal vs<cr>
 
 nnoremap <leader>t :FZF<return>
 nnoremap <leader>fb :Buffers<return>
-nnoremap <leader>ft :Tags<return>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q :q<cr>
@@ -82,20 +76,9 @@ nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>b :sp<return> 
 
-" searches tags in current buffer
-" nmap <leader>t :btags<cr>
-" nmap <leader>t :Tags<cr>
-" nmap <leader>tb :TagbarToggle<cr><C-w><right>
-
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
 map <Leader>d :BD<Return>
-
-" resize current buffer by +/- 5 
-" nnoremap <D-left> :vertical resize -5<cr>
-" nnoremap <D-down> :resize +5<cr>
-" nnoremap <D-up> :resize -5<cr>
-" nnoremap <D-right> :vertical resize +5<cr>
 
 " Enter to end, Backspace to top
 nnoremap <CR> G
@@ -143,8 +126,6 @@ vmap <Leader>c :Commentary<cr>
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
 
-noremap <buffer> <silent> 0 g0
-noremap <buffer> <silent> $ g$
 
 " Emmet Completion
 imap hh <C-Y>,<esc>li
@@ -159,9 +140,6 @@ nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>
 nnoremap gl <C-W><C-L>
 
-" nnoremap <C-H> <C-W><C-H>
-" nnoremap <C-L> <C-W><C-L>
-
 nnoremap <silent><Leader>ee :Unite menu:vim -silent<return>
 nnoremap <Leader>ed :Dispatch! 
 nnoremap <Leader>ec :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
@@ -170,29 +148,17 @@ nnoremap <Leader>eo :Copen<cr>
 " Got to command line using Leader ;
 nmap <Leader>; :
 
-" Will only work if build folder is at root
-function! JumpToSCSS()
-  let id_pos = searchpos("id", "nb", line('.'))[1]
-  let class_pos = searchpos("class", "nb", line('.'))[1]
-
-  if class_pos > 0 || id_pos > 0
-    if class_pos < id_pos
-      execute ":vim '#".expand('<cword>')."' ./**/*.scss"
-    elseif class_pos > id_pos
-      execute ":vim '.".expand('<cword>')."' ./**/*.scss"
-    endif
-  endif
-endfunction
-
-" Removes Easy Motion Leader Leader Map
-nnoremap <silent><leader>j :call JumpToSCSS()<CR>zz
-
-nunmap <leader><leader>
 " Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
 
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
 nnoremap <tab> <c-w>
 nnoremap <tab><tab> <c-w><c-w>
+
+" FZF jump to tag - Requires Ctags
+fu! FzfTagsCurrWord()
+	call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>')), 'down': '~20%'})
+endfu
+nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
 
 " gi - goes to the last edit location

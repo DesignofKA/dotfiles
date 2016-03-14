@@ -20,22 +20,20 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 Plug 'StanAngeloff/php.vim'
-Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-dispatch'
 Plug 'mtscout6/vim-tagbar-css' 
 Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 Plug 'junegunn/fzf.vim'
-Plug 'wellle/targets.vim'
+Plug 'craigemery/vim-autotag'
 Plug 'mattn/webapi-vim' " Needed for Gist to work
 Plug 'mattn/gist-vim' " Post a Gist
 Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'nathanaelkane/vim-indent-guides' " Shows tabs
 Plug 'docunext/closetag.vim'
-Plug 'edsono/vim-matchit'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe'
@@ -51,6 +49,10 @@ Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+Plug 'edsono/vim-matchit', { 'on': 'EnterInsertMode' }
+Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
+Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
+
 augroup lazy_load
 	autocmd!
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
@@ -60,7 +62,6 @@ augroup END
 call plug#end()
 
 filetype plugin indent on    " required
-
 
 " ================ General Configuration  ======================
 
