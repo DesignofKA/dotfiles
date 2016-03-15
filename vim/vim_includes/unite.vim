@@ -2,7 +2,7 @@ let g:unite_source_menu_menus = {}
 
 " vim menu {{{
 let g:unite_source_menu_menus.vim = {
-	\ 'description' : '            Edit Vimrc
+	\ 'description' : '            Edit Config Files
         \                                                   ',
     \}
 let g:unite_source_menu_menus.vim.command_candidates = [
@@ -21,7 +21,23 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \['▷ Edit Ctags',
         \'edit ~/.ctags'],
     \['▷ Edit UltiSnips',
-        \'edit ~/.vim/UltiSnips/all.snippets'],
+        \'Unite menu:ultisnips -silent'],
+    \]
+" }}}
+
+
+" Snippets Menu {{{
+let g:unite_source_menu_menus.ultisnips = {
+	\ 'description' : '            Edit Ultisnip Files
+        \                                                   ',
+    \}
+let g:unite_source_menu_menus.ultisnips.command_candidates = [
+    \['▷ Edit All Snippets',
+        \'edit ~/.vim/Ultisnips/all.snippets'],
+    \['▷ Edit Scss Snippets',
+        \'edit ~/.vim/Ultisnips/scss.snippets'],
+    \['▷ Edit PHP Snippets',
+        \'edit ~/.vim/Ultisnips/php.snippets'],
     \]
 " }}}
 

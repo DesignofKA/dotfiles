@@ -12,8 +12,10 @@ map q <nop>
 noremap <c-j> 5j
 noremap <c-k> 5k
 
-" map ctrl-p to end-of-line (insert mode)
+" Use underscore to clear searchs
+nnoremap <silent> _ :nohl<CR>
 
+" map ctrl-p to end-of-line (insert mode)
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 nnoremap 0 $
