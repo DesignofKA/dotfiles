@@ -19,6 +19,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
+" Plug 'hkupty/nvimux' "Tmux replacement
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-dispatch'
@@ -145,6 +146,7 @@ set timeoutlen=500
 
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_post_private = 1
+let g:nvimux_prefix='<C-space>'
 
 " ================ Ultisnips =====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.

@@ -127,12 +127,14 @@ alias fse="mux start fse"
 
 # Git Commands
 alias ga="sudo git add -A"
+alias gpu="sudo git pull"
 alias gs="sudo git status"
 alias gm="sudo git commit -m"
 alias gc="sudo git checkout"
 alias gcb="sudo git checkout -b"
 alias gb="sudo git branch"
 alias gcl="sudo git clone"
+alias gl="sudo git log --oneline --decorate --all --graph"
 
 # HTML Boilerplate
 alias html="gcl https://github.com/DesignofKA/HTML5-Starter"
