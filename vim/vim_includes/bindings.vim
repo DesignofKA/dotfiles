@@ -1,7 +1,7 @@
 " escape commands
 ino jk <esc>
 cno jk <c-c>
-vno v <esc> 
+" vno v <esc> 
 
 " save on enter (normal)
 nmap <leader><cr> :write<cr>
@@ -61,9 +61,15 @@ nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>b :Buffers<return> 
+nnoremap <Leader>ag :Ag<return> 
+nmap <Leader>gs :Gstatus<CR>gg 
+nmap <leader>gc :Gcommit<cr>
+
+nmap <leader>ga :Gwrite<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gd :Gdiff<cr>
 
 nmap <leader>gs :Gstatus<cr>
-" nmap <leader>gc :Gcommit<cr>
 nmap <leader>gm :!Git commit -m "
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gA :!Git add -A<cr>
@@ -72,9 +78,11 @@ nmap <leader>gd :Gdiff<cr>
 nmap <leader>gp :Gpush<cr>
 nmap <leader>G :!Git 
 
-map <Leader>a :bprev<Return>
-map <Leader>s :bnext<Return>
+" Buffer Leader Shortcuts
 map <Leader>d :BD<Return>
+
+" Gundo Toggle
+nnoremap <leader>u :GundoToggle<Return>
 
 " Enter to end, Backspace to top
 nnoremap <CR> G
@@ -82,7 +90,6 @@ nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
-nmap \ :Ag
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
@@ -93,6 +100,10 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap <Left> <Nop> 
 nnoremap <Right> <Nop>
+
+" |===============================================================
+" |	Line Indentation
+" |===============================================================
 
 nmap < <<
 nmap <Left> <
@@ -106,18 +117,21 @@ vmap <Left> <gv
 vmap > >gv
 vmap <Right> >gv
 
+" |===============================================================
+" |	Vim Impaired
+" |===============================================================
+
+" Move current link up
 nmap <Up> [e
-nmap <Down> ]e
 vmap <Up> [egv
+
+" Move current link down
+nmap <Down> ]e
 vmap <Down> ]egv
 
-" Gundo Toggle
-nnoremap <leader>u :GundoToggle<Return>
-
 " Comments toggle
-imap cc <esc>:Commentary<cr>i
-nmap <Leader>c :Commentary<cr>
-vmap <Leader>c :Commentary<cr>
+map gc <plug>Commentary
+nmap gcc <plug>CommentaryLine
 
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
@@ -147,8 +161,8 @@ nnoremap gk <C-W><C-K>
 nnoremap gl <C-W><C-L>
 
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
-nnoremap <tab> <c-w>
-nnoremap <tab><tab> <c-w><c-w>
+nnoremap <tab> <c-w>w
+nnoremap <S-tab> <c-w>W
 
 " FZF jump to tag - Requires Ctags
 fu! FzfTagsCurrWord()
@@ -156,16 +170,16 @@ fu! FzfTagsCurrWord()
 endfu
 nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
 
-" vp doesn't replace paste buffer
-" function! Restoreregister()
-" 	let @" = s:restore_reg
-" 	return ''
-" endfunction
-" function! s:repl()
-" 	let s:restore_reg = @"
-" 	return "p@=restoreregister()\<cr>"
-" endfunction
-" vmap <silent> <expr> p <sid>repl()
+" Keeps current paste resiter in tacts whilst replacing words
+function! Restoreregister()
+	let @" = s:restore_reg
+	return ''
+endfunction
+function! s:repl()
+	let s:restore_reg = @"
+	return "p@=Restoreregister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>repl()
 
 " change search result using cs then . to repeat
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
