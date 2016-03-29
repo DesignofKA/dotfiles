@@ -1,7 +1,3 @@
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
-nmap <leader>sv :source $MYVIMRC<CR>
-
 " Escape using jj
 ino jk <esc>
 cno jk <c-c>
@@ -44,7 +40,6 @@ nnoremap <C-t>     :tabnew<CR>
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
-"map <silent> <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Forces < and > movement in normal & visual mode
