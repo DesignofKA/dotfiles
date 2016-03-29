@@ -42,6 +42,13 @@ nnoremap <silent> p p`]
 " | Most Leader Key Bindings	
 " |===============================================================
 
+" Got to command line using Leader ;
+nmap <Leader>; :
+vmap <leader>; :
+
+" Enter Visual Mode with Leader x 2
+nmap <leader><leader> V
+
 nnoremap <leader>t :FZF<return>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
@@ -54,6 +61,16 @@ nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>b :Buffers<return> 
+
+nmap <leader>gs :Gstatus<cr>
+" nmap <leader>gc :Gcommit<cr>
+nmap <leader>gm :!Git commit -m "
+nmap <leader>ga :Gwrite<cr>
+nmap <leader>gA :!Git add -A<cr>
+nmap <leader>gl :Glog<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gp :Gpush<cr>
+nmap <leader>G :!Git 
 
 map <Leader>a :bprev<Return>
 map <Leader>s :bnext<Return>
@@ -118,12 +135,6 @@ nnoremap <Leader>D :Dispatch!
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
 
-" Got to command line using Leader ;
-nmap <Leader>; :
-vmap <leader>; :
-
-" Enter Visual Mode with Leader x 2
-nmap <leader><leader> V
 
 " |===============================================================
 " |	Window Navigation
@@ -146,20 +157,19 @@ endfu
 nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
 
 " vp doesn't replace paste buffer
-function! Restoreregister()
-	let @" = s:restore_reg
-	return ''
-endfunction
-function! s:repl()
-	let s:restore_reg = @"
-	return "p@=restoreregister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>repl()
+" function! Restoreregister()
+" 	let @" = s:restore_reg
+" 	return ''
+" endfunction
+" function! s:repl()
+" 	let s:restore_reg = @"
+" 	return "p@=restoreregister()\<cr>"
+" endfunction
+" vmap <silent> <expr> p <sid>repl()
 
 " change search result using cs then . to repeat
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
 			\:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
 omap s :normal vs<cr>
-
 
 " gi - goes to the last edit location

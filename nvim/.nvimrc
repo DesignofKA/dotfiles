@@ -20,6 +20,7 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 " Plug 'hkupty/nvimux' "Tmux replacement
+Plug 'kshenoy/vim-signature'
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-dispatch'
