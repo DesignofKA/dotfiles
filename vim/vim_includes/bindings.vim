@@ -14,16 +14,18 @@ noremap <c-j> 5j
 noremap <c-k> 5k
 
 " Use underscore to clear searchs
-" nnoremap <silent> _ :nohl<CR>
 nnoremap <silent> - :nohl<CR>
 
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
+map \ <Plug>(easymotion-prefix)
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
 
-map <leader>e <plug>(easymotion-prefix)
+" |===============================================================
+" | Easy Motion	
+" |===============================================================
 map  / <plug>(easymotion-sn)
 nmap s <plug>(easymotion-s2)
 nmap f <plug>(easymotion-sl)
@@ -39,18 +41,13 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" |===============================================================
-" | Most Leader Key Bindings	
-" |===============================================================
-
 " Got to command line using Leader ;
 nmap <Leader>; :
 vmap <leader>; :
 
-" Enter Visual Mode with Leader x 2
 nmap <leader><leader> V
-
 nnoremap <leader>t :FZF<return>
+map <Leader>d :BD<Return>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
@@ -61,20 +58,17 @@ nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
+nnoremap <leader>u :GundoToggle<Return>
 nnoremap <Leader>B :Buffers<return> 
 nnoremap <Leader>ag :Ag<return> 
+
 nmap <Leader>gs :Gstatus<CR>gg 
 nmap <leader>gc :Gcommit<cr>
-
-nmap B :Buffers<return>
-
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gp :Gpush<cr>
-nmap <leader>gs :Gstatus<cr>
 nmap <leader>gm :!Git commit -m "
-nmap <leader>ga :Gwrite<cr>
 nmap <leader>gA :!Git add -A<cr>
 nmap <leader>gx :Dispatch! git push && phploy<cr>
 nmap <leader>G :!Git 
@@ -83,12 +77,6 @@ nmap <leader>G :!Git
 " nmap <leader>th :tabnext<cr>
 " nmap <leader>tl :tabprev<cr>
 " nmap <leader>tc :tabclose<cr>
-
-" Delete current buffer
-map <Leader>d :BD<Return>
-
-" Gundo Toggle
-nnoremap <leader>u :GundoToggle<Return>
 
 " Enter to end, Backspace to top
 nnoremap <CR> G

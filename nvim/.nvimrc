@@ -1,6 +1,6 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin indent on                  " required
 filetype plugin on
 
 " ================ Vim-Plug Includes  ======================
@@ -108,7 +108,7 @@ autocmd BufWinEnter .* silent loadview
 let mapleader = "\<Space>"
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
+" nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ================ Airline Configuration  ======================
@@ -121,8 +121,7 @@ let g:indent_guides_start = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
-let g:indent_guides_enable_on_vim_startup = 1
-
+let g:indent_guides_enable_on_vim_startup = 0
 
 " ================ Completion =====================
 set wildmode=list:longest
