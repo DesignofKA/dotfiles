@@ -14,7 +14,8 @@ noremap <c-j> 5j
 noremap <c-k> 5k
 
 " Use underscore to clear searchs
-nnoremap <silent> _ :nohl<CR>
+" nnoremap <silent> _ :nohl<CR>
+nnoremap <silent> - :nohl<CR>
 
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
@@ -60,25 +61,30 @@ nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
-nnoremap <Leader>b :Buffers<return> 
+nnoremap <Leader>B :Buffers<return> 
 nnoremap <Leader>ag :Ag<return> 
 nmap <Leader>gs :Gstatus<CR>gg 
 nmap <leader>gc :Gcommit<cr>
 
+nmap B :Buffers<return>
+
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
 nmap <leader>gd :Gdiff<cr>
-
+nmap <leader>gp :Gpush<cr>
 nmap <leader>gs :Gstatus<cr>
 nmap <leader>gm :!Git commit -m "
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gA :!Git add -A<cr>
-nmap <leader>gl :Glog<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gp :Gpush<cr>
+nmap <leader>gx :Dispatch! git push && phploy<cr>
 nmap <leader>G :!Git 
 
-" Buffer Leader Shortcuts
+" nmap <leader>t :tabnew<cr>
+" nmap <leader>th :tabnext<cr>
+" nmap <leader>tl :tabprev<cr>
+" nmap <leader>tc :tabclose<cr>
+
+" Delete current buffer
 map <Leader>d :BD<Return>
 
 " Gundo Toggle
@@ -130,7 +136,9 @@ vmap <Up> [egv
 nmap <Down> ]e
 vmap <Down> ]egv
 
-" Comments toggle
+" |===============================================================
+" | Commentary	
+" |===============================================================
 map gc <plug>Commentary
 nmap gcc <plug>CommentaryLine
 
@@ -140,16 +148,22 @@ noremap <esc> :noh<return><esc>
 " Emmet Completion
 imap hh <C-Y>,<esc>li
 
+" |===============================================================
+" | Movement in Insert mode	
+" |===============================================================
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
+
+" |===============================================================
+" | Dialog Boxes	
+" |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent<return>
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
-
 
 " |===============================================================
 " |	Window Navigation
