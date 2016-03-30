@@ -90,7 +90,6 @@ nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
-
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -105,17 +104,19 @@ nnoremap <Right> <Nop>
 " |	Line Indentation
 " |===============================================================
 
-nmap < <<
-nmap <Left> <
-
-nmap > >>
-nmap <Right> >
-
+nnoremap < <<
+nnoremap > >>
 vmap < <gv
-vmap <Left> <gv
-
 vmap > >gv
-vmap <Right> >gv
+
+" |===============================================================
+" |	Change Buffer using Left and Right Arrow Keys
+" |===============================================================
+
+nmap <Left> [b
+nmap <Right> ]b
+vmap <Left> [b
+vmap <Right> ]b
 
 " |===============================================================
 " |	Vim Impaired
