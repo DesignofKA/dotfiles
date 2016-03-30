@@ -1,0 +1,39 @@
+snippet inc
+@include $0
+endsnippet
+
+snippet ex
+@extend .$0
+endsnippet
+
+snippet pos
+position: $1
+$0
+endsnippet
+
+snippet rel
+position: relative;$0
+endsnippet
+
+snippet abs
+position: absolute;$0
+endsnippet
+
+snippet break
+@include breakpoint($mobile-tablet) {
+	$1
+} // End of Breakpoint - See _variables.scss within build folder for breakpoints
+$0
+endsnippet
+
+snippet imp
+!important;
+$0
+endsnippet
+
+snippet flex 
+display: flex;
+justify-content: center;
+align-items: center;
+$0
+endsnippet

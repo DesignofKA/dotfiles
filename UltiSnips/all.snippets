@@ -1,27 +1,4 @@
 # CSS/SCSS snippet inc
-snippet inc
-@include $0
-endsnippet
-
-snippet ex
-@extend .$0
-endsnippet
-
-snippet rel
-position: relative;$0
-endsnippet
-
-snippet abs
-position: absolute;$0
-endsnippet
-
-snippet break
-@include breakpoint($mobile-tablet) {
-	$1
-} // End of Breakpoint - See _variables.scss within build folder for breakpoints
-$0
-endsnippet
-
 snippet md-
 col-md-$1
 $0
@@ -32,67 +9,10 @@ col-md-offset-$1
 $0
 endsnippet
 
-snippet imp
-!important;
-$0
-endsnippet
-
 snippet snip
 snippet $1
 $2
 end.snippet
-$0
-endsnippet
-
-snippet pos
-position: $1
-$0
-endsnippet
-
-
-
-# PHP
-snippet acf
-the_field('$1');
-$0
-endsnippet
-
-snippet aco
-the_field('$1', 'option');
-$0
-endsnippet
-
-snippet acr
-if( have_rows('repeater_field_name') ):
-while ( have_rows('repeater_field_name') ) : the_row();
-	$1 = the_sub_field('$2');
-endwhile;
-endif;
-$0
-endsnippet
-
-snippet php
-<?php $1 ?>
-$0
-endsnippet
-
-snippet ephp
-<?= $1 ?>
-$0
-endsnippet
-
-snippet vardump
-<?php vardump($1) ?>
-$0
-endsnippet
-
-snippet phpif
-<?php 
-	if($1)
-	{
-		$2
-	} 
-?>
 $0
 endsnippet
 
@@ -104,12 +24,6 @@ if($1)
 $0
 endsnippet
 
-snippet constrant
-public function __constrant {
-	$1
-}
-$0
-endsnippet
 
 snippet colmd
 <div class="col-md-$1">
@@ -117,10 +31,6 @@ snippet colmd
 </div>
 endsnippet
 
-snippet part
-get_template_part( 'partials/$1', '$2' ); 
-$0
-endsnippet
 
 snippet ec'
 echo '$1';
@@ -176,11 +86,3 @@ endsnippet
 snippet tweenstag
 .staggerFrom($1, $2, { $3:$4 }, 0.2),
 endsnippet
-
-snippet flex 
-display: flex;
-justify-content: center;
-align-items: center;
-$0
-endsnippet
-
