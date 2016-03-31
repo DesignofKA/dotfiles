@@ -1,7 +1,6 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
-filetype plugin indent on                  " required
-filetype plugin on
+" filetype plugin on
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
@@ -63,7 +62,7 @@ augroup END
 " All of your Plugins must be added before the following line
 call plug#end()
 
-filetype plugin indent on    " required
+filetype plugin indent on
 
 " ================ General Configuration  ======================
 
