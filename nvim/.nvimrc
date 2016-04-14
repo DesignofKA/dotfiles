@@ -19,6 +19,8 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
 " Plug 'hkupty/nvimux' "Tmux replacement
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'bronson/vim-visual-star-search'
 Plug 'kshenoy/vim-signature'
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-haml'
@@ -45,7 +47,7 @@ Plug 'SirVer/ultisnips'
 
 " Lazy Loaded Plugins
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
@@ -59,6 +61,7 @@ augroup lazy_load
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
+Plug 'neovim/node-host'
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -146,6 +149,9 @@ set timeoutlen=500
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_post_private = 1
 let g:nvimux_prefix='<C-space>'
+
+" ================ Explore Bindings =====================
+let g:netrw_liststyle=3
 
 " ================ Ultisnips =====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.

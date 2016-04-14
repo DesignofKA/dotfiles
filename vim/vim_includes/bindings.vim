@@ -86,7 +86,9 @@ vnoremap <BS> gg
 
 "Show hidden files in NerdTree
 let NERDTreeShowHidden=0
-nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeToggle<CR>
+map <leader>n :Explore<CR>
+map <leader>k :Explore<CR>
 
 " Forces < and > movement in normal & visual mode
 noremap <Up> <Nop>
