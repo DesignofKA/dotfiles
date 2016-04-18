@@ -171,10 +171,10 @@ nnoremap <tab> <c-w>w
 nnoremap <S-tab> <c-w>W
 
 " FZF jump to tag - Requires Ctags
-fu! FzfTagsCurrWord()
-	call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>')), 'down': '~20%'})
-endfu
-nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
+" fu! FzfTagsCurrWord()
+" 	call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>')), 'down': '~20%'})
+" endfu
+" nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
 
 " Keeps current paste resiter in tacts whilst replacing words
 function! Restoreregister()
