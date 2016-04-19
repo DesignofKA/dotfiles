@@ -30,6 +30,10 @@ map  / <plug>(easymotion-sn)
 nmap s <plug>(easymotion-s2)
 nmap f <plug>(easymotion-sl)
 
+" Jump between lines
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 " Paste to clipboard
 vmap <leader>y "+y 
 vmap <leader>d "+d
@@ -88,7 +92,7 @@ vnoremap <BS> gg
 let NERDTreeShowHidden=0
 " nnoremap <leader>n :NERDTreeToggle<CR>
 map <leader>n :Explore<CR>
-map <leader>k :Explore<CR>
+" map <leader>k :Explore<CR>
 
 " Forces < and > movement in normal & visual mode
 noremap <Up> <Nop>
