@@ -1,6 +1,5 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
-" filetype plugin on
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
@@ -14,16 +13,23 @@ Plug 'Shougo/unite.vim'
 Plug 'tsukkee/unite-tag'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary' " Comments out code
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region'
 Plug 'hlissner/vim-multiedit' 
-" Plug 'hkupty/nvimux' "Tmux replacement
+Plug 'danro/rename.vim'
+
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'bronson/vim-visual-star-search'
 Plug 'kshenoy/vim-signature'
+
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-haml'
+Plug 'phalkunz/vim-ss' " Silverstripe plugin
+Plug 'scrooloose/syntastic'
+Plug 'gcorne/vim-sass-lint'
+
+Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'mtscout6/vim-tagbar-css' 
 Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
@@ -31,13 +37,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'mattn/webapi-vim' " Needed for Gist to work
 Plug 'mattn/gist-vim' " Post a Gist
-Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
+" Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
+
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'nathanaelkane/vim-indent-guides' " Shows tabs
 Plug 'docunext/closetag.vim'
+
+Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
-Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'tpope/vim-unimpaired'
 Plug 'Valloric/YouCompleteMe'
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -47,12 +55,12 @@ Plug 'SirVer/ultisnips'
 
 " Lazy Loaded Plugins
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
-Plug 'edsono/vim-matchit', { 'on': 'EnterInsertMode' }
+" Plug 'edsono/vim-matchit', { 'on': 'EnterInsertMode' }
+Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
 Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 
@@ -71,6 +79,7 @@ filetype plugin indent on
 
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
+" autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
 " Set Configurations
 :set laststatus=2
@@ -155,6 +164,33 @@ let g:netrw_liststyle=3
 
 " ================ Ultisnips =====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+
+" ----- scrooloose/syntastic settings -----
+" let g:syntastic_error_symbol = '✘'
+" let g:syntastic_warning_symbol = "▲"
+" augroup mySyntastic
+"   au!
+"   au FileType tex let b:syntastic_mode = "passive"
+" augroup END
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" ----- scrooloose/syntastic settings -----
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_scss_checkers = [""]
+let g:syntastic_ss_checkers = [""]
+let g:syntastic_html_checkers = [""]
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']

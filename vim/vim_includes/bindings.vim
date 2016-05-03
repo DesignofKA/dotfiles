@@ -6,29 +6,28 @@ cno jk <c-c>
 " save on enter (normal)
 nmap <leader><cr> :write<cr>
 
-" Stop macro recording - Practise this 
-" nnoremap q <nop>
-" map q <nop>
-
 noremap <c-j> 5j
 noremap <c-k> 5k
 
-" Use underscore to clear searchs
-nnoremap <silent> - :nohl<CR>
+" Open in FZF using Ctrl + o
+tnoremap <C-o> <cr>
 
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
-map \ <Plug>(easymotion-prefix)
 vmap v <plug>(expand_region_expand)
 vmap <c-v> <plug>(expand_region_shrink)
 
 " |===============================================================
 " | Easy Motion	
 " |===============================================================
+map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
 nmap s <plug>(easymotion-s2)
 nmap f <plug>(easymotion-sl)
+vmap f <plug>(easymotion-sl)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " Jump between lines
 map <Leader>j <Plug>(easymotion-j)
@@ -49,21 +48,22 @@ nnoremap <silent> p p`]
 nmap <Leader>; :
 vmap <leader>; :
 
+map <C-l> :noh<cr>
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
-map <Leader>d :BD<Return>
+map <silent> <Leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :q!<cr>
-nnoremap <leader>v :vsp<cr>
+nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
 nnoremap <leader>u :GundoToggle<Return>
-nnoremap <Leader>B :Buffers<return> 
+nnoremap <Leader>b :Buffers<return> 
 nnoremap <Leader>ag :Ag<return> 
 
 nmap <Leader>gs :Gstatus<CR>gg 
@@ -77,22 +77,22 @@ nmap <leader>gA :!Git add -A<cr>
 nmap <leader>gx :Dispatch! git push && phploy<cr>
 nmap <leader>G :!Git 
 
-" nmap <leader>t :tabnew<cr>
-" nmap <leader>th :tabnext<cr>
-" nmap <leader>tl :tabprev<cr>
-" nmap <leader>tc :tabclose<cr>
-
 " Enter to end, Backspace to top
 nnoremap <CR> G
 nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
-"Show hidden files in NerdTree
-let NERDTreeShowHidden=0
-" nnoremap <leader>n :NERDTreeToggle<CR>
-map <leader>n :Explore<CR>
-" map <leader>k :Explore<CR>
+" |===============================================================
+" |	NERD Tree
+" |===============================================================
+let NERDTreeShowHidden=1
+let NERDTreeHijackNetrw=1
+let NERDTreeMapJumpNextSibling='/<C-J>'
+let NERDTreeMapJumpPrevSibling='/<C-K>'
+let NERDTreeMapUpdir="-"
+nnoremap - :e %:p:h<CR>
+autocmd FileType nerdtree setlocal relativenumber
 
 " Forces < and > movement in normal & visual mode
 noremap <Up> <Nop>
@@ -114,8 +114,8 @@ vmap > >gv
 " |	Change Buffer using Left and Right Arrow Keys
 " |===============================================================
 
-nmap <Left> [b
-nmap <Right> ]b
+nmap <C-p> ]b
+nmap <C-n> [b
 vmap <Left> [b
 vmap <Right> ]b
 
@@ -173,6 +173,11 @@ nnoremap gl <C-W><C-L>
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
 nnoremap <tab> <c-w>w
 nnoremap <S-tab> <c-w>W
+
+nnoremap 0 $
+nnoremap 9 0
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 
 " FZF jump to tag - Requires Ctags
 " fu! FzfTagsCurrWord()
