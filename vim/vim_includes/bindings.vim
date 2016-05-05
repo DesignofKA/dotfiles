@@ -54,9 +54,10 @@ nnoremap <leader>t :FZF<return>
 map <silent> <Leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
-nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>Q :q!<cr>
+nnoremap <leader>ww :w !sudo tee % > /dev/null %<return>
+nnoremap <leader>q :Sayonara<cr>
+nnoremap <leader>Q :Sayonara!<cr>
+let g:sayonara_confirm_quit = 0
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
@@ -65,6 +66,7 @@ nnoremap <Leader>l :BLines<return>
 nnoremap <leader>u :GundoToggle<Return>
 nnoremap <Leader>b :Buffers<return> 
 nnoremap <Leader>ag :Ag<return> 
+nnoremap <Leader>\ :e ~/Documents/FseSites/ 
 
 nmap <Leader>gs :Gstatus<CR>gg 
 nmap <leader>gc :Gcommit<cr>

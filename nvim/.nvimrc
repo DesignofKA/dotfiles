@@ -6,63 +6,73 @@ set nocompatible              " be iMproved, required
 set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
-"
-" let Vundle manage Vundle, required
-Plug 'tpope/vim-fugitive'
-Plug 'Shougo/unite.vim'
-Plug 'tsukkee/unite-tag'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary' " Comments out code
-" Plug 'terryma/vim-multiple-cursors'
-Plug 'roman/golden-ratio' " Makes current window larger
-Plug 'terryma/vim-expand-region'
-Plug 'hlissner/vim-multiedit' 
-Plug 'danro/rename.vim'
 
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'bronson/vim-visual-star-search'
-Plug 'kshenoy/vim-signature'
+" Unused
+" Plug 'hlissner/vim-multiedit' 
+" Plug 'mtscout6/vim-tagbar-css' 
+" Plug 'craigemery/vim-autotag'
+" Plug 'mattn/webapi-vim' " Needed for Gist to work
+" Plug 'mattn/gist-vim' " Post a Gist
+" Plug 'tsukkee/unite-tag'
 
+" File Syntax Highlight & Linting
 Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 
+" Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'mtscout6/vim-tagbar-css' 
 Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
-Plug 'junegunn/fzf.vim'
-Plug 'craigemery/vim-autotag'
-Plug 'mattn/webapi-vim' " Needed for Gist to work
-Plug 'mattn/gist-vim' " Post a Gist
-" Plug 'qpkorr/vim-bufkill' " Keep Window Open once buffer is killed
+Plug 'junegunn/gv.vim' " Git Commit Browser
 
-Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
-Plug 'nathanaelkane/vim-indent-guides' " Shows tabs
-Plug 'docunext/closetag.vim'
+" Quit Manager
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
+" File Browsing & Git
 Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
+Plug 'danro/rename.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
+Plug 'tpope/vim-fugitive'
+
+" File Navigation 
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-unimpaired'
+Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
+Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
+Plug 'Shougo/unite.vim'
+Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
+Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
+
+" File Editing
+Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
+Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
+Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
+Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+Plug 'tpope/vim-commentary' " Comments out code
+Plug 'roman/golden-ratio' " Makes current window larger
+Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
+Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
+Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
+
+" Auto Complete & Snippets
 Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
+
+" Theme
+Plug 'bling/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
-Plug 'SirVer/ultisnips'
 
 " Lazy Loaded Plugins
-Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
-Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
-Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
-Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
-Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
-" Plug 'edsono/vim-matchit', { 'on': 'EnterInsertMode' }
-Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
-Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
-Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
+" Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 
 augroup lazy_load
 	autocmd!
@@ -82,12 +92,13 @@ autocmd! bufwritepost .vimrc source %
 " autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
 " Set Configurations
-:set laststatus=2
-:set number
-:set backspace=2
-:set cursorline
-:set mouse=a
-:set nowrap
+set laststatus=2
+set number
+" :set backspace=2
+set backspace=indent,eol,start
+set cursorline
+set mouse=a
+set nowrap
 set selection=inclusive
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
@@ -109,7 +120,7 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autoread " Set to auto read when a file is changed from the outside
 set autoindent
-set cindent
+set copyindent
 set splitbelow
 
 " Save Folding
@@ -201,6 +212,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:startify_change_to_dir = 0
 "
 " ================ MultiEdit Includes  ======================
 nmap <leader>ma :MultieditAddMark a<CR>
