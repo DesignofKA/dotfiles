@@ -23,7 +23,7 @@ vmap <c-v> <plug>(expand_region_shrink)
 " |===============================================================
 map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
-nmap s <plug>(easymotion-s2)
+nmap s <plug>(easymotion-s3)
 nmap f <plug>(easymotion-sl)
 vmap f <plug>(easymotion-sl)
 map  n <Plug>(easymotion-next)
@@ -51,10 +51,10 @@ vmap <leader>; :
 map <C-l> :noh<cr>
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
-map <silent> <Leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
+map <silent> <Leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
-nnoremap <leader>ww :w !sudo tee % > /dev/null %<return>
+nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q :Sayonara<cr>
 nnoremap <leader>Q :Sayonara!<cr>
 let g:sayonara_confirm_quit = 0

@@ -98,7 +98,7 @@ alias h.c="sudo vim ~/.homestead/homestead.yaml"
 alias hostsconfig="sudo vim /etc/hosts"
 
 # Laravel Commands
-alias composer="sudo composer"
+alias composer="composer"
 alias pha="sudo php artisan"
 alias laravel="sudo ~/.composer/vendor/bin/laravel"
 alias lv="~/Sites/lara_projects"
@@ -159,3 +159,4 @@ alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-compl
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # - zz - will center the screen based on the line your on
+source zsh-snippets/snippets.plugin.zsh
