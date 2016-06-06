@@ -1,7 +1,6 @@
 " escape commands
 ino jk <esc>
 cno jk <c-c>
-" vno v <esc> 
 
 " save on enter (normal)
 nmap <leader><cr> :write<cr>
@@ -106,7 +105,6 @@ nnoremap <Right> <Nop>
 " |	Line Indentation
 " |===============================================================
 
-
 nnoremap < <<
 nnoremap > >>
 vmap < <gv
@@ -136,8 +134,8 @@ vmap <Down> ]egv
 " |===============================================================
 " | Commentary	
 " |===============================================================
-map gc <plug>Commentary
-nmap gcc <plug>CommentaryLine
+vmap <C-_> <plug>Commentary
+nmap <C-_> <plug>CommentaryLine
 
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
@@ -180,12 +178,6 @@ nnoremap 0 $
 nnoremap 9 0
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
-
-" FZF jump to tag - Requires Ctags
-" fu! FzfTagsCurrWord()
-" 	call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>')), 'down': '~20%'})
-" endfu
-" nnoremap <silent><leader>j :call FzfTagsCurrWord()<CR>
 
 " Keeps current paste resiter in tacts whilst replacing words
 function! Restoreregister()
