@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 source ~/.bin/tmuxinator.zsh
-source $HOME/.oh-my-zsh/custom/plugins/k/k.sh
 
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR=/usr/local/bin/vim  
@@ -22,7 +21,7 @@ export EDITOR='nvim'
 
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
+export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -65,6 +64,7 @@ alias upa="sudo chown -R User:admin *"
 alias pa="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
 alias remove="sudo rm -i"
+alias rf="sudo rm -rf"
 alias mv="sudo mv"
 alias copy="sudo cp -r"
 alias file="sudo touch"
@@ -73,6 +73,7 @@ alias x="exit"
 alias f-"ag -g "" | fzf -m | pbcopy"
 alias oldf="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
+alias desk="cd ~/Desktop"
 alias sites="~/Sites/"
 # alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
@@ -98,9 +99,10 @@ alias h.c="sudo vim ~/.homestead/homestead.yaml"
 alias hostsconfig="sudo vim /etc/hosts"
 
 # Laravel Commands
-alias composer="sudo composer"
+alias composer="composer"
 alias pha="sudo php artisan"
-alias laravel="sudo ~/.composer/vendor/bin/laravel"
+# alias laravel="~/.composer/vendor/bin/laravel"
+alias valet="~/.composer/vendor/bin/valet"
 alias lv="~/Sites/lara_projects"
 alias lv.goodcv="lv && goodcv/public"
 
