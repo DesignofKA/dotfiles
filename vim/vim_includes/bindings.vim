@@ -8,7 +8,7 @@ nmap <leader><cr> :write<cr>
 noremap <c-j> 5j
 noremap <c-k> 5k
 
-" Open in FZF using Ctrl + o
+" Open File in FZF using Ctrl + o
 tnoremap <C-o> <cr>
 
 noremap <buffer> <silent> 0 g0
