@@ -6,6 +6,8 @@ let g:unite_source_menu_menus.vim = {
         \                                                   ',
     \}
 let g:unite_source_menu_menus.vim.command_candidates = [
+    \['▷ Open Terminal',
+        \'term'],
     \['▷ Edit Vimrc/Nvimrc',
         \'edit $MYVIMRC'],
     \['▷ Edit Key Bindings',

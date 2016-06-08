@@ -1,3 +1,9 @@
+nnoremap Q <nop>
+map <C-[> <esc>
+" Got to command line using Leader ;
+nmap <Leader>; :
+vmap <leader>; :
+
 " escape commands
 ino jk <esc>
 cno jk <c-c>
@@ -7,6 +13,10 @@ nmap <leader><cr> :write<cr>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
+
+" Center search matches
+nnoremap N Nzz
+nnoremap n nzz
 
 " Open File in FZF using Ctrl + o
 tnoremap <C-o> <cr>
@@ -34,7 +44,7 @@ map <Leader>k <Plug>(easymotion-k)
 
 " Paste to clipboard
 vmap <leader>y "+y 
-vmap <leader>d "+d
+" vmap <leader>d "+d
 nmap <leader>p "+p
 nmap <leader>p "+p
 vmap <leader>p "+p
@@ -43,9 +53,6 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Got to command line using Leader ;
-nmap <Leader>; :
-vmap <leader>; :
 
 map <C-l> :noh<cr>
 nmap <leader><leader> V
@@ -54,19 +61,18 @@ map <silent> <Leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
-nnoremap <leader>q :Sayonara<cr>
-nnoremap <leader>Q :Sayonara!<cr>
-let g:sayonara_confirm_quit = 0
+nnoremap <leader>q :q<return>
+nnoremap <leader>Q :q!<cr>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 nnoremap <Leader>l :BLines<return> 
-nnoremap <leader>u :GundoToggle<Return>
-nnoremap <Leader>b :Buffers<return> 
-nnoremap <Leader>ag :Ag<return> 
-nnoremap <Leader>\ :e ~/Documents/FseSites/ 
+nnoremap <Leader>o :Buffers<return> 
+nnoremap <Leader>a :tabnext<return> 
+nnoremap <Leader>\ :e ~/Documents/FseSites/
 
+" Vim Fugative Bindings
 nmap <Leader>gs :Gstatus<CR>gg 
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
@@ -84,6 +90,9 @@ nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
+" Terminal 
+tnoremap jk <C-\><C-n>
+
 " |===============================================================
 " |	NERD Tree
 " |===============================================================
@@ -100,6 +109,12 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap <Left> <Nop> 
 nnoremap <Right> <Nop>
+
+" tab switching  
+map <C-t> :tabnew<cr>  
+
+" map <C-l> :tabnext<CR>  
+" map <C-h> :tabprev<CR> 
 
 " |===============================================================
 " |	Line Indentation
@@ -134,8 +149,8 @@ vmap <Down> ]egv
 " |===============================================================
 " | Commentary	
 " |===============================================================
-vmap <C-_> <plug>Commentary
-nmap <C-_> <plug>CommentaryLine
+vmap <C-\> <plug>Commentary
+nmap <C-\> <plug>CommentaryLine
 
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
@@ -150,7 +165,6 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
-
 
 " |===============================================================
 " | Dialog Boxes	
@@ -173,11 +187,6 @@ nnoremap gl <C-W><C-L>
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
 nnoremap <tab> <c-w>w
 nnoremap <S-tab> <c-w>W
-
-nnoremap 0 $
-nnoremap 9 0
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
 
 " Keeps current paste resiter in tacts whilst replacing words
 function! Restoreregister()
