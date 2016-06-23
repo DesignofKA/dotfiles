@@ -71,6 +71,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-airline-colornum'
 
 " Lazy Loaded Plugins
 " Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
