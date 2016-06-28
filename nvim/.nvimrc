@@ -21,11 +21,12 @@ Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
+Plug 'evidens/vim-twig'
+Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 Plug 'junegunn/gv.vim' " Git Commit Browser
 
 " Quit Manager
@@ -39,6 +40,7 @@ Plug 'danro/rename.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-fugitive'
+Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
 Plug 'easymotion/vim-easymotion'
@@ -70,6 +72,7 @@ Plug 'bling/vim-airline'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
+Plug 'vim-airline/vim-airline-themes'
 
 " Lazy Loaded Plugins
 " Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
@@ -137,6 +140,11 @@ nmap <leader>sv :source $MYVIMRC<CR>
 set encoding=utf8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
 
 " ================ IndentLine Configuration  ======================
 let g:indent_guides_start = 2
@@ -169,6 +177,7 @@ set timeoutlen=500
 let g:gist_use_password_in_gitconfig = 1
 let g:gist_post_private = 1
 let g:nvimux_prefix='<C-space>'
+let delimitMate_expand_cr=1
 
 " ================ Explore Bindings =====================
 let g:netrw_liststyle=3

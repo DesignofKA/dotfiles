@@ -161,3 +161,4 @@ alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-compl
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # - zz - will center the screen based on the line your on
+source zsh-snippets/snippets.plugin.zsh
