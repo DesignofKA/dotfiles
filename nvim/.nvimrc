@@ -28,9 +28,7 @@ Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/gv.vim' " Git Commit Browser
-
-" Quit Manager
-Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
+Plug 'vim-scripts/confirm-quit' 
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
@@ -53,7 +51,7 @@ Plug 'bronson/vim-visual-star-search' " Searches for visually selected area usin
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
-Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
+" Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
 Plug 'tpope/vim-commentary' " Comments out code
@@ -73,6 +71,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-airline-colornum'
 
 " Lazy Loaded Plugins
 " Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
@@ -131,6 +130,8 @@ autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
 
 let mapleader = "\<Space>"
+
+map <Space> <Leader>
 
 " Quickly edit/reload the vimrc file
 " nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
