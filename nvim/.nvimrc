@@ -67,7 +67,9 @@ Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
 Plug 'bling/vim-airline'
-Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'jdkanani/vim-material-theme'
+Plug 'rakr/vim-one'
 Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'vim-airline/vim-airline-themes'
@@ -98,7 +100,7 @@ set laststatus=2
 set number
 " :set backspace=2
 set backspace=indent,eol,start
-set cursorline
+" set cursorline
 set mouse=a
 set nowrap
 set selection=inclusive
