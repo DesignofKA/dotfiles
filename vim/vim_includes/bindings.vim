@@ -53,8 +53,10 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-
-map <C-l> :noh<cr>
+nmap <C-h> ^
+" nmap <C-l> $
+vmap <C-l> $h
+nmap <C-l> :noh<cr>
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
 map <silent> <Leader>d :BD<CR>
