@@ -5,7 +5,7 @@ colorscheme one
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=Black guibg=Black
+highlight CursorLine cterm=NONE
 set listchars=tab:▸\ ,eol:¬
 let g:airline_theme="wombat"
 let g:enable_bold_font = 1
