@@ -7,35 +7,28 @@ set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
-" Unused
-" Plug 'hlissner/vim-multiedit' 
-" Plug 'mtscout6/vim-tagbar-css' 
-" Plug 'craigemery/vim-autotag'
-" Plug 'mattn/webapi-vim' " Needed for Gist to work
-" Plug 'mattn/gist-vim' " Post a Gist
-" Plug 'tsukkee/unite-tag'
+" Plug 'tpope/vim-haml'
+" Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " File Syntax Highlight & Linting
 Plug 'StanAngeloff/php.vim'
-Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
-Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'junegunn/gv.vim' " Git Commit Browser
 Plug 'vim-scripts/confirm-quit' 
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'danro/rename.vim'
+" Plug 'danro/rename.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
@@ -51,9 +44,10 @@ Plug 'bronson/vim-visual-star-search' " Searches for visually selected area usin
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
-" Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
+Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary' " Comments out code
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
@@ -67,12 +61,10 @@ Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
 Plug 'bling/vim-airline'
-" Plug 'kristijanhusak/vim-hybrid-material'
-" Plug 'jdkanani/vim-material-theme'
-Plug 'rakr/vim-one'
-Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
-Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-one'
+Plug 'ap/vim-css-color' " Shows colours in css
+Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'ntpeters/vim-airline-colornum'
 
 " Lazy Loaded Plugins
@@ -100,13 +92,13 @@ set laststatus=2
 set number
 " :set backspace=2
 set backspace=indent,eol,start
-" set cursorline
 set mouse=a
 set nowrap
 set selection=inclusive
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 " set list
+set autoindent
 set noswapfile
 set relativenumber "Prefer relative line numbering?
 set hidden "Switch between buffers without saving
@@ -225,14 +217,10 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:startify_change_to_dir = 0
-"
-" ================ MultiEdit Includes  ======================
-nmap <leader>ma :MultieditAddMark a<CR>
-nmap <leader>mi :MultieditAddMark i<CR>
-nmap <leader>M :Multiedit<CR>
 
 " ================ Camel Case Motion Settings  ======================
-map <silent> w <Plug>CamelCaseMotion_w
+" map <silent> w <Plug>CamelCaseMotion_w
+map <silent> w <Plug>(easymotion-w)
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
