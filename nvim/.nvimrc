@@ -7,35 +7,28 @@ set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
-" Unused
-" Plug 'hlissner/vim-multiedit' 
-" Plug 'mtscout6/vim-tagbar-css' 
-" Plug 'craigemery/vim-autotag'
-" Plug 'mattn/webapi-vim' " Needed for Gist to work
-" Plug 'mattn/gist-vim' " Post a Gist
-" Plug 'tsukkee/unite-tag'
+" Plug 'tpope/vim-haml'
+" Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " File Syntax Highlight & Linting
 Plug 'StanAngeloff/php.vim'
-Plug 'tpope/vim-haml'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
-Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'junegunn/gv.vim' " Git Commit Browser
 Plug 'vim-scripts/confirm-quit' 
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'danro/rename.vim'
+" Plug 'danro/rename.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
@@ -51,7 +44,7 @@ Plug 'bronson/vim-visual-star-search' " Searches for visually selected area usin
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
-" Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
+Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
 Plug 'tpope/vim-commentary' " Comments out code
@@ -67,16 +60,11 @@ Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
 Plug 'bling/vim-airline'
-" Plug 'kristijanhusak/vim-hybrid-material'
-" Plug 'jdkanani/vim-material-theme'
-Plug 'rakr/vim-one'
-Plug 'gorodinskiy/vim-coloresque' " Shows colours in css
-Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-one'
+Plug 'ap/vim-css-color' " Shows colours in css
+Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'ntpeters/vim-airline-colornum'
-
-" Lazy Loaded Plugins
-" Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 
 augroup lazy_load
 	autocmd!
