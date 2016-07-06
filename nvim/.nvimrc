@@ -47,6 +47,7 @@ Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary' " Comments out code
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
@@ -65,6 +66,9 @@ Plug 'rakr/vim-one'
 Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'ntpeters/vim-airline-colornum'
+
+" Lazy Loaded Plugins
+" Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
 
 augroup lazy_load
 	autocmd!
@@ -88,13 +92,13 @@ set laststatus=2
 set number
 " :set backspace=2
 set backspace=indent,eol,start
-" set cursorline
 set mouse=a
 set nowrap
 set selection=inclusive
 set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 " set list
+set autoindent
 set noswapfile
 set relativenumber "Prefer relative line numbering?
 set hidden "Switch between buffers without saving
@@ -213,14 +217,10 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:startify_change_to_dir = 0
-"
-" ================ MultiEdit Includes  ======================
-nmap <leader>ma :MultieditAddMark a<CR>
-nmap <leader>mi :MultieditAddMark i<CR>
-nmap <leader>M :Multiedit<CR>
 
 " ================ Camel Case Motion Settings  ======================
-map <silent> w <Plug>CamelCaseMotion_w
+" map <silent> w <Plug>CamelCaseMotion_w
+map <silent> w <Plug>(easymotion-w)
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
