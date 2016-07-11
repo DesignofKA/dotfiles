@@ -36,10 +36,12 @@ let g:unite_source_menu_menus.ultisnips = {
 let g:unite_source_menu_menus.ultisnips.command_candidates = [
     \['▷ Edit All Snippets',
         \'edit ~/.vim/Ultisnips/all.snippets'],
-    \['▷ Edit Scss Snippets',
-        \'edit ~/.vim/Ultisnips/scss.snippets'],
+    \['▷ Edit CSS Snippets',
+        \'edit ~/.vim/Ultisnips/css.snippets'],
     \['▷ Edit PHP Snippets',
         \'edit ~/.vim/Ultisnips/php.snippets'],
+		\['▷ Edit JS Snippets',
+				\'edit ~/.vim/Ultisnips/javascript.snippets'],
     \]
 " }}}
 

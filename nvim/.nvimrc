@@ -16,8 +16,7 @@ Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
-
-" Start page for vim
+Plug 'honza/vim-snippets' " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/confirm-quit' 
