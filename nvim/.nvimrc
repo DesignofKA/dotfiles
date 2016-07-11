@@ -220,7 +220,7 @@ let g:startify_change_to_dir = 0
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
-map <silent> w <Plug>(easymotion-w)
+map <silent> w <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
