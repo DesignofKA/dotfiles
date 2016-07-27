@@ -49,3 +49,33 @@ snippet %
 <% $1 %>
 $0
 endsnippet
+
+snippet flexmix
+@mixin flex() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+$0
+endsnippet
+
+snippet flex 
+display: flex;
+justify-content: center;
+align-items: center;
+$0
+endsnippet
+
+snippet break
+@include breakpoint($mobile-tablet) {
+	$0
+} 
+endsnippet
+
+snippet m.e
+module.exports = function() {
+	$1
+}
+$0
+endsnippet
+

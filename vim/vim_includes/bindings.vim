@@ -157,7 +157,8 @@ nmap <C-\> <plug>CommentaryLine
 noremap <esc> :noh<return><esc>
 "
 " Emmet Completion
-imap hh <C-Y>,<esc>li
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" let g:user_emmet_leader_key=','
 
 " |===============================================================
 " | Movement in Insert mode	

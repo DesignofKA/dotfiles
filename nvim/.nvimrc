@@ -16,6 +16,7 @@ Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
+Plug 'posva/vim-vue'
 Plug 'honza/vim-snippets' " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
@@ -216,6 +217,8 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:startify_change_to_dir = 0
+
+let g:user_emmet_leader_key=','
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
