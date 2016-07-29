@@ -159,6 +159,7 @@ noremap <esc> :noh<return><esc>
 " Emmet Completion
 " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 " let g:user_emmet_leader_key=','
+imap hh <C-Y>,<esc>li
 
 " |===============================================================
 " | Movement in Insert mode	

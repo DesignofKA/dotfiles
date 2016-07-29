@@ -218,7 +218,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:startify_change_to_dir = 0
 
-let g:user_emmet_leader_key=','
+" let g:user_emmet_leader_key=','
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
