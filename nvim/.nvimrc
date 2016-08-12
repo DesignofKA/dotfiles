@@ -11,13 +11,13 @@ call plug#begin('~/.vim/plugged')
 " Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
 
 " File Syntax Highlight & Linting
+Plug 'honza/vim-snippets' " Start page for vim
 Plug 'StanAngeloff/php.vim'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
-Plug 'honza/vim-snippets' " Start page for vim
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/confirm-quit' 
@@ -26,7 +26,6 @@ Plug 'vim-scripts/confirm-quit'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-" Plug 'danro/rename.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
@@ -35,6 +34,7 @@ Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
 Plug 'easymotion/vim-easymotion'
+" Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -45,7 +45,7 @@ Plug 'bronson/vim-visual-star-search' " Searches for visually selected area usin
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
-Plug 'Raimondi/delimitMate', { 'on': 'EnterInsertMode' }
+Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-commentary' " Comments out code
@@ -86,6 +86,8 @@ filetype plugin indent on
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
 " autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
+autocmd FileType php UltiSnipsAddFiletypes php-laravel
+autocmd FileType javascript UltiSnipsAddFiletypes js-personal
 
 " Set Configurations
 set laststatus=2

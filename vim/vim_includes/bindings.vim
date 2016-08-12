@@ -26,6 +26,8 @@ noremap <buffer> <silent> $ g$
 vmap v <plug>(expand_region_expand)
 vmap <C-v> <plug>(expand_region_shrink)
 
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 " |===============================================================
 " | Easy Motion	
 " |===============================================================
