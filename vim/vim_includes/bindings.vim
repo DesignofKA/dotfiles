@@ -1,8 +1,7 @@
-nnoremap Q <nop>
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
 map <C-[> <esc>
-" Got to command line using Leader ;
-nmap <Leader>; :
-vmap <leader>; :
 
 " escape commands
 ino jk <esc>
@@ -25,7 +24,7 @@ noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
 vmap v <plug>(expand_region_expand)
-vmap <c-v> <plug>(expand_region_shrink)
+vmap <C-v> <plug>(expand_region_shrink)
 
 " |===============================================================
 " | Easy Motion	
@@ -53,7 +52,6 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 nmap <C-h> ^
-" nmap <C-l> $
 vmap <C-l> $h
 nmap <C-l> :noh<cr>
 nmap <leader><leader> V
@@ -68,10 +66,18 @@ nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
-nnoremap <Leader>l :BLines<return> 
+" nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>o :Buffers<return> 
-nnoremap <Leader>a :tabnext<return> 
+" nnoremap <Leader>a :tabnext<return> 
 nnoremap <Leader>\ :e ~/Documents/FseSites/
+
+" Tabs
+noremap <S-l> gt
+noremap <S-h> gT
+
+" Change to Colon
+nnoremap ; :
+nnoremap : ;
 
 " Vim Fugative Bindings
 nmap <Leader>gs :Gstatus<CR>gg 
@@ -91,19 +97,8 @@ nnoremap <BS> gg
 vnoremap <CR> G
 vnoremap <BS> gg
 
-" Terminal 
+" Terminal escape
 tnoremap jk <C-\><C-n>
-
-" |===============================================================
-" |	NERD Tree
-" |===============================================================
-let NERDTreeShowHidden=1
-let NERDTreeHijackNetrw=1
-let NERDTreeMapJumpNextSibling='/<C-J>'
-let NERDTreeMapJumpPrevSibling='/<C-K>'
-let NERDTreeMapUpdir="-"
-nnoremap - :e %:p:h<CR>
-autocmd FileType nerdtree setlocal relativenumber
 
 " Forces < and > movement in normal & visual mode
 noremap <Up> <Nop>
@@ -112,8 +107,7 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 
 " tab switching  
-map <C-t> :tabnew<cr>  
-
+" nmap <Leader>tnn :tabnew<cr>  
 " map <C-l> :tabnext<CR>  
 " map <C-h> :tabprev<CR> 
 
@@ -176,6 +170,17 @@ nnoremap <silent><Leader>e :Unite menu:vim -silent<return>
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
+
+" |===============================================================
+" |	NERD Tree
+" |===============================================================
+let NERDTreeShowHidden=1
+let NERDTreeHijackNetrw=1
+let NERDTreeMapJumpNextSibling='/<C-J>'
+let NERDTreeMapJumpPrevSibling='/<C-K>'
+let NERDTreeMapUpdir="-"
+nnoremap - :e %:p:h<CR>
+autocmd FileType nerdtree setlocal relativenumber
 
 " |===============================================================
 " |	Window Navigation
