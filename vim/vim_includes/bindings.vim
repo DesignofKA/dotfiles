@@ -39,7 +39,6 @@ map <Leader>k <Plug>(easymotion-k)
 
 " Paste to clipboard
 vmap <leader>y "+y 
-" vmap <leader>d "+d
 nmap <leader>p "+p
 nmap <leader>p "+p
 vmap <leader>p "+p
@@ -52,10 +51,11 @@ map <C-[> <esc>
 " save on enter (normal)
 nmap <leader><cr> :write<cr>
 nmap <C-h> ^
-nmap <C-l> $h
+nmap <C-l> $
+vmap <C-l> $h
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
-map <silent> <Leader>d :BD<CR>
+map <silent> <leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>

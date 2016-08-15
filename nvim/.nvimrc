@@ -4,6 +4,7 @@ set nocompatible              " be iMproved, required
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
 set rtp^=~/.vim/bundle/vim-airline
+set runtimepath+=~/.dotfiles
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
@@ -86,8 +87,9 @@ filetype plugin indent on
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
 " autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
-autocmd FileType php UltiSnipsAddFiletypes php-laravel
-autocmd FileType javascript UltiSnipsAddFiletypes js-personal
+autocmd FileType scss UltiSnipsAddFiletypes css
+" autocmd FileType php UltiSnipsAddFiletypes php-laravel
+autocmd FileType js UltiSnipsAddFiletypes javascript-personal
 
 " Set Configurations
 set laststatus=2
@@ -218,6 +220,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsSnippetsDir='~/.dotfiles/Ultisnips'
+
 let g:startify_change_to_dir = 0
 
 " let g:user_emmet_leader_key=','
