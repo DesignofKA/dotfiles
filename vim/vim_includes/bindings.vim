@@ -1,14 +1,9 @@
-nnoremap Q @q
+noremap Q @q
 vnoremap Q :norm @q<cr>
-
-map <C-[> <esc>
 
 " escape commands
 ino jk <esc>
 cno jk <c-c>
-
-" save on enter (normal)
-nmap <leader><cr> :write<cr>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
@@ -33,7 +28,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " |===============================================================
 map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
-nmap s <plug>(easymotion-s3)
+" nmap s <plug>(easymotion-s3)
 map f <plug>(easymotion-sl)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
@@ -53,9 +48,11 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
+map <C-[> <esc>
+" save on enter (normal)
+nmap <leader><cr> :write<cr>
 nmap <C-h> ^
-vmap <C-l> $h
-nmap <C-l> :noh<cr>
+nmap <C-l> $h
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
 map <silent> <Leader>d :BD<CR>
@@ -168,21 +165,11 @@ imap <C-l> <Right>
 " |===============================================================
 " | Dialog Boxes	
 " |===============================================================
-nnoremap <silent><Leader>e :Unite menu:vim -silent<return>
+nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
 
-" |===============================================================
-" |	NERD Tree
-" |===============================================================
-let NERDTreeShowHidden=1
-let NERDTreeHijackNetrw=1
-let NERDTreeMapJumpNextSibling='/<C-J>'
-let NERDTreeMapJumpPrevSibling='/<C-K>'
-let NERDTreeMapUpdir="-"
-nnoremap - :e %:p:h<CR>
-autocmd FileType nerdtree setlocal relativenumber
 
 " |===============================================================
 " |	Window Navigation
@@ -197,6 +184,17 @@ nnoremap gl <C-W><C-L>
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
 nnoremap <tab> <c-w>w
 nnoremap <S-tab> <c-w>W
+
+" |===============================================================
+" |	NERD Tree
+" |===============================================================
+let NERDTreeShowHidden=1
+let NERDTreeHijackNetrw=1
+let NERDTreeMapJumpNextSibling='/<C-J>'
+let NERDTreeMapJumpPrevSibling='/<C-K>'
+let NERDTreeMapUpdir="-"
+nnoremap - :e %:p:h<CR>
+autocmd FileType nerdtree setlocal relativenumber
 
 " Keeps current paste resiter in tacts whilst replacing words
 function! Restoreregister()
