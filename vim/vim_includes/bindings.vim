@@ -55,7 +55,7 @@ nmap <C-l> $
 vmap <C-l> $h
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
-map <silent> <leader>d :BD<CR>
+map <script> <leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
@@ -67,7 +67,6 @@ nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 " nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>o :Buffers<return> 
-" nnoremap <Leader>a :tabnext<return> 
 nnoremap <Leader>\ :e ~/Documents/FseSites/
 
 " Tabs

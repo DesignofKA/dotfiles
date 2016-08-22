@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh installation.
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 
 export ZSH=$HOME/.oh-my-zsh
-export EDITOR=/usr/local/bin/vim  
-export VISUAL=/usr/local/bin/vim  
+export EDITOR=/usr/local/bin/nvim  
+export VISUAL=/usr/local/bin/nvim  
 export TERM="xterm-256color"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -11,7 +11,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
  #Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+fpath+=("/usr/local/share/zsh/site-functions")
 ZSH_THEME="pure"
+
+autoload -U promptinit && promptinit
+
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+prompt pure
 
 plugins=(git)
 
@@ -21,7 +29,7 @@ export EDITOR='nvim'
 
 # User configuration
 
-export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
+export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:$PATH"
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -79,17 +87,6 @@ alias sites="~/Sites/"
 alias n="nvim"
 alias p="php"
 alias ctags="/usr/local/bin/ctags -R ."
-
-# Fasd Shortcuts - Requires https://github.com/clvv/fasd
-# alias a='fasd -a'        # any
-# alias s='fasd -si'       # show / search / select
-# alias d='fasd -d'        # directory
-# alias f='fasd -f'        # file
-# alias sd='fasd -sid'     # interactive directory selection
-# alias sf='fasd -sif'     # interactive file selection
-# alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-# alias zz='fasd_cd -d -i' # cd with interactive selection
-
 
 # Homestead Shortcuts
 alias h="sudo ~/.composer/vendor/bin/homestead up"
@@ -159,6 +156,3 @@ alias push="gp && px"
 alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# - zz - will center the screen based on the line your on
-# source zsh-snippets/snippets.plugin.zsh

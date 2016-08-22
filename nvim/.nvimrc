@@ -86,10 +86,12 @@ filetype plugin indent on
 
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
-" autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
+
+" let g:UltiSnipsSnippetDirectories=["~/.dotfiles/UltiSnips/"]
+autocmd FileType javascript UltiSnipsAddFiletypes javascript
+autocmd FileType js UltiSnipsAddFiletypes javascript
 autocmd FileType scss UltiSnipsAddFiletypes css
-" autocmd FileType php UltiSnipsAddFiletypes php-laravel
-autocmd FileType js UltiSnipsAddFiletypes javascript-personal
 
 " Set Configurations
 set laststatus=2
@@ -132,7 +134,6 @@ let mapleader = "\<Space>"
 map <Space> <Leader>
 
 " Quickly edit/reload the vimrc file
-" nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ================ Airline Configuration  ======================
@@ -223,6 +224,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetsDir='~/.dotfiles/Ultisnips'
 
 let g:startify_change_to_dir = 0
+
+" cronjob
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+
 
 " let g:user_emmet_leader_key=','
 
