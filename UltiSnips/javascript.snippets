@@ -12,6 +12,21 @@ tl
 	.from($3, 1, { opacity: '0', })$0
 endsnippet
 
+snippet func
+var ${1} = function ($2){
+	$3
+}
+$1();
+endsnippet
+
+snippet hover
+$1.hover(function() {
+	$2
+}, function() {
+	$3
+});
+endsnippet
+
 snippet var
 var $1 = $('$2');
 $0
@@ -21,5 +36,13 @@ snippet m.e
 module.exports = function() {
 	$1
 }
+$0
+endsnippet
+
+snippet if
+if($1)
+{
+	$2
+} 
 $0
 endsnippet

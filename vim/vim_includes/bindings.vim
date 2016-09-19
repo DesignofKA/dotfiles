@@ -30,6 +30,7 @@ map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
 " nmap s <plug>(easymotion-s3)
 map f <plug>(easymotion-sl)
+vmap f <plug>(easymotion-sl)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
@@ -196,15 +197,7 @@ nnoremap - :e %:p:h<CR>
 autocmd FileType nerdtree setlocal relativenumber
 
 " Keeps current paste resiter in tacts whilst replacing words
-function! Restoreregister()
-	let @" = s:restore_reg
-	return ''
-endfunction
-function! s:repl()
-	let s:restore_reg = @"
-	return "p@=Restoreregister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>repl()
+vnoremap <leader>p "_dP
 
 " change search result using cs then . to repeat
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>

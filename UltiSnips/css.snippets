@@ -1,13 +1,3 @@
-snippet md- "Medium Bootstrap layout" b
-col-md-$1
-$0
-endsnippet
-
-snippet mdoff-
-col-md-offset-$1
-$0
-endsnippet
-
 snippet snip
 snippet $1 "$2" b
 $2
@@ -15,37 +5,15 @@ end.snippet
 $0
 endsnippet
 
-snippet if
-if($1)
-{
-	$2
-} 
+snippet flex 
+display: flex;
+justify-content: center;
+align-items: center;
 $0
 endsnippet
 
-snippet colmd
-<div class="col-md-$1">
+snippet break
+@include breakpoint($mobile-tablet) {
 	$0
-</div>
-endsnippet
-
-snippet cb
-/*
-|===============================================================
-|	$0
-|===============================================================
-*/
-endsnippet
-
-snippet cl
-console.log('$1');$0
-endsnippet
-
-snippet cb2
-================ $0 ======================
-endsnippet
-
-snippet %
-<% $1 %>
-$0
+} 
 endsnippet

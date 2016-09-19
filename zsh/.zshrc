@@ -29,7 +29,7 @@ export EDITOR='nvim'
 
 # User configuration
 
-export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/php5/bin:$PATH"
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then

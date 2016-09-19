@@ -1,10 +1,11 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
 
+let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
+
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
 set rtp^=~/.vim/bundle/vim-airline
-set runtimepath+=~/.dotfiles
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
@@ -19,9 +20,11 @@ Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
+Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/confirm-quit' 
+Plug 'jwalton512/vim-blade'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
@@ -35,7 +38,6 @@ Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
 Plug 'easymotion/vim-easymotion'
-" Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -56,7 +58,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v 
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
 
 " Auto Complete & Snippets
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
@@ -68,15 +70,12 @@ Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'ntpeters/vim-airline-colornum'
 
-" Lazy Loaded Plugins
-" Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
-
 augroup lazy_load
 	autocmd!
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
-Plug 'neovim/node-host'
+" Plug 'neovim/node-host'
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -89,9 +88,6 @@ autocmd! bufwritepost .vimrc source %
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
 " let g:UltiSnipsSnippetDirectories=["~/.dotfiles/UltiSnips/"]
-autocmd FileType javascript UltiSnipsAddFiletypes javascript
-autocmd FileType js UltiSnipsAddFiletypes javascript
-autocmd FileType scss UltiSnipsAddFiletypes css
 
 " Set Configurations
 set laststatus=2
@@ -182,19 +178,11 @@ let delimitMate_expand_cr=1
 " ================ Explore Bindings =====================
 let g:netrw_liststyle=3
 
-" ================ Ultisnips =====================
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 
-" ----- scrooloose/syntastic settings -----
-" let g:syntastic_error_symbol = '✘'
-" let g:syntastic_warning_symbol = "▲"
-" augroup mySyntastic
-"   au!
-"   au FileType tex let b:syntastic_mode = "passive"
-" augroup END
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
@@ -213,21 +201,35 @@ let g:syntastic_ss_checkers = [""]
 let g:syntastic_html_checkers = [""]
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetsDir='~/.dotfiles/Ultisnips'
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+
+autocmd FileType scss :UltiSnipsAddFiletypes css
+autocmd FileType javascript :UltiSnipsAddFiletypes javascript
+autocmd FileType js :UltiSnipsAddFiletypes javascript
+autocmd FileType scss :UltiSnipsAddFiletypes scss
+autocmd FileType ss :UltiSnipsAddFiletypes ss
 
 let g:startify_change_to_dir = 0
+let g:deoplete#enable_at_startup = 1
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-
 
 " let g:user_emmet_leader_key=','
 
@@ -242,3 +244,5 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
+
+
