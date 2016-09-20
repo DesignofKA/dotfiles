@@ -1,9 +1,9 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
 
+let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
-set rtp^=~/.vim/bundle/vim-airline
 set runtimepath+=~/.dotfiles
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
@@ -35,7 +35,6 @@ Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
 Plug 'easymotion/vim-easymotion'
-" Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -56,8 +55,8 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v 
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
 
 " Auto Complete & Snippets
-Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
+Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
@@ -68,15 +67,18 @@ Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'ntpeters/vim-airline-colornum'
 
-" Lazy Loaded Plugins
-" Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
-
 augroup lazy_load
 	autocmd!
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
 Plug 'neovim/node-host'
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -94,7 +96,6 @@ autocmd FileType js UltiSnipsAddFiletypes javascript-personal
 " Set Configurations
 set laststatus=2
 set number
-" :set backspace=2
 set backspace=indent,eol,start
 set mouse=a
 set nowrap
@@ -123,6 +124,7 @@ set autoindent
 set copyindent
 set splitbelow
 
+
 " Save Folding
 autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
@@ -130,9 +132,6 @@ autocmd BufWinEnter .* silent loadview
 let mapleader = "\<Space>"
 
 map <Space> <Leader>
-
-" Quickly edit/reload the vimrc file
-" nmap <silent> <leader>ev :vsp ~/.vimrc<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ================ Airline Configuration  ======================
@@ -151,6 +150,7 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 let g:indent_guides_enable_on_vim_startup = 0
+
 
 " ================ Completion =====================
 set wildmode=list:longest
@@ -181,16 +181,6 @@ let delimitMate_expand_cr=1
 " ================ Explore Bindings =====================
 let g:netrw_liststyle=3
 
-" ================ Ultisnips =====================
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-
-" ----- scrooloose/syntastic settings -----
-" let g:syntastic_error_symbol = '✘'
-" let g:syntastic_warning_symbol = "▲"
-" augroup mySyntastic
-"   au!
-"   au FileType tex let b:syntastic_mode = "passive"
-" augroup END
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -211,10 +201,6 @@ let g:syntastic_scss_checkers = [""]
 let g:syntastic_ss_checkers = [""]
 let g:syntastic_html_checkers = [""]
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -224,7 +210,18 @@ let g:UltiSnipsSnippetsDir='~/.dotfiles/Ultisnips'
 
 let g:startify_change_to_dir = 0
 
-" let g:user_emmet_leader_key=','
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php"
+
+
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" deoplete tab-complete
+noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
