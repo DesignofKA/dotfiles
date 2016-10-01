@@ -59,6 +59,19 @@ get_template_part( 'partials/$1', '$2' );
 $0
 endsnippet
 
+snippet r:c
+Route::$1('$2', '$3@$4')
+$0
+endsnippet
+
+snippet r:p
+Route::post('$2', $3)
+endsnippet
+
+snippet r:g
+Route::get('$2', $3)
+endsnippet
+
 snippet sch:string
 $table->string('$1');
 endsnippet

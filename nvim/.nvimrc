@@ -4,7 +4,7 @@ set nocompatible              " be iMproved, required
 let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
-set runtimepath+=~/.dotfiles
+set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
@@ -19,9 +19,11 @@ Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
+Plug 'trevordmiller/nova-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/confirm-quit' 
+Plug 'jwalton512/vim-blade'
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
@@ -55,6 +57,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v 
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
 
 " Auto Complete & Snippets
+" Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
@@ -72,13 +75,12 @@ augroup lazy_load
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
-Plug 'neovim/node-host'
+" Plug 'neovim/node-host'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -88,10 +90,9 @@ filetype plugin indent on
 
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
-" autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
-autocmd FileType scss UltiSnipsAddFiletypes css
-" autocmd FileType php UltiSnipsAddFiletypes php-laravel
-autocmd FileType js UltiSnipsAddFiletypes javascript-personal
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
+
+" let g:UltiSnipsSnippetDirectories=["~/.dotfiles/UltiSnips/"]
 
 " Set Configurations
 set laststatus=2
@@ -124,7 +125,6 @@ set autoindent
 set copyindent
 set splitbelow
 
-
 " Save Folding
 autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
@@ -132,6 +132,8 @@ autocmd BufWinEnter .* silent loadview
 let mapleader = "\<Space>"
 
 map <Space> <Leader>
+
+" Quickly edit/reload the vimrc file
 nmap <leader>sv :source $MYVIMRC<CR>
 
 " ================ Airline Configuration  ======================
@@ -184,6 +186,7 @@ let g:netrw_liststyle=3
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
@@ -201,14 +204,31 @@ let g:syntastic_scss_checkers = [""]
 let g:syntastic_ss_checkers = [""]
 let g:syntastic_html_checkers = [""]
 
-
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetsDir='~/.dotfiles/Ultisnips'
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+
+autocmd FileType scss :UltiSnipsAddFiletypes css
+" autocmd FileType javascript :UltiSnipsAddFiletypes javascript
+" autocmd FileType js :UltiSnipsAddFiletypes javascript
+autocmd FileType scss :UltiSnipsAddFiletypes scss
+autocmd FileType ss :UltiSnipsAddFiletypes ss
 
 let g:startify_change_to_dir = 0
+let g:deoplete#enable_at_startup = 1
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" cronjob
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php"
 
@@ -234,3 +254,4 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
+

@@ -30,6 +30,7 @@ map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
 " nmap s <plug>(easymotion-s3)
 map f <plug>(easymotion-sl)
+vmap f <plug>(easymotion-sl)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
@@ -55,7 +56,7 @@ nmap <C-l> $
 vmap <C-l> $h
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
-map <silent> <leader>d :BD<CR>
+map <script> <leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
@@ -67,7 +68,6 @@ nnoremap <leader>r <c-w>r
 nnoremap <leader>x :x<cr>
 " nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>o :Buffers<return> 
-" nnoremap <Leader>a :tabnext<return> 
 nnoremap <Leader>\ :e ~/Documents/FseSites/
 
 " Tabs
@@ -197,15 +197,7 @@ nnoremap - :e %:p:h<CR>
 autocmd FileType nerdtree setlocal relativenumber
 
 " Keeps current paste resiter in tacts whilst replacing words
-function! Restoreregister()
-	let @" = s:restore_reg
-	return ''
-endfunction
-function! s:repl()
-	let s:restore_reg = @"
-	return "p@=Restoreregister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>repl()
+vnoremap <leader>p "_dP
 
 " change search result using cs then . to repeat
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
