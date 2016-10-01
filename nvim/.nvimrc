@@ -68,7 +68,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
-Plug 'ntpeters/vim-airline-colornum'
 
 augroup lazy_load
 	autocmd!

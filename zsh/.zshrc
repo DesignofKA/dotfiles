@@ -12,7 +12,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 fpath+=("/usr/local/share/zsh/site-functions")
-ZSH_THEME="pure"
+ZSH_THEME="geometry"
+PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+PROMPT_GEOMETRY_GIT_TIME=true
 
 autoload -U promptinit && promptinit
 
@@ -59,7 +61,6 @@ fi
 
 # Aliases
 alias z.c="n ~/.zshrc"
-alias s.c="mux start scotch"
 alias v.c="n ~/.vimrc"
 alias t.c="n ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
