@@ -13,15 +13,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # time that oh-my-zsh is loaded.
 fpath+=("/usr/local/share/zsh/site-functions")
 ZSH_THEME="geometry"
-PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
+# PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 PROMPT_GEOMETRY_GIT_TIME=true
-
-autoload -U promptinit && promptinit
-
-# optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
-
-prompt pure
 
 plugins=(git)
 
@@ -31,7 +24,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export EDITOR='nvim'
 
 # User configuration
-
 export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/php5/bin:$PATH"
 
 fancy-ctrl-z () {
