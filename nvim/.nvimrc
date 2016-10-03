@@ -2,7 +2,6 @@
 set nocompatible              " be iMproved, required
 
 let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
-
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
 set rtp^=~/.vim/bundle/vim-airline
@@ -20,11 +19,11 @@ Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
+Plug 'trevordmiller/nova-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'jwalton512/vim-blade'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
@@ -61,6 +60,7 @@ Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces
 " Auto Complete & Snippets
 " Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
+Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
@@ -69,7 +69,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
-Plug 'ntpeters/vim-airline-colornum'
 
 augroup lazy_load
 	autocmd!
@@ -77,6 +76,11 @@ augroup lazy_load
 augroup END
 
 " Plug 'neovim/node-host'
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -93,7 +97,6 @@ autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade
 " Set Configurations
 set laststatus=2
 set number
-" :set backspace=2
 set backspace=indent,eol,start
 set mouse=a
 set nowrap
@@ -150,6 +153,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
 let g:indent_guides_enable_on_vim_startup = 0
 
+
 " ================ Completion =====================
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -178,7 +182,6 @@ let delimitMate_expand_cr=1
 
 " ================ Explore Bindings =====================
 let g:netrw_liststyle=3
-
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -211,15 +214,26 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
 autocmd FileType scss :UltiSnipsAddFiletypes css
-autocmd FileType javascript :UltiSnipsAddFiletypes javascript
-autocmd FileType js :UltiSnipsAddFiletypes javascript
+" autocmd FileType javascript :UltiSnipsAddFiletypes javascript
+" autocmd FileType js :UltiSnipsAddFiletypes javascript
 autocmd FileType scss :UltiSnipsAddFiletypes scss
 autocmd FileType ss :UltiSnipsAddFiletypes ss
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
-" let g:user_emmet_leader_key=','
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php"
+
+
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" deoplete tab-complete
+noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
@@ -232,5 +246,4 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
-
 

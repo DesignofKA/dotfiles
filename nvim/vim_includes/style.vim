@@ -1,7 +1,7 @@
 syntax enable
 " set t_Co=256
 " set background=dark
-colorscheme hybrid_material
+colorscheme nova
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set listchars=tab:▸\ ,eol:¬
