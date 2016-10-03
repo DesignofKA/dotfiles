@@ -44,6 +44,7 @@ Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'Shougo/unite.vim'
 Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
@@ -200,10 +201,8 @@ let g:syntastic_scss_checkers = [""]
 let g:syntastic_ss_checkers = [""]
 let g:syntastic_html_checkers = [""]
 
-" make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:startify_change_to_dir = 0
+let g:deoplete#enable_at_startup = 1
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -216,17 +215,6 @@ autocmd FileType javascript :UltiSnipsAddFiletypes javascript
 autocmd FileType js :UltiSnipsAddFiletypes javascript
 autocmd FileType scss :UltiSnipsAddFiletypes scss
 autocmd FileType ss :UltiSnipsAddFiletypes ss
-
-let g:startify_change_to_dir = 0
-let g:deoplete#enable_at_startup = 1
-
-" Let <Tab> also do completion
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ deoplete#mappings#manual_complete()
-
-" Close the documentation window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
