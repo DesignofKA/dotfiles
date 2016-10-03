@@ -242,10 +242,10 @@ map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
+" sunmap w
+" sunmap b
+" sunmap e
+" sunmap ge
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
