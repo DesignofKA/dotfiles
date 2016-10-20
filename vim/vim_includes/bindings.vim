@@ -60,8 +60,8 @@ map <script> <leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
-nnoremap <leader>q :q<return>
-nnoremap <leader>Q :q!<cr>
+nnoremap <leader>q :Sayonara<return>
+" nnoremap <leader>Q :q!<cr>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r <c-w>r
@@ -111,6 +111,11 @@ nnoremap <Right> <Nop>
 " nmap <Leader>tnn :tabnew<cr>  
 " map <C-l> :tabnext<CR>  
 " map <C-h> :tabprev<CR> 
+
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+nnoremap tt :tabnew<CR>
+nnoremap td  :tabclose<CR>
 
 " |===============================================================
 " |	Line Indentation

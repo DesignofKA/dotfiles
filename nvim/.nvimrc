@@ -43,6 +43,7 @@ Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'Shougo/unite.vim'
 Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
@@ -201,6 +202,9 @@ let g:syntastic_scss_checkers = [""]
 let g:syntastic_ss_checkers = [""]
 let g:syntastic_html_checkers = [""]
 
+let g:startify_change_to_dir = 0
+let g:deoplete#enable_at_startup = 1
+
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -212,17 +216,6 @@ autocmd FileType scss :UltiSnipsAddFiletypes css
 " autocmd FileType js :UltiSnipsAddFiletypes javascript
 autocmd FileType scss :UltiSnipsAddFiletypes scss
 autocmd FileType ss :UltiSnipsAddFiletypes ss
-
-let g:startify_change_to_dir = 0
-let g:deoplete#enable_at_startup = 1
-
-" Let <Tab> also do completion
-inoremap <silent><expr> <Tab>
-\ pumvisible() ? "\<C-n>" :
-\ deoplete#mappings#manual_complete()
-
-" Close the documentation window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
@@ -247,8 +240,10 @@ map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
+" sunmap w
+" sunmap b
+" sunmap e
+" sunmap ge
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
