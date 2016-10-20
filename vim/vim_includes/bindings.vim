@@ -21,7 +21,7 @@ noremap <buffer> <silent> $ g$
 vmap v <plug>(expand_region_expand)
 vmap <C-v> <plug>(expand_region_shrink)
 
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>
 
 " |===============================================================
 " | Easy Motion	
@@ -77,6 +77,8 @@ noremap <S-h> gT
 " Change to Colon
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Vim Fugative Bindings
 nmap <Leader>gs :Gstatus<CR>gg 
@@ -205,3 +207,7 @@ vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
 omap s :normal vs<cr>
 
 " gi - goes to the last edit location
+" Quickly edit/reload the vimrc file nmap <leader>sv :source $MYVIMRC<CR>
+"
+" Quickly edit/reload the vimrc file
+nmap <leader>sv :source $MYVIMRC<CR>
