@@ -8,20 +8,18 @@ set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
-" Plug 'tpope/vim-haml'
-" Plug 'cakebaker/scss-syntax.vim' " Scss Syntax
-
 " File Syntax Highlight & Linting
-Plug 'honza/vim-snippets' " Start page for vim
-Plug 'StanAngeloff/php.vim'
+Plug 'honza/vim-snippets' 
+" Plug 'StanAngeloff/php.vim'
+Plug 'mhinz/vim-startify'
 Plug 'phalkunz/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
+Plug 'pangloss/vim-javascript'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
 Plug 'trevordmiller/nova-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-dispatch'
 Plug 'jwalton512/vim-blade'
 
@@ -58,7 +56,6 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v 
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
 
 " Auto Complete & Snippets
-" Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
@@ -218,6 +215,7 @@ autocmd FileType scss :UltiSnipsAddFiletypes css
 " autocmd FileType js :UltiSnipsAddFiletypes javascript
 autocmd FileType scss :UltiSnipsAddFiletypes scss
 autocmd FileType ss :UltiSnipsAddFiletypes ss
+autocmd FileType vue :UltiSnipsAddFiletypes javascript
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
@@ -235,6 +233,9 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " deoplete tab-complete
 noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
 map <silent> w <Plug>CamelCaseMotion_b
@@ -242,10 +243,6 @@ map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 map <silent> ge <Plug>CamelCaseMotion_ge
-" sunmap w
-" sunmap b
-" sunmap e
-" sunmap ge
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
