@@ -1,0 +1,42 @@
+/*
+|===============================================================
+|	Circle
+|===============================================================
+*/
+
+.circ {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.frame {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.circ10 {
+	width: 10px;
+	height: 10px;
+}
+.circ20 {
+	width: 20px;
+	height: 20px;
+}
+
+/*
+|===============================================================
+|	Flex
+|===============================================================
+*/
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
