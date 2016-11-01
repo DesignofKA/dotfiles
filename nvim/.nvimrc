@@ -130,8 +130,6 @@ let mapleader = "\<Space>"
 
 map <Space> <Leader>
 
-" Quickly edit/reload the vimrc file
-nmap <leader>sv :source $MYVIMRC<CR>
 
 " ================ Airline Configuration  ======================
 set encoding=utf8
