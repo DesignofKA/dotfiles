@@ -2,8 +2,9 @@ noremap Q @q
 vnoremap Q :norm @q<cr>
 
 " escape commands
-ino jk <esc>
-cno jk <c-c>
+" ino jk <esc>
+" cno jk <c-c>
+inoremap <C-l> <esc>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
@@ -167,7 +168,7 @@ imap hh <C-Y>,<esc>li
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
-imap <C-l> <Right>
+" imap <C-l> <Right>
 
 " |===============================================================
 " | Dialog Boxes	
