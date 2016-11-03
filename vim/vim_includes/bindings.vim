@@ -2,9 +2,9 @@ noremap Q @q
 vnoremap Q :norm @q<cr>
 
 " escape commands
-" ino jk <esc>
+ino jk <esc>
 " cno jk <c-c>
-inoremap <C-l> <esc>
+" inoremap <C-l> <esc>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
