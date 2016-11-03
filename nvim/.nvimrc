@@ -83,6 +83,7 @@ call plug#end()
 
 filetype plugin indent on
 
+
 " ================ General Configuration  ======================
 
 " Auto Refresh Vimrc when saved
@@ -162,6 +163,7 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+set autoindent
  
 " ================ Source Files =====================
 source ~/.vim/setup/btags.vim
@@ -241,6 +243,8 @@ hi link EasyMotionShade  Comment
 " map <silent> b <Plug>CamelCaseMotion_b
 " map <silent> e <Plug>CamelCaseMotion_e
 " map <silent> ge <Plug>CamelCaseMotion_ge
+
+autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
