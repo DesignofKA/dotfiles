@@ -236,11 +236,11 @@ hi link EasyMotionShade  Comment
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
-map <silent> w <Plug>CamelCaseMotion_b
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
+" map <silent> w <Plug>CamelCaseMotion_b
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> e <Plug>CamelCaseMotion_e
+" map <silent> ge <Plug>CamelCaseMotion_ge
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 

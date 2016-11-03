@@ -87,7 +87,8 @@ alias composer="composer"
 alias pha="sudo php artisan"
 # alias laravel="~/.composer/vendor/bin/laravel"
 alias valet="~/.composer/vendor/bin/valet"
-alias lv="~/Sites/lara_projects"
+alias lp="~/Sites/lara_projects"
+alias ll="~/Sites/lara_lessons"
 
 # Gulp
 alias g="sudo gulp"
