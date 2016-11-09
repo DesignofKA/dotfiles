@@ -168,7 +168,7 @@ imap hh <C-Y>,<esc>li
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-h> <Left>
-" imap <C-l> <Right>
+imap <C-l> <Right>
 
 " |===============================================================
 " | Dialog Boxes	
