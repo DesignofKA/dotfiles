@@ -101,8 +101,7 @@ alias s.stop="~/Sites/wp_projects/ && sudo vagrant suspend"
 alias s.refresh="~/Sites/wp_projects/ && sudo vagrant provision"
 
 # Gulp
-alias g="sudo gulp"
-alias g.install
+alias g="gulp"
 
 # Tmux & Tmuxinator
 alias t.n="tmux new -s"
