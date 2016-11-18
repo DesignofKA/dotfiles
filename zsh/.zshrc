@@ -91,8 +91,7 @@ alias lp="~/Sites/lara_projects"
 alias ll="~/Sites/lara_lessons"
 
 # Gulp
-alias g="sudo gulp"
-alias g.install
+alias g="gulp"
 
 # Tmux & Tmuxinator
 alias t.n="tmux new -s"
