@@ -22,7 +22,7 @@ noremap <buffer> <silent> $ g$
 vmap v <plug>(expand_region_expand)
 vmap <C-v> <plug>(expand_region_shrink)
 
-nmap <silent> <leader>sv :source $MYVIMRC<CR>
+nmap <leader>sv :source $MYVIMRC<CR>
 
 " |===============================================================
 " | Easy Motion	
@@ -65,7 +65,7 @@ nnoremap <leader>q :Sayonara<return>
 " nnoremap <leader>Q :q!<cr>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
-nnoremap <leader>r <c-w>r
+nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
 " nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>o :Buffers<return> 

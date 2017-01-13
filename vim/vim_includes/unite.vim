@@ -23,7 +23,7 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \['▷  Edit Ctags',
         \'edit ~/.ctags'],
     \['▷  Edit UltiSnips',
-        \'Unite menu:ultisnips -silent'],
+        \'Unite menu:ultisnips -silent -start-insert -ignorecase -direction=botright'],
     \]
 " }}}
 

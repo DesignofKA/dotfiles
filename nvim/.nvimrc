@@ -12,7 +12,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'honza/vim-snippets' 
 " Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-startify'
-Plug 'phalkunz/vim-ss' " Silverstripe plugin
+Plug 'othree/html5.vim'
+Plug 'kakposoe/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'pangloss/vim-javascript'
@@ -130,7 +131,6 @@ autocmd BufWinEnter .* silent loadview
 let mapleader = "\<Space>"
 
 map <Space> <Leader>
-
 
 " ================ Airline Configuration  ======================
 set encoding=utf8

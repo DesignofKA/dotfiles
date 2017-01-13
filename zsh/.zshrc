@@ -12,7 +12,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 fpath+=("/usr/local/share/zsh/site-functions")
-ZSH_THEME="geometry"
+ZSH_THEME="pure"
 # PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 PROMPT_GEOMETRY_GIT_TIME=true
 
