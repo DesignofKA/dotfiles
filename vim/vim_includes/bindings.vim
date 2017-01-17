@@ -3,8 +3,6 @@ vnoremap Q :norm @q<cr>
 
 " escape commands
 ino jk <esc>
-" cno jk <c-c>
-" inoremap <C-l> <esc>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
@@ -61,8 +59,7 @@ map <script> <leader>d :BD<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
-nnoremap <leader>q :Sayonara<return>
-" nnoremap <leader>Q :q!<cr>
+nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>h :sp<cr>
 nnoremap <leader>r :term<cr>
@@ -82,7 +79,7 @@ vnoremap ; :
 vnoremap : ;
 
 " Vim Fugative Bindings
-nmap <Leader>gs :Gstatus<CR>gg 
+nmap <leader>gs :Gstatus<CR>gg 
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>ga :Gwrite<cr>
 nmap <leader>gl :Glog<cr>
@@ -214,6 +211,16 @@ omap s :normal vs<cr>
 
 " gi - goes to the last edit location
 " Quickly edit/reload the vimrc file nmap <leader>sv :source $MYVIMRC<CR>
-"
-" Quickly edit/reload the vimrc file
-nmap <leader>sv :source $MYVIMRC<CR>
+
+" Vim Fugative Bindings
+nnoremap <leader>gs :Gstatus<CR>gg 
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>ga :Gwrite<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gm :!Git commit -m "
+nnoremap <leader>gA :!Git add -A<cr>
+nnoremap <leader>gx :Dispatch! git push && phploy<cr>
+nnoremap <leader>G :!Git 
+

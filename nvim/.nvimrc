@@ -8,9 +8,10 @@ set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
+Plug 'bradurani/vim-powerclose' 
+
 " File Syntax Highlight & Linting
 Plug 'honza/vim-snippets' 
-" Plug 'StanAngeloff/php.vim'
 Plug 'mhinz/vim-startify'
 Plug 'othree/html5.vim'
 Plug 'kakposoe/vim-ss' " Silverstripe plugin
@@ -42,7 +43,6 @@ Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'Shougo/unite.vim'
 Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
-Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
@@ -246,4 +246,3 @@ map <silent> ge <Plug>CamelCaseMotion_ge
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
