@@ -55,6 +55,7 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
 Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
+Plug 'junegunn/vim-peekaboo'
 
 " Auto Complete & Snippets
 Plug 'SirVer/ultisnips'
