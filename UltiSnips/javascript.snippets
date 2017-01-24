@@ -7,7 +7,7 @@ tm.to($1, 1, { $2:'$3' });$0
 endsnippet
 
 snippet tweentime
-var $1 = new TimelineLite ({$2});
+var ${1} = new TimelineLite ({$2});
 tl
 	.from($3, 1, { opacity: '0', })$0
 endsnippet
@@ -32,6 +32,11 @@ var $1 = $('$2');
 $0
 endsnippet
 
+snippet v
+var $1 = $('$2');
+$0
+endsnippet
+
 snippet m.e
 module.exports = function() {
 	$1
@@ -44,5 +49,33 @@ if($1)
 {
 	$2
 } 
+$0
+endsnippet
+
+snippet newvue
+var vm = new Vue({
+	el: '$1',
+	data: {
+		$2
+	},
+	methods: {
+		$3
+	}
+});
+$0
+endsnippet
+
+snippet vc
+Vue.component('$1', function(){
+$2
+});
+$0
+endsnippet
+
+
+snippet vf
+Vue.filter('$1', function ($2) {
+	return $3;
+});
 $0
 endsnippet
