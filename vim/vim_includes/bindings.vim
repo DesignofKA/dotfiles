@@ -194,11 +194,13 @@ nnoremap <S-tab> <c-w>W
 " |	NERD Tree
 " |===============================================================
 let NERDTreeShowHidden=1
-let NERDTreeHijackNetrw=1
+" let NERDTreeHijackNetrw=1
 let NERDTreeMapJumpNextSibling='/<C-J>'
 let NERDTreeMapJumpPrevSibling='/<C-K>'
+let NERDTreeQuitOnOpen=1
 let NERDTreeMapUpdir="-"
-nnoremap - :e %:p:h<CR>
+" nnoremap - :e %:p:h<CR>
+nnoremap - :NERDTreeToggle<cr>
 autocmd FileType nerdtree setlocal relativenumber
 
 " Keeps current paste resiter in tacts whilst replacing words
