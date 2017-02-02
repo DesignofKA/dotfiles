@@ -1,6 +1,3 @@
-# Path to your oh-my-zsh installation.
-# source ~/.bin/tmuxinator.zsh
-
 export ZSH=$HOME/.oh-my-zsh
 export EDITOR=/usr/local/bin/nvim  
 export VISUAL=/usr/local/bin/nvim  
@@ -8,9 +5,6 @@ export TERM="xterm-256color"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
- #Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 fpath+=("/usr/local/share/zsh/site-functions")
 ZSH_THEME="pure"
 # PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
@@ -24,7 +18,8 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export EDITOR='nvim'
 
 # User configuration
-export PATH="$HOME/.composer/vendor/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:~/bin:/usr/local/php5/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
 
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -92,13 +87,8 @@ alias composer="composer"
 alias pha="sudo php artisan"
 # alias laravel="~/.composer/vendor/bin/laravel"
 alias valet="~/.composer/vendor/bin/valet"
-alias lv="~/Sites/lara_projects"
-alias lv.goodcv="lv && goodcv/public"
-
-# Scotch Box Start & Stop
-alias s.up="~/Sites/wp_projects/ && sudo vagrant up"
-alias s.stop="~/Sites/wp_projects/ && sudo vagrant suspend"
-alias s.refresh="~/Sites/wp_projects/ && sudo vagrant provision"
+alias lp="~/Sites/lara_projects"
+alias ll="~/Sites/lara_lessons"
 
 # Gulp
 alias g="gulp"
@@ -109,7 +99,6 @@ alias t.k="tmux kill-session -t"
 alias tk="tmux kill-session -t"
 alias t.a="tmux a -t"
 alias ta="tmux a"
-alias t.l="tmux ls"
 alias tl="tmux ls"
 alias develop="mux start wordpress"
 alias fse="mux start fse"
@@ -132,9 +121,6 @@ alias html.here="gcl https://github.com/DesignofKA/HTML5-Starter ."
 # Wordpress Shortcuts
 alias wsites="~/Sites/wp_projects"
 alias ws="~/Sites/wp_projects"
-alias ws.wordjar="ws && wordjar.dev/public"
-alias ws.designofka="ws && designofka.dev/public"
-alias theme="/wp-content/themes/"
 
 # Phploy Shortcuts
 alias px="Phploy"

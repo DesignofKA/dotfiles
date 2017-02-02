@@ -56,6 +56,7 @@ Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
 Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
 Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
+Plug 'junegunn/vim-peekaboo'
 
 " Auto Complete & Snippets
 Plug 'SirVer/ultisnips'
@@ -238,11 +239,11 @@ hi link EasyMotionShade  Comment
 
 " ================ Camel Case Motion Settings  ======================
 " map <silent> w <Plug>CamelCaseMotion_w
-map <silent> w <Plug>CamelCaseMotion_b
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
+" map <silent> w <Plug>CamelCaseMotion_b
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> e <Plug>CamelCaseMotion_e
+" map <silent> ge <Plug>CamelCaseMotion_ge
 
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
