@@ -1,13 +1,11 @@
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 syntax enable
-set t_Co=256
 set background=dark
-colorscheme nova 
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
+set t_Co=256
+colorscheme nord
 set cursorline
-" highlight CursorLine cterm=NONE
 set listchars=tab:▸\ ,eol:¬
-let g:airline_theme="wombat"
 let g:enable_bold_font = 1
 au BufNewFile,BufRead *.ss      setf xhtml
 

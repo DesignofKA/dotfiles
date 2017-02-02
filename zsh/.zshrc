@@ -104,7 +104,6 @@ alias s.refresh="~/Sites/wp_projects/ && sudo vagrant provision"
 alias g="gulp"
 
 # Tmux & Tmuxinator
-alias t.n="tmux new -s"
 alias tn="tmux new -s"
 alias t.k="tmux kill-session -t"
 alias tk="tmux kill-session -t"

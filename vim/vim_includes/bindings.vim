@@ -221,6 +221,5 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gm :!Git commit -m "
 nnoremap <leader>gA :!Git add -A<cr>
-nnoremap <leader>gx :Dispatch! git push && phploy<cr>
 nnoremap <leader>G :!Git 
 

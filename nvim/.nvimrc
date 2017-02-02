@@ -24,6 +24,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-dispatch'
 Plug 'jwalton512/vim-blade'
+Plug 'arcticicestudio/nord-vim'
 
 " File Browsing & Git
 Plug 'scrooloose/nerdtree'
@@ -100,7 +101,7 @@ set backspace=indent,eol,start
 set mouse=a
 set nowrap
 set selection=inclusive
-set tabstop=2 softtabstop=0 noexpandtab shiftwidth=2
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 " set list
 set autoindent
@@ -245,4 +246,3 @@ map <silent> ge <Plug>CamelCaseMotion_ge
 
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
