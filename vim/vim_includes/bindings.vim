@@ -61,7 +61,7 @@ nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
-nnoremap <leader>h :sp<cr>
+" nnoremap <leader>h :sp<cr>
 nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
 " nnoremap <Leader>l :BLines<return> 
@@ -193,15 +193,50 @@ nnoremap <S-tab> <c-w>W
 " |===============================================================
 " |	NERD Tree
 " |===============================================================
+"
 let NERDTreeShowHidden=1
-" let NERDTreeHijackNetrw=1
+let NERDTreeHijackNetrw=1
 let NERDTreeMapJumpNextSibling='/<C-J>'
 let NERDTreeMapJumpPrevSibling='/<C-K>'
 let NERDTreeQuitOnOpen=1
 let NERDTreeMapUpdir="-"
-" nnoremap - :e %:p:h<CR>
-nnoremap - :NERDTreeToggle<cr>
+nnoremap - lcd %:p:h<CR>
+nnoremap - :e %:p:h<CR>
+" nnoremap - :NERDTreeFind<cr>
 autocmd FileType nerdtree setlocal relativenumber
+
+
+" use this function to toggle vimfiler
+" function! s:vimfiler_toggle()
+"   if &filetype == 'vimfiler'
+"     execute 'silent! buffer #'
+"     if &filetype == 'vimfiler'
+"       execute 'enew'
+"     endif
+"   elseif exists('t:vimfiler_buffer') && bufexists(t:vimfiler_buffer)
+"     execute 'buffer ' . t:vimfiler_buffer
+"   else
+"     execute 'VimFilerCreate'
+"     let t:vimfiler_buffer = @%
+"   endif
+" endfunction
+
+" " make vimfiler buffer behave
+" function! s:vimfiler_buffer_au()
+"   setlocal nobuflisted
+"   setlocal colorcolumn=
+" endfunction
+" autocmd FileType vimfiler call s:vimfiler_buffer_au()
+
+" " my settings
+" let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_safe_mode_by_default = 0
+" let g:vimfiler_tree_leaf_icon = ' '
+" let g:vimfiler_tree_opened_icon = '▾'
+" let g:vimfiler_tree_closed_icon = '▸'
+" let g:vimfiler_enable_auto_cd = 1
+
+" nnoremap - :VimFilerBufferDir<cr>
 
 " Keeps current paste resiter in tacts whilst replacing words
 vnoremap <leader>p "_dP

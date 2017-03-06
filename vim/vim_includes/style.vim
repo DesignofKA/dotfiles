@@ -1,9 +1,11 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
+" set termguicolors
 syntax enable
 set background=dark
 set t_Co=256
-colorscheme nord
+" colorscheme nord
+colorscheme nova
+let g:airline_theme='wombat'
 set cursorline
 set listchars=tab:▸\ ,eol:¬
 let g:enable_bold_font = 1
