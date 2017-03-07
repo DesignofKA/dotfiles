@@ -1,45 +1,36 @@
 " ================ Startup  ======================
 set nocompatible              " be iMproved, required
-
 let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
+
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
 set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
-Plug 'bradurani/vim-powerclose' 
-
 " File Syntax Highlight & Linting
 Plug 'honza/vim-snippets' 
-Plug 'mhinz/vim-startify'
 Plug 'othree/html5.vim'
 Plug 'kakposoe/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
-Plug 'gcorne/vim-sass-lint'
 Plug 'pangloss/vim-javascript'
-" Plug 'tpope/vim-vinegar'
-Plug 'justinmk/vim-dirvish'
-Plug 'Shougo/vimfiler.vim'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
-Plug 'trevordmiller/nova-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-dispatch'
 Plug 'jwalton512/vim-blade'
-Plug 'arcticicestudio/nord-vim'
 
 " File Browsing & Git
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'justinmk/vim-dirvish'
+Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
-Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
+Plug 'mhinz/vim-startify'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
@@ -50,7 +41,6 @@ Plug 'bronson/vim-visual-star-search' " Searches for visually selected area usin
 
 " File Editing
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
-Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'Raimondi/delimitMate'
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
 Plug 'michaeljsmith/vim-indent-object'
@@ -58,10 +48,11 @@ Plug 'tpope/vim-commentary' " Comments out code
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
 Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
-Plug 'nathanaelkane/vim-indent-guides' " Shows indent guides for tabs and spaces at start of the line
 Plug 'junegunn/vim-peekaboo'
 
 " Auto Complete & Snippets
+Plug 'trevordmiller/nova-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
@@ -78,25 +69,19 @@ augroup lazy_load
 	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
-" Plug 'neovim/node-host'
-
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" All of your Plugins must be added before the following line
+
 call plug#end()
 
 filetype plugin indent on
 
-
 " ================ General Configuration  ======================
-
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
-
-" let g:UltiSnipsSnippetDirectories=["~/.dotfiles/UltiSnips/"]
 
 " Set Configurations
 set laststatus=2
@@ -134,7 +119,6 @@ autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
 
 let mapleader = "\<Space>"
-
 map <Space> <Leader>
 
 " ================ Airline Configuration  ======================
@@ -152,8 +136,7 @@ let g:indent_guides_start = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
-let g:indent_guides_enable_on_vim_startup = 0
-
+let g:indent_guides_enable_on_vim_startup = 1
 
 " ================ Completion =====================
 set wildmode=list:longest
@@ -177,14 +160,9 @@ source ~/.vim/setup/style.vim
 source ~/.vim/setup/bindings.vim
 set timeoutlen=500
 
-let g:gist_use_password_in_gitconfig = 1
-let g:gist_post_private = 1
-let g:nvimux_prefix='<C-space>'
 let delimitMate_expand_cr=1
 
 " ================ Explore Bindings =====================
-let g:netrw_liststyle=3
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -215,8 +193,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
 autocmd FileType scss :UltiSnipsAddFiletypes css
-" autocmd FileType javascript :UltiSnipsAddFiletypes javascript
-" autocmd FileType js :UltiSnipsAddFiletypes javascript
 autocmd FileType scss :UltiSnipsAddFiletypes scss
 autocmd FileType ss :UltiSnipsAddFiletypes ss
 autocmd FileType vue :UltiSnipsAddFiletypes javascript
@@ -224,25 +200,12 @@ autocmd FileType vue :UltiSnipsAddFiletypes javascript
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php"
-
-" Netrw Settings
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-
-" augroup netrw_mapping
-"     autocmd!
-"     autocmd filetype netrw call NetrwMapping()
-" augroup END
-
-" function! NetrwMapping()
-"     noremap <buffer> o <Enter>
-" endfunction
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue"
 
 autocmd FileType dirvish nnoremap <silent><buffer> o :<C-U>.call dirvish#open("edit", 0)<CR>
-autocmd FileType dirvish nnoremap <silent><buffer> md :!mkdir %
+autocmd FileType dirvish nnoremap <buffer> md :!mkdir %
+autocmd FileType dirvish nnoremap <buffer> ma :!touch %
 autocmd FileType dirvish call fugitive#detect(@%)
-
 
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
@@ -267,3 +230,12 @@ map <silent> ge <Plug>CamelCaseMotion_ge
 
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
