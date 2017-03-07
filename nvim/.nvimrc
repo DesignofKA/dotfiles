@@ -19,6 +19,7 @@ Plug 'scrooloose/syntastic'
 Plug 'gcorne/vim-sass-lint'
 Plug 'pangloss/vim-javascript'
 " Plug 'tpope/vim-vinegar'
+Plug 'justinmk/vim-dirvish'
 Plug 'Shougo/vimfiler.vim'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
@@ -29,8 +30,8 @@ Plug 'jwalton512/vim-blade'
 Plug 'arcticicestudio/nord-vim'
 
 " File Browsing & Git
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'sickill/vim-pasta'
@@ -224,6 +225,23 @@ autocmd FileType vue :UltiSnipsAddFiletypes javascript
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php"
+
+" Netrw Settings
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+
+" augroup netrw_mapping
+"     autocmd!
+"     autocmd filetype netrw call NetrwMapping()
+" augroup END
+
+" function! NetrwMapping()
+"     noremap <buffer> o <Enter>
+" endfunction
+
+autocmd FileType dirvish nnoremap <silent><buffer> o :<C-U>.call dirvish#open("edit", 0)<CR>
+autocmd FileType dirvish nnoremap <silent><buffer> md :!mkdir %
+autocmd FileType dirvish call fugitive#detect(@%)
 
 
 let g:deoplete#enable_at_startup = 1

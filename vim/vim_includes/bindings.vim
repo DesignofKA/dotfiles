@@ -194,16 +194,17 @@ nnoremap <S-tab> <c-w>W
 " |	NERD Tree
 " |===============================================================
 "
-let NERDTreeShowHidden=1
-let NERDTreeHijackNetrw=1
-let NERDTreeMapJumpNextSibling='/<C-J>'
-let NERDTreeMapJumpPrevSibling='/<C-K>'
-let NERDTreeQuitOnOpen=1
-let NERDTreeMapUpdir="-"
-nnoremap - lcd %:p:h<CR>
-nnoremap - :e %:p:h<CR>
+" let NERDTreeShowHidden=1
+" let NERDTreeHijackNetrw=1
+" let NERDTreeMapJumpNextSibling='/<C-J>'
+" let NERDTreeMapJumpPrevSibling='/<C-K>'
+" let NERDTreeQuitOnOpen=1
+" let NERDTreeMapUpdir="-"
+" nnoremap - lcd %:p:h<CR>
+" nnoremap - :e %:p:h<CR>
 " nnoremap - :NERDTreeFind<cr>
-autocmd FileType nerdtree setlocal relativenumber
+" nnoremap - <Plug>(dirvish_up)
+" autocmd FileType nerdtree setlocal relativenumber
 
 
 " use this function to toggle vimfiler
