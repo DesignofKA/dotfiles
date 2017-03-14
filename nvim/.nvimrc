@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
 
 " File Navigation 
+Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-unimpaired'
@@ -205,6 +206,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue"
 autocmd FileType dirvish nnoremap <silent><buffer> o :<C-U>.call dirvish#open("edit", 0)<CR>
 autocmd FileType dirvish nnoremap <buffer> md :!mkdir %
 autocmd FileType dirvish nnoremap <buffer> ma :!touch %
+autocmd FileType dirvish nnoremap <buffer> mm :Move %<C-r>"
 autocmd FileType dirvish call fugitive#detect(@%)
 
 let g:deoplete#enable_at_startup = 1
