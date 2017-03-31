@@ -6,11 +6,14 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fpath+=("/usr/local/share/zsh/site-functions")
+
+plugins=(git, zsh-completions)
+autoload -U compinit && compinit
+
 ZSH_THEME="pure"
 # PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
 PROMPT_GEOMETRY_GIT_TIME=true
 
-plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
