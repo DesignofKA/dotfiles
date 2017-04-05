@@ -22,26 +22,14 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit ~/.tmux.conf'],
     \['▷  Edit Ctags',
         \'edit ~/.ctags'],
-    \['▷  Edit UltiSnips',
-        \'Unite menu:ultisnips -silent -start-insert -ignorecase -direction=botright'],
-    \]
-" }}}
-
-
-" Snippets Menu {{{
-let g:unite_source_menu_menus.ultisnips = {
-	\ 'description' : '            Edit Ultisnip Files
-        \                                                   ',
-    \}
-let g:unite_source_menu_menus.ultisnips.command_candidates = [
-    \['▷ Edit All Snippets',
+    \['▷  Edit All Snippets (UltiSnips)',
         \'edit ~/.vim/Ultisnips/all.snippets'],
-    \['▷ Edit CSS Snippets',
+    \['▷  Edit CSS Snippets (UltiSnips)',
         \'edit ~/.vim/Ultisnips/css.snippets'],
-    \['▷ Edit PHP Snippets',
+    \['▷  Edit PHP Snippets (UltiSnips)',
         \'edit ~/.vim/Ultisnips/php.snippets'],
-		\['▷ Edit JS Snippets',
-				\'edit ~/.vim/Ultisnips/javascript.snippets'],
+	\['▷  Edit JS Snippets (UltiSnips)',
+			\'edit ~/.vim/Ultisnips/javascript.snippets'],
     \]
 " }}}
 

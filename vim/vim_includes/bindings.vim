@@ -38,14 +38,14 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 " Paste to clipboard
-vmap <leader>y "+y 
-nmap <leader>p "+p
-nmap <leader>p "+p
-vmap <leader>p "+p
-vmap <leader>p "+p
-vnoremap <silent> y y`]
-vnoremap <silent> p p`]
-nnoremap <silent> p p`]
+vmap <leader>y "*y 
+" nmap <leader>p "+p
+" nmap <leader>p "+p
+" vmap <leader>p "+p
+" vmap <leader>p "+p
+" vnoremap <silent> y y`]
+" vnoremap <silent> p p`]
+" nnoremap <silent> p p`]
 
 map <C-[> <esc>
 " save on enter (normal)
@@ -174,6 +174,7 @@ nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -di
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
+
 
 
 " |===============================================================
