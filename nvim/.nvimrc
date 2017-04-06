@@ -56,6 +56,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
+Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
 
 " Theme
 Plug 'bling/vim-airline'
