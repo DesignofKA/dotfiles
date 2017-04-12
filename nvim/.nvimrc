@@ -20,7 +20,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jwalton512/vim-blade'
 
 " File Browsing & Git
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
@@ -214,6 +214,9 @@ function! NetrwMapping()
     nmap <buffer> o <CR>
 endfunction
 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 4
+
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
@@ -248,3 +251,7 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" Add Unite Yank Source
+let g:unite_source_history_yank_enable = 1
+

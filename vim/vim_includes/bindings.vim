@@ -61,12 +61,11 @@ nnoremap <leader>W :w!<cr>
 nnoremap <leader>wf :w !sudo tee % > /dev/null %<return>
 nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
-" nnoremap <leader>h :sp<cr>
 nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
-" nnoremap <Leader>l :BLines<return> 
 nnoremap <Leader>o :Buffers<return> 
-nnoremap <Leader>\ :e ~/Documents/FseSites/
+nnoremap <silent><Leader>\ :e ~/Documents/FseSites/
+" nnoremap <silent><Leader>\ :Unite menu:folder -silent -start-insert -ignorecase -direction=botright<return>
 
 " Tabs
 noremap <S-l> gt
@@ -104,11 +103,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 nnoremap <Left> <Nop> 
 nnoremap <Right> <Nop>
-
-" tab switching  
-" nmap <Leader>tnn :tabnew<cr>  
-" map <C-l> :tabnext<CR>  
-" map <C-h> :tabprev<CR> 
 
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprev<CR>
@@ -174,8 +168,7 @@ nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -di
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
-
-
+nmap - :Explore<cr> 
 
 " |===============================================================
 " |	Window Navigation
@@ -190,55 +183,6 @@ nnoremap gl <C-W><C-L>
 " Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
 nnoremap <tab> <c-w>w
 nnoremap <S-tab> <c-w>W
-
-" |===============================================================
-" |	NERD Tree
-" |===============================================================
-"
-" let NERDTreeShowHidden=1
-" let NERDTreeHijackNetrw=1
-" let NERDTreeMapJumpNextSibling='/<C-J>'
-" let NERDTreeMapJumpPrevSibling='/<C-K>'
-" let NERDTreeQuitOnOpen=1
-" let NERDTreeMapUpdir="-"
-" nnoremap - lcd %:p:h<CR>
-" nnoremap - :e %:p:h<CR>
-" nnoremap - :NERDTreeFind<cr>
-" nnoremap - <Plug>(dirvish_up)
-" autocmd FileType nerdtree setlocal relativenumber
-
-
-" use this function to toggle vimfiler
-" function! s:vimfiler_toggle()
-"   if &filetype == 'vimfiler'
-"     execute 'silent! buffer #'
-"     if &filetype == 'vimfiler'
-"       execute 'enew'
-"     endif
-"   elseif exists('t:vimfiler_buffer') && bufexists(t:vimfiler_buffer)
-"     execute 'buffer ' . t:vimfiler_buffer
-"   else
-"     execute 'VimFilerCreate'
-"     let t:vimfiler_buffer = @%
-"   endif
-" endfunction
-
-" " make vimfiler buffer behave
-" function! s:vimfiler_buffer_au()
-"   setlocal nobuflisted
-"   setlocal colorcolumn=
-" endfunction
-" autocmd FileType vimfiler call s:vimfiler_buffer_au()
-
-" " my settings
-" let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_safe_mode_by_default = 0
-" let g:vimfiler_tree_leaf_icon = ' '
-" let g:vimfiler_tree_opened_icon = '▾'
-" let g:vimfiler_tree_closed_icon = '▸'
-" let g:vimfiler_enable_auto_cd = 1
-
-" nnoremap - :VimFilerBufferDir<cr>
 
 " Keeps current paste resiter in tacts whilst replacing words
 vnoremap <leader>p "_dP

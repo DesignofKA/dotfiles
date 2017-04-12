@@ -10,6 +10,12 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'term'],
     \['▷  Edit Vimrc/Nvimrc',
         \'edit $MYVIMRC'],
+    \['▷  Mount Remote',
+        \'Unite menu:mount -silent -start-insert -ignorecase -direction=botright'],
+    \['▷  Enter Remote Folder',
+        \'Unite menu:remote -silent -start-insert -ignorecase -direction=botright'],
+    \['▷  Enter Local Folder',
+        \'e ~/Documents/FseSites/'],
     \['▷  Edit Key Bindings',
         \'edit ~/.vim/setup/bindings.vim'],
     \['▷  Edit Vim-Unite-FZF',
@@ -30,6 +36,32 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit ~/.vim/Ultisnips/php.snippets'],
 	\['▷  Edit JS Snippets (UltiSnips)',
 			\'edit ~/.vim/Ultisnips/javascript.snippets'],
+    \]
+" }}}
+
+" vim menu {{{
+let g:unite_source_menu_menus.mount = {
+	\ 'description' : '            Mount Remote Folder
+        \                                                   ',
+    \}
+let g:unite_source_menu_menus.mount.command_candidates = [
+    \['▷  Cygnus',
+        \'!sshfs cygnustrust@91.109.4.251:/home/cygnustrust/public_html/ ~/Documents/mnt/cygnus/'],
+    \['▷  Lisas Flowers',
+        \'!sshfs lisasflowers@91.109.4.251:/home/lisasflowers/public_html/ ~/Documents/mnt/lisasflowers/'],
+    \]
+" }}}
+"
+" vim menu {{{
+let g:unite_source_menu_menus.remote = {
+	\ 'description' : '            Explore Remote Folder
+        \                                                   ',
+    \}
+let g:unite_source_menu_menus.remote.command_candidates = [
+    \['▷  Cygnus',
+        \'Explore ~/Documents/mnt/cygnus'],
+    \['▷  Lisas Flowers',
+        \'Explore ~/Documents/mnt/lisasflowers'],
     \]
 " }}}
 
