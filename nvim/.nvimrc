@@ -25,8 +25,9 @@ Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
+Plug 'vim-scripts/confirm-quit'
 
 " File Navigation 
 Plug 'tpope/vim-eunuch'

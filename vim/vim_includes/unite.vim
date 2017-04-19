@@ -49,6 +49,8 @@ let g:unite_source_menu_menus.mount.command_candidates = [
         \'!sshfs cygnustrust@91.109.4.251:/home/cygnustrust/public_html/ ~/Documents/mnt/cygnus/'],
     \['▷  Lisas Flowers',
         \'!sshfs lisasflowers@91.109.4.251:/home/lisasflowers/public_html/ ~/Documents/mnt/lisasflowers/'],
+    \['▷  Wychwood',
+        \'!sshfs wychwood@91.109.4.251:/home/wychwood/public_html/ ~/Documents/mnt/wychwood/'],
     \]
 " }}}
 "
@@ -59,9 +61,11 @@ let g:unite_source_menu_menus.remote = {
     \}
 let g:unite_source_menu_menus.remote.command_candidates = [
     \['▷  Cygnus',
-        \'Explore ~/Documents/mnt/cygnus'],
+        \'mounter cygnustrust'],
     \['▷  Lisas Flowers',
         \'Explore ~/Documents/mnt/lisasflowers'],
+    \['▷  Wychwood',
+        \'Explore ~/Documents/mnt/wychwood'],
     \]
 " }}}
 

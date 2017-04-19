@@ -168,7 +168,7 @@ nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -di
 nnoremap <Leader>D :Dispatch! 
 nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
 nnoremap <Leader>Do :Copen<cr> 
-nmap - :Explore<cr> 
+nnoremap - :e %:p:h<cr> 
 
 " |===============================================================
 " |	Window Navigation
