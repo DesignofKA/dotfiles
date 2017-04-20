@@ -14,6 +14,7 @@ Plug 'othree/html5.vim'
 Plug 'kakposoe/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
 Plug 'sheerun/vim-polyglot'
@@ -252,6 +253,9 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" For Vim Markdown
+let g:vim_markdown_folding_disabled = 1
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1
