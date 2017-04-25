@@ -14,20 +14,21 @@ Plug 'othree/html5.vim'
 Plug 'kakposoe/vim-ss' " Silverstripe plugin
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
 Plug 'sheerun/vim-polyglot'
-" Plug 'tpope/vim-dispatch'
 Plug 'jwalton512/vim-blade'
 
 " File Browsing & Git
-Plug 'justinmk/vim-dirvish'
+" Plug 'tpope/vim-vinegar'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
+Plug 'vim-scripts/confirm-quit'
 
 " File Navigation 
 Plug 'tpope/vim-eunuch'
@@ -57,6 +58,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'SirVer/ultisnips'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
+Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
 
 " Theme
 Plug 'bling/vim-airline'
@@ -82,6 +84,7 @@ filetype plugin indent on
 " ================ General Configuration  ======================
 " Auto Refresh Vimrc when saved
 autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vim source %
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
 " Set Configurations
@@ -120,7 +123,8 @@ autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
 
 let mapleader = "\<Space>"
-map <Space> <Leader>
+map <lf> <cr>
+" map <Space> <Leader>
 
 " ================ Airline Configuration  ======================
 set encoding=utf8
@@ -203,11 +207,17 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue"
 
-autocmd FileType dirvish nnoremap <silent><buffer> o :<C-U>.call dirvish#open("edit", 0)<CR>
-autocmd FileType dirvish nnoremap <buffer> md :!mkdir %
-autocmd FileType dirvish nnoremap <buffer> ma :!touch %
-autocmd FileType dirvish nnoremap <buffer> mm :Move %<C-r>"
-autocmd FileType dirvish call fugitive#detect(@%)
+augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+    nmap <buffer> o <CR>
+endfunction
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 4
 
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
@@ -224,11 +234,13 @@ hi link EasyMotionShade  Comment
 
 " ================ Camel Case Motion Settings  ======================
 map <silent> w <Plug>CamelCaseMotion_w
-map <silent> w <Plug>CamelCaseMotion_b
-map <silent> b <Plug>CamelCaseMotion_b
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
@@ -241,3 +253,10 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" For Vim Markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Add Unite Yank Source
+let g:unite_source_history_yank_enable = 1
+
