@@ -135,3 +135,5 @@ alias push="gp && px"
 alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.dotfiles/startup.sh

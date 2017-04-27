@@ -165,9 +165,7 @@ imap <C-l> <Right>
 " | Dialog Boxes	
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
-nnoremap <Leader>D :Dispatch! 
-nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
-nnoremap <Leader>Do :Copen<cr> 
+nnoremap <Leader>i !open %:p:h<cr>
 nnoremap - :e %:p:h<cr> 
 
 " |===============================================================
