@@ -63,6 +63,7 @@ nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
+nnoremap <Leader>i :Ag<return> 
 nnoremap <Leader>o :Buffers<return> 
 nnoremap <silent><Leader>\ :e ~/Documents/FseSites/
 " nnoremap <silent><Leader>\ :Unite menu:folder -silent -start-insert -ignorecase -direction=botright<return>
