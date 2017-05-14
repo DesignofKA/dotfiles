@@ -265,3 +265,4 @@ let g:unite_source_history_yank_enable = 1
 let @a='f$lvEhyjo	$this->jkpa = $jkpa;jkkkOprotected $jkpa;jkojkjjj'
 let @b='lyF$k?protected^Moprotected ;^C^CPjjj%O$this-> = ;^C^CPlybbbblp'
 
+
