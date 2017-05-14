@@ -12,7 +12,6 @@ autoload -U compinit && compinit
 
 ZSH_THEME="pure"
 
-
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export EDITOR='nvim'
@@ -120,3 +119,18 @@ alias push="gp && px"
 
 # Start up file
 source ~/.dotfiles/startup.sh
+
+function send {
+    br=`git branch | grep "*"`
+
+    params=''
+    for i in $*;
+    do
+        params=" $params $d$i"
+    done
+
+    git add --all
+    git commit -m "$params"
+    git push origin ${br/* /}
+}
+
