@@ -7,23 +7,21 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fpath+=("/usr/local/share/zsh/site-functions")
 
-plugins=(git, zsh-completions)
+plugins=(git, zsh-completion)
 autoload -U compinit && compinit
 
 ZSH_THEME="pure"
-# PROMPT_GEOMETRY_COLORIZE_SYMBOL=true
-PROMPT_GEOMETRY_GIT_TIME=true
 
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export EDITOR='nvim'
 
 # User configuration
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
 
+# Function used to jump in and out of n/vim using ctrl-z
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -68,28 +66,18 @@ alias copy="sudo cp -r"
 alias file="sudo touch"
 alias ex="exit"
 alias x="exit"
-alias f-"ag -g "" | fzf -m | pbcopy"
+alias f="ag -g "" | fzf -m | pbcopy"
 alias oldf="fzf -m | pbcopy"
 alias dotfiles="cd ~/.dotfiles"
 alias desk="cd ~/Desktop"
 alias sites="~/Sites/"
-# alias oldvim="/usr/local/bin/vim"
+alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
-alias p="php"
-alias ctags="/usr/local/bin/ctags -R ."
-
-# Homestead Shortcuts
-alias h="sudo ~/.composer/vendor/bin/homestead up"
-alias h.up="sudo ~/.composer/vendor/bin/homestead up"
-alias h.stop="sudo ~/.composer/vendor/bin/homestead halt"
-alias h.c="sudo vim ~/.homestead/homestead.yaml"
-alias hostsconfig="sudo vim /etc/hosts"
+alias io="imageoptim"
 
 # Laravel Commands
-alias composer="composer"
-alias pha="sudo php artisan"
-# alias laravel="~/.composer/vendor/bin/laravel"
-alias valet="~/.composer/vendor/bin/valet"
+alias pha="php artisan"
+alias valet="valet"
 alias lp="~/Sites/lara_projects"
 alias ll="~/Sites/lara_lessons"
 
@@ -107,23 +95,19 @@ alias develop="mux start wordpress"
 alias fse="mux start fse"
 
 # Git Commands
-alias ga="sudo git add -A"
-alias gpu="sudo git pull"
-alias gs="sudo git status"
-alias gm="sudo git commit -m"
-alias gc="sudo git checkout"
-alias gcb="sudo git checkout -b"
-alias gb="sudo git branch"
-alias gcl="sudo git clone"
-alias gl="sudo git log --oneline --decorate --all --graph"
+alias ga="git add"
+alias gpu="git pull"
+alias gs="git status"
+alias gm="git commit -m"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+alias gb="git branch"
+alias gcl="git clone"
+alias gl="git log --oneline --decorate --all --graph"
 
 # HTML Boilerplate
-alias html="gcl https://github.com/DesignofKA/HTML5-Starter"
-alias html.here="gcl https://github.com/DesignofKA/HTML5-Starter ."
-
-# Wordpress Shortcuts
-alias wsites="~/Sites/wp_projects"
-alias ws="~/Sites/wp_projects"
+alias html="gcl https://github.com/kakposoe/HTML5-Starter"
+alias html.here="gcl https://github.com/kakposoe/HTML5-Starter ."
 
 # Phploy Shortcuts
 alias px="Phploy"
@@ -131,7 +115,8 @@ alias pxi="Phploy --init"
 alias pxl="Phploy -l"
 alias pxs="Phploy --sync"
 alias push="gp && px"
-# YCM Compile
-alias ycm.compile="cd ~/.vim/plugged/YouCompleteMe && ./install.sh --clang-completer"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Start up file
+source ~/.dotfiles/startup.sh

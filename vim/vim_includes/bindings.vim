@@ -1,6 +1,8 @@
 noremap Q @q
 vnoremap Q :norm @q<cr>
 
+nnoremap c* *Ncgn 
+
 " escape commands
 ino jk <esc>
 
@@ -63,6 +65,7 @@ nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
+nnoremap <Leader>i :Ag<return> 
 nnoremap <Leader>o :Buffers<return> 
 nnoremap <silent><Leader>\ :e ~/Documents/FseSites/
 " nnoremap <silent><Leader>\ :Unite menu:folder -silent -start-insert -ignorecase -direction=botright<return>
@@ -165,9 +168,7 @@ imap <C-l> <Right>
 " | Dialog Boxes	
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
-nnoremap <Leader>D :Dispatch! 
-nnoremap <Leader>Dc :Dispatch! sudo /usr/local/bin/ctags -R .<return> 
-nnoremap <Leader>Do :Copen<cr> 
+nnoremap <Leader>i !open %:p:h<cr>
 nnoremap - :e %:p:h<cr> 
 
 " |===============================================================

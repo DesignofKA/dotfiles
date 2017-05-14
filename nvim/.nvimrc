@@ -19,6 +19,7 @@ Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
 Plug 'sheerun/vim-polyglot'
 Plug 'jwalton512/vim-blade'
+Plug 'terryma/vim-multiple-cursors'
 
 " File Browsing & Git
 " Plug 'tpope/vim-vinegar'
@@ -50,9 +51,10 @@ Plug 'tpope/vim-commentary' " Comments out code
 Plug 'roman/golden-ratio' " Makes current window larger
 Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
 Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 
 " Auto Complete & Snippets
+Plug 'jiangmiao/auto-pairs'
 Plug 'trevordmiller/nova-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'SirVer/ultisnips'
@@ -259,4 +261,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1
+
+let @a='f$lvEhyjo	$this->jkpa = $jkpa;jkkkOprotected $jkpa;jkojkjjj'
+let @b='lyF$k?protected^Moprotected ;^C^CPjjj%O$this-> = ;^C^CPlybbbblp'
 
