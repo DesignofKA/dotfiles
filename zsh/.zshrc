@@ -7,7 +7,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fpath+=("/usr/local/share/zsh/site-functions")
 
-plugins=(git, zsh-completion)
+plugins=(git, zsh-completions)
 autoload -U compinit && compinit
 
 ZSH_THEME="pure"
