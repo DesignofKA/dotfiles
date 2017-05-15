@@ -54,10 +54,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v 
 " Plug 'junegunn/vim-peekaboo'
 
 " Auto Complete & Snippets
-<<<<<<< HEAD
-=======
 " Plug 'jiangmiao/auto-pairs'
->>>>>>> cdcd052a17eb1e9c360c917e6e43db82f345a99d
 Plug 'trevordmiller/nova-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'SirVer/ultisnips'
