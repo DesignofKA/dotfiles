@@ -1,6 +1,7 @@
 noremap Q @q
 vnoremap Q :norm @q<cr>
 
+
 " escape commands
 ino jk <esc>
 
@@ -118,15 +119,6 @@ nnoremap < <<
 nnoremap > >>
 vmap < <gv
 vmap > >gv
-
-" |===============================================================
-" |	Change Buffer using Left and Right Arrow Keys
-" |===============================================================
-
-nmap <C-p> ]b
-nmap <C-n> [b
-vmap <Left> [b
-vmap <Right> ]b
 
 " |===============================================================
 " |	Vim Impaired

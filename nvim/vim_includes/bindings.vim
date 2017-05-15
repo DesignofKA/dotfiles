@@ -81,3 +81,8 @@ imap hj <C-Y>,<esc>li
 
 " Insert Hash Quickly
 imap hh <a-3>
+
+" PHP Protected properties
+let @a='lyF${iprotected ;^C^CPo^C^Cjjo$this-> = ;^C^CPlybbbblp'
+let @b='lyF$k?protected^Moprotected ;^C^CPjjj%O$this-> = ;^C^CPlybbbblp'
+

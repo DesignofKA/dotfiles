@@ -41,8 +41,6 @@ Plug 'SirVer/ultisnips'
 " Lazy Loaded Plugins
 Plug 'sjl/gundo.vim', { 'on': 'EnterInsertMode' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'jiangmiao/auto-pairs', { 'on': 'EnterInsertMode' }
-Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
 augroup lazy_load
