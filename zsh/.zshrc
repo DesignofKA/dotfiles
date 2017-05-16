@@ -120,7 +120,7 @@ alias push="gp && px"
 # Start up file
 source ~/.dotfiles/startup.sh
 
-function send {
+function push {
     br=`git branch | grep "*"`
 
     params=''

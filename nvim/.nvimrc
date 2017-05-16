@@ -4,7 +4,7 @@ let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
-set rtp^=~/.vim/bundle/vim-airline
+" set rtp^=~/.vim/bundle/vim-airline
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
@@ -20,6 +20,7 @@ Plug 'posva/vim-vue'
 Plug 'sheerun/vim-polyglot'
 Plug 'jwalton512/vim-blade'
 Plug 'terryma/vim-multiple-cursors'
+" Plug 'Yggdroot/indentLine'
 
 " File Browsing & Git
 " Plug 'tpope/vim-vinegar'
@@ -131,7 +132,7 @@ map <lf> <cr>
 " ================ Airline Configuration  ======================
 set encoding=utf8
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
@@ -227,10 +228,10 @@ if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
 let g:deoplete#disable_auto_complete = 0
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " deoplete tab-complete
-noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
@@ -266,4 +267,6 @@ let g:unite_source_history_yank_enable = 1
 let @a='f$lvEhyjo	$this->jkpa = $jkpa;jkkkOprotected $jkpa;jkojkjjj'
 let @b='lyF$k?protected^Moprotected ;^C^CPjjj%O$this-> = ;^C^CPlybbbblp'
 
-
+set list
+set listchars=tab:>
+:hi SpecialKey ctermfg=grey guifg=grey40

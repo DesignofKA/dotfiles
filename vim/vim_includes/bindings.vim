@@ -112,15 +112,6 @@ nnoremap tt :tabnew<CR>
 nnoremap td  :tabclose<CR>
 
 " |===============================================================
-" |	Line Indentation
-" |===============================================================
-
-nnoremap < <<
-nnoremap > >>
-vmap < <gv
-vmap > >gv
-
-" |===============================================================
 " |	Vim Impaired
 " |===============================================================
 
@@ -197,3 +188,10 @@ nnoremap <leader>gm :!Git commit -m "
 nnoremap <leader>gA :!Git add -A<cr>
 nnoremap <leader>G :!Git 
 
+" |===============================================================
+" |	Line Indentation
+" |===============================================================
+" nnoremap <S-Tab> <<
+" nnoremap <Tab> >>
+" vmap <S-Tab> <gv
+" vmap <Tab> >gv
