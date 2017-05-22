@@ -23,7 +23,6 @@ Plug 'terryma/vim-multiple-cursors'
 " Plug 'Yggdroot/indentLine'
 
 " File Browsing & Git
-" Plug 'tpope/vim-vinegar'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
@@ -132,7 +131,7 @@ map <lf> <cr>
 " ================ Airline Configuration  ======================
 set encoding=utf8
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
@@ -210,18 +209,18 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue"
 
-augroup netrw_mapping
+augroup dirvish_mapping
     autocmd!
-    autocmd filetype netrw call NetrwMapping()
+    autocmd filetype dirvish call DirvishMapping()
 augroup END
 
-function! NetrwMapping()
+function! DirvishMapping()
     nmap <buffer> o <CR>
-    nmap <buffer> O :!open %:p:h<CR>
+    " nmap <buffer> O :!open %:p:h<CR>
 endfunction
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 4
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 4
 
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
@@ -266,7 +265,3 @@ let g:unite_source_history_yank_enable = 1
 
 let @a='f$lvEhyjo	$this->jkpa = $jkpa;jkkkOprotected $jkpa;jkojkjjj'
 let @b='lyF$k?protected^Moprotected ;^C^CPjjj%O$this-> = ;^C^CPlybbbblp'
-
-set list
-set listchars=tab:>
-:hi SpecialKey ctermfg=grey guifg=grey40

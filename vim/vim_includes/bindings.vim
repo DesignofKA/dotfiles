@@ -123,6 +123,9 @@ vmap <Up> [egv
 nmap <Down> ]e
 vmap <Down> ]egv
 
+nmap <Left> [b
+nmap <Right> ]b
+
 " |===============================================================
 " | Commentary	
 " |===============================================================
@@ -150,7 +153,7 @@ imap <C-l> <Right>
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
 nnoremap <Leader>i !open %:p:h<cr>
-nnoremap - :e %:p:h<cr> 
+" nnoremap - :e %:p:h<cr> 
 
 " |===============================================================
 " |	Window Navigation

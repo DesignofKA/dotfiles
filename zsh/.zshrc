@@ -114,6 +114,9 @@ alias pxi="Phploy --init"
 alias pxl="Phploy -l"
 alias pxs="Phploy --sync"
 
+# php unit
+alias unit='vendor/bin/phpunit'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Start up file
