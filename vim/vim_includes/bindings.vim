@@ -23,39 +23,33 @@ noremap <buffer> <silent> $ g$
 vmap v <plug>(expand_region_expand)
 vmap <C-v> <plug>(expand_region_shrink)
 
-nmap <leader>sv :source $MYVIMRC<CR>
 
 " |===============================================================
 " | Easy Motion	
 " |===============================================================
 map \ <Plug>(easymotion-prefix)
 map  / <plug>(easymotion-sn)
-" nmap s <plug>(easymotion-s3)
 map f <plug>(easymotion-sl)
 vmap f <plug>(easymotion-sl)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+map <C-[> <esc>
+nmap <C-h> ^
+nmap <C-l> $
+vmap <C-l> $h
+
 " Jump between lines
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-" Paste to clipboard
+" Paste to system clipboard
 vmap <leader>y "*y 
-" nmap <leader>p "+p
-" nmap <leader>p "+p
-" vmap <leader>p "+p
-" vmap <leader>p "+p
-" vnoremap <silent> y y`]
-" vnoremap <silent> p p`]
-" nnoremap <silent> p p`]
 
-map <C-[> <esc>
-" save on enter (normal)
-nmap <leader><cr> :write<cr>
-nmap <C-h> ^
-nmap <C-l> $
-vmap <C-l> $h
+" Reload Vimrc
+nmap <leader>sv :source $MYVIMRC<CR>
+
+" Save on enter (normal)
 nmap <leader><leader> V
 nnoremap <leader>t :FZF<return>
 map <script> <leader>d :BD<CR>
@@ -66,10 +60,9 @@ nnoremap <leader>q <silent>:call powerclose#close()<CR>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>r :term<cr>
 nnoremap <leader>x :x<cr>
-nnoremap <Leader>i :Ag<return> 
+nnoremap <Leader>i :Ag 
 nnoremap <Leader>o :Buffers<return> 
 nnoremap <silent><Leader>\ :e ~/Documents/FseSites/
-" nnoremap <silent><Leader>\ :Unite menu:folder -silent -start-insert -ignorecase -direction=botright<return>
 
 " Tabs
 noremap <S-l> gt
@@ -137,9 +130,6 @@ nmap <C-\> <plug>CommentaryLine
 " Removes Hightlights from search
 noremap <esc> :noh<return><esc>
 "
-" Emmet Completion
-" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-" let g:user_emmet_leader_key=','
 imap hh <C-Y>,<esc>li
 
 " |===============================================================
@@ -154,7 +144,6 @@ imap <C-l> <Right>
 " | Dialog Boxes	
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
-nnoremap <Leader>i !open %:p:h<cr>
 
 " |===============================================================
 " |	Window Navigation
@@ -166,10 +155,6 @@ nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>
 nnoremap gl <C-W><C-L>
 
-" Either enter number then tab to move to window, or press tab twice to go to new window, or enter tab then direction 
-nnoremap <tab> <c-w>w
-nnoremap <S-tab> <c-w>W
-
 " Keeps current paste resiter in tacts whilst replacing words
 vnoremap <leader>p "_dP
 
@@ -178,28 +163,14 @@ vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
 			\:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
 omap s :normal vs<cr>
 
-" gi - goes to the last edit location
-" Quickly edit/reload the vimrc file nmap <leader>sv :source $MYVIMRC<CR>
-
-" Vim Fugative Bindings
-nnoremap <leader>gs :Gstatus<CR>gg 
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>ga :Gwrite<cr>
-nnoremap <leader>gl :Glog<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gp :Gpush<cr>
-nnoremap <leader>gm :!Git commit -m "
-nnoremap <leader>gA :!Git add -A<cr>
-nnoremap <leader>G :!Git 
-
 " |===============================================================
 " |	Line Indentation
 " |===============================================================
-" nnoremap <S-Tab> <<
-" nnoremap <Tab> >>
-" vmap <S-Tab> <gv
-" vmap <Tab> >gv
-"
+nnoremap < <<
+nnoremap > >>
+vmap < <gv
+vmap > >gv
+
 function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')

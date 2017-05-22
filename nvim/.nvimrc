@@ -208,7 +208,8 @@ augroup END
 
 function! DirvishMapping()
     nmap <buffer> o <CR>
-    nmap <buffer> O :!open %:p:h<CR>
+    nmap <buffer> <esc> q
+    nmap <buffer> O :!open %<CR>
 endfunction
 """
 
