@@ -113,7 +113,6 @@ alias px="Phploy"
 alias pxi="Phploy --init"
 alias pxl="Phploy -l"
 alias pxs="Phploy --sync"
-alias push="gp && px"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
