@@ -15,6 +15,8 @@ nnoremap n nzz
 " Open File in FZF using Ctrl + o
 tnoremap <C-o> <cr>
 
+inoremap <C-e> <C-o>A
+
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
@@ -153,7 +155,6 @@ imap <C-l> <Right>
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
 nnoremap <Leader>i !open %:p:h<cr>
-" nnoremap - :e %:p:h<cr> 
 
 " |===============================================================
 " |	Window Navigation
@@ -198,3 +199,17 @@ nnoremap <leader>G :!Git
 " nnoremap <Tab> >>
 " vmap <S-Tab> <gv
 " vmap <Tab> >gv
+"
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+" Test Suite
+" nmap <silent> <leader>t :TestNearest<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
