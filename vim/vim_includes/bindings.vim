@@ -150,6 +150,7 @@ nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -di
 " |===============================================================
 
 " Navigate between windows using g + direction
+nnoremap <nowait> gg <C-W><C-W>
 nnoremap gh <C-W><C-H>
 nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>

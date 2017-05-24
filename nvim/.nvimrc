@@ -209,7 +209,6 @@ augroup END
 function! DirvishMapping()
     nmap <buffer> o <CR>
     nmap <buffer> <esc> q
-    nmap <buffer> O :!open %<CR>
 endfunction
 """
 
@@ -258,7 +257,6 @@ let g:easytags_auto_highlight = 0
 let g:easytags_on_cursorhold = 0 " disabled because it causes a recursive tag generation
 set cpoptions+=d
 set tags=./tags;
-" set tags=./tags;,tags;
 let g:easytags_dynamic_files = 2
 
 " For Vim Markdown
