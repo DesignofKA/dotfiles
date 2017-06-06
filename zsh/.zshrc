@@ -95,6 +95,7 @@ alias fse="mux start fse"
 
 # Git Commands
 alias ga="git add"
+alias gp="git push"
 alias gpu="git pull"
 alias gs="git status"
 alias gm="git commit -m"
