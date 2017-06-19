@@ -172,13 +172,25 @@ nnoremap > >>
 vmap < <gv
 vmap > >gv
 
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+" function! IPhpInsertUse()
+"     call PhpInsertUse()
+"     call feedkeys('a',  'n')
+" endfunction
+" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
+:map <F11> :set wrap!<CR>
+:map <F12> :set nopaste<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" |===============================================================
+" |	To Do List
+" |===============================================================
 " Test Suite
 " nmap <silent> <leader>t :TestNearest<CR>
 " nmap <silent> <leader>T :TestFile<CR>

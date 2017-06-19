@@ -49,6 +49,7 @@ Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
 
 " File Editing
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
