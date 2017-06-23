@@ -5,6 +5,13 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
+	hyperStatusLine: {
+	   dirtyColor: 'salmon',
+		arrowsColor: 'white',
+		fontSize: 14,
+		footerTransparent: false,
+	 },
+
     fontSize: 16,
 
     // font family with optional fallbacks
@@ -29,7 +36,7 @@ module.exports = {
     borderColor: '#333',
 
     // custom css to embed in the main window
-    css: '',
+    css: '0px',
 
     // custom css to embed in the terminal window
  	termCSS: `
@@ -48,7 +55,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0',
+    padding: '20px 5px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -110,8 +117,12 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
   	'nova-hyperterm',
-  	 'hyperterm-cursor'
+  	'hyper-statusline',
+  	'hyper-tabs-enhanced',
+  	'hyper-autohide-tabs',
+  	'hyper-hide-title'
   ],
+
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here

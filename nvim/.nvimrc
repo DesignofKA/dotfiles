@@ -14,7 +14,7 @@ Plug 'othree/html5.vim'
 Plug 'kakposoe/vim-ss'
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
+" Plug 'gabrielelana/vim-markdown'
 Plug 'evidens/vim-twig'
 Plug 'posva/vim-vue'
 " Plug 'sheerun/vim-polyglot'
@@ -31,10 +31,12 @@ Plug 'janko-m/vim-test'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
 " Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
 Plug 'vim-scripts/confirm-quit'
+Plug 'shime/vim-livedown'
 
 " File Navigation 
 Plug 'justinmk/vim-dirvish'
@@ -262,6 +264,7 @@ let g:easytags_dynamic_files = 2
 
 " For Vim Markdown
 let g:vim_markdown_folding_disabled = 1
+let g:markdown_enable_spell_checking = 0
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1

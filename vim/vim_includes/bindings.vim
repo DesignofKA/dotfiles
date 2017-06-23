@@ -156,6 +156,10 @@ nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>
 nnoremap gl <C-W><C-L>
 
+" if Markdown, allow livedown toggle binding
+nmap gm :LivedownToggle<CR>
+" autocmd FileType md 
+
 " Keeps current paste resiter in tacts whilst replacing words
 vnoremap <leader>p "_dP
 

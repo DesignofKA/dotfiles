@@ -8,6 +8,9 @@
   "homepage": "https://hyper.is",
   "dependencies": {
     "nova-hyperterm": "latest",
-    "hyperterm-cursor": "latest"
+    "hyper-statusline": "latest",
+    "hyper-tabs-enhanced": "latest",
+    "hyper-autohide-tabs": "latest",
+    "hyper-hide-title": "latest"
   }
 }
