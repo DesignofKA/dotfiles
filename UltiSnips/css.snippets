@@ -26,6 +26,12 @@ snippet ex
 @extend .$1;$0
 endsnippet
 
+snippet screen
+@media screen and (min-width: @screen-sm-min) {
+	$1
+}
+endsnippet
+
 snippet bp
 @include breakpoint($1) {
 	$0
@@ -40,6 +46,10 @@ endsnippet
 
 snippet br
 border-radius: $1;$0
+endsnippet
+
+snippet d:f
+display: flex;$0
 endsnippet
 
 snippet centeritem

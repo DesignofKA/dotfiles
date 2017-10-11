@@ -5,12 +5,12 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-	hyperStatusLine: {
-	   dirtyColor: 'salmon',
-		arrowsColor: 'white',
-		fontSize: 14,
-		footerTransparent: false,
-	 },
+    hyperStatusLine: {
+       dirtyColor: 'salmon',
+        arrowsColor: 'white',
+        fontSize: 14,
+        footerTransparent: true,
+     },
 
     fontSize: 16,
 
@@ -39,10 +39,10 @@ module.exports = {
     css: '0px',
 
     // custom css to embed in the terminal window
- 	termCSS: `
-		x-screen x-row {
-			font-variant-ligatures: initial;
-		}
+    termCSS: `
+        x-screen x-row {
+            font-variant-ligatures: initial;
+        }
     `,
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
       //
@@ -55,7 +55,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '20px 5px',
+    padding: '20px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -116,11 +116,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-  	'nova-hyperterm',
-  	'hyper-statusline',
-  	'hyper-tabs-enhanced',
-  	'hyper-autohide-tabs',
-  	'hyper-hide-title'
+    'nova-hyperterm',
+    'hyper-statusline',
+    'hyper-tabs-enhanced',
+    'hyper-autohide-tabs',
+    'hyper-hide-title'
   ],
 
 

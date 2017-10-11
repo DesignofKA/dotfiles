@@ -1,81 +1,70 @@
-" ================ Startup  ====================== set nocompatible              
-" " be iMproved, required 
+" ================ Startup  ====================== 
+set nocompatible "be iMproved, required
 let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
 " set rtp^=~/.vim/bundle/vim-airline
-set rtp+=~/.fzf
- call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged') " File Syntax Highlight & Linting
 
-" File Syntax Highlight & Linting
-Plug 'honza/vim-snippets' 
 Plug 'othree/html5.vim'
-Plug 'kakposoe/vim-ss'
-Plug 'scrooloose/syntastic'
-Plug 'pangloss/vim-javascript'
-" Plug 'gabrielelana/vim-markdown'
-Plug 'evidens/vim-twig'
-Plug 'posva/vim-vue'
-" Plug 'sheerun/vim-polyglot'
-Plug 'jwalton512/vim-blade'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-
-" Testing
-Plug 'janko-m/vim-test' 
+Plug 'neomake/neomake'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
+Plug 'lumiliet/vim-twig', { 'for': ['htm','twig'] }
+Plug 'posva/vim-vue', { 'for': ['javascript','vue'] }
+Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
 " File Browsing & Git
 Plug 'duggiefresh/vim-easydir'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter', { 'on': 'EnterInsertMode' }
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
-" Plug 'tpope/vim-fugitive'
 Plug 'qpkorr/vim-bufkill'
-Plug 'vim-scripts/confirm-quit'
-Plug 'shime/vim-livedown'
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-startify'
 
 " File Navigation 
-Plug 'justinmk/vim-dirvish'
-Plug 'tpope/vim-eunuch'
-Plug 'mhinz/vim-startify'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-unimpaired'
-Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
-Plug 'Shougo/unite.vim'
-Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
+Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-dirvish'
+Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
+Plug 'shougo/unite.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
+Plug 'kana/vim-textobj-user'
+Plug 'beloglazov/vim-textobj-quotes'
+Plug 'Julian/vim-textobj-brace'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 
 " File Editing
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
+Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' }
+Plug 'conradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
 Plug 'jiangmiao/auto-pairs'
-Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' } 
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary' " Comments out code
-Plug 'roman/golden-ratio' " Makes current window larger
-Plug 'terryma/vim-expand-region' " Every time v is pressed, visual region expands
-Plug 'ConradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
+Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
 
 " Auto Complete & Snippets
-Plug 'trevordmiller/nova-vim'
-Plug 'SirVer/ultisnips'
-Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'alvan/vim-closetag', { 'on': 'EnterInsertMode' }
 Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
+Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
+Plug 'trevordmiller/nova-vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
+Plug 'Yggdroot/indentLine'
 
 augroup lazy_load
-	autocmd!
-	autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
+    autocmd!
+    autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
 function! DoRemote(arg)
@@ -89,6 +78,18 @@ filetype plugin indent on
 
 autocmd FileType unite imap <buffer> <ESC> <Plug>(unite_exit)
 
+" PHP Syntax Function Stylign
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
+"""
 function! RefreshUI()
   if exists(':AirlineRefresh')
     AirlineRefresh
@@ -99,43 +100,40 @@ function! RefreshUI()
   endif
 endfunction
 
-" ================ General Configuration  ======================
 " Auto Refresh Vimrc when saved
-autocmd! bufwritepost .vim source % | :call RefreshUI()
 autocmd! bufwritepost init.vim source % | :call RefreshUI()
-autocmd! bufwritepost .nvimrc source % | :call RefreshUI()
-autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
-" Set Configurations
-set laststatus=2
-set number
-set backspace=indent,eol,start
-set mouse=a
-set nowrap
-set selection=inclusive
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set list
-set noswapfile
-set relativenumber "Prefer relative line numbering?
-set hidden "Switch between buffers without saving
-set foldenable "Enable code folding
-set lbr
-set tw=500 " Linebreak on 500 characters
-set so=7 " Set 7 lines to the cursor - when moving vertically using j/k
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
-set title                " change the terminal's title
-set lazyredraw          " redraw only when we need to.
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-set visualbell           " don't beep
-set noerrorbells         " don't beep
-set autoread " Set to auto read when a file is changed from the outside
+" ================ General Configuration  ======================
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent Set Configurations
 set autoindent
+set autoread " Set to auto read when a file is changed from the outside
+set backspace=indent,eol,start
 set copyindent
+set foldenable "Enable code folding
+set hidden "Switch between buffers without saving
+set history=1000         " remember more commands and search history
+set hlsearch            " highlight matches
+set incsearch           " search as characters are entered
+set laststatus=2
+set lazyredraw          " redraw only when we need to.
+set lbr
+set list
+set listchars=tab:>-
+set mouse=a
+set noerrorbells         " don't beep
+set noswapfile
+set nowrap
+set number
+set relativenumber
+set selection=inclusive
+set so=10 " Set 10 lines to the cursor - when moving vertically using j/k
 set splitbelow
-
+" set synmaxcol=128
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set title                " change the terminal's title
+set tw=500               " Linebreak on 500 characters
+set undolevels=1000      " use many muchos levels of undo
+set visualbell           " don't beep
 set wildmode=list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -156,6 +154,7 @@ autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
 
 let mapleader = "\<Space>"
+" map <Space> <leader>
 map <lf> <cr>
 
 " ================ Source Files =====================
@@ -168,22 +167,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" ----- scrooloose/syntastic settings -----
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-  au!
-  au FileType tex let b:syntastic_mode = "passive"
-augroup END
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_scss_checkers = [""]
-let g:syntastic_ss_checkers = [""]
-let g:syntastic_html_checkers = [""]
+" ================ Neomake settings =====================
+call neomake#configure#automake('w')
+let g:neomake_open_list = 2
+let g:neomake_less_enabled_makers = []
+let g:neomake_scss_enabled_makers = []
 
 let g:startify_change_to_dir = 0
 
@@ -193,15 +181,18 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
+autocmd FileType less :UltiSnipsAddFiletypes css
 autocmd FileType scss :UltiSnipsAddFiletypes css
 autocmd FileType scss :UltiSnipsAddFiletypes scss
-autocmd FileType ss :UltiSnipsAddFiletypes ss
+autocmd FileType less :UltiSnipsAddFiletypes less
+autocmd FileType htm :UltiSnipsAddFiletypes htm
 autocmd FileType vue :UltiSnipsAddFiletypes javascript
+au BufNewFile,BufRead *.htm set filetype=html.htm.php
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.blade.php,*.php,*.js,*.vue,*.htm"
 
 " ================ DirvishMapping  ======================
 augroup dirvish_mapping
@@ -220,10 +211,6 @@ if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
 let g:deoplete#disable_auto_complete = 0
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" deoplete tab-complete
-" noremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
@@ -238,29 +225,9 @@ sunmap b
 sunmap e
 sunmap ge
 
-
-" PHP Syntax Function
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
-"""
-
-
-" let g:easytags_dynamic_files = 1
-" let g:easytags_opts = ['--fields=+l']
-" let g:easytags_python_enabled = 1
-"
-let g:easytags_auto_highlight = 0
-let g:easytags_on_cursorhold = 0 " disabled because it causes a recursive tag generation
-set cpoptions+=d
-set tags=./tags;
-let g:easytags_dynamic_files = 2
+" Indent Line
+let g:indentLine_char = '┊'
+let g:indentLine_color_gui = '#a8a8a8'
 
 " For Vim Markdown
 let g:vim_markdown_folding_disabled = 1

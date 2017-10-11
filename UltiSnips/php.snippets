@@ -1,61 +1,85 @@
-snippet acf
-the_field('$1');
-$0
-endsnippet
-
-snippet aco
-the_field('$1', 'option');
-$0
-endsnippet
-
-snippet acr
-if( have_rows('repeater_field_name') ):
-while ( have_rows('repeater_field_name') ) : the_row();
-	$1 = the_sub_field('$2');
-endwhile;
-endif;
-$0
-endsnippet
-
 snippet php
-<?php $1 ?>
-$0
-endsnippet
-
-snippet ephp
-<?= $1 ?>
-$0
-endsnippet
-
-snippet ec'
-echo '$1';
-$0
-endsnippet
-
-snippet vardump
-<?php vardump($1) ?>
-$0
-endsnippet
-
-snippet phpif
 <?php 
-	if($1)
-	{
-		$2
-	} 
-?>
-$0
+
+namespace $1
+
+class $2 {
+
+	$0
+
+}
 endsnippet
 
+# Function calls
 snippet _c "Constructor"
 public function __construct(${1})
 {
 }
 endsnippet
 
-snippet wp.part
-get_template_part( 'partials/$1', '$2' ); 
+snippet pub 
+public function $1($2)
+{
 $0
+}
+endsnippet
+
+snippet pro 
+protected function $1($2)
+{
+$0
+}
+endsnippet
+
+snippet vpub
+public \$$0;
+endsnippet
+
+snippet vpro
+protected \$$0;
+endsnippet
+
+snippet $f
+$faker->$0;
+endsnippet
+
+
+snippet ??
+<?= $0 ?>
+endsnippet
+
+snippet ?=
+<?= $1 ?>
+$0
+endsnippet
+
+snippet $
+$this->$0;
+endsnippet
+
+snippet $-
+$$1->$0;
+endsnippet
+
+snippet $=
+$$1 = $2;$0
+endsnippet
+
+snippet $a
+$this->assert$1($2);$0
+endsnippet
+
+# Laravel
+snippet $t
+$table->$1('$2');$0
+endsnippet
+
+snippet $ts
+$table->string('$1');$0
+endsnippet
+
+snippet $tb
+$table->boolean('$1');$0
 endsnippet
 
 snippet r:c
@@ -71,6 +95,14 @@ snippet r:g
 Route::get('$2', $3)
 endsnippet
 
-snippet sch:string
-$table->string('$1');
+snippet =>
+'$1' => $0
+endsnippet
+
+snippet :
+$1::('$2');
+endsnippet
+
+snippet dd
+dd($1);$0
 endsnippet

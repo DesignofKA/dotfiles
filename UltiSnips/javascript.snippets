@@ -12,7 +12,14 @@ $1
 	.to($3, 1, { opacity: '0', })$0
 endsnippet
 
-snippet func
+snippet fun
+function $1($2){
+	$3
+}
+$0
+endsnippet
+
+snippet vfunc
 var ${1} = function($2){
 	$3
 }
@@ -48,6 +55,11 @@ if($1)
 {
 	$2
 } 
+$0
+endsnippet
+
+snippet vt
+var $this = $(this);
 $0
 endsnippet
 

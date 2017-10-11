@@ -16,6 +16,8 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit ~/.vim/setup/unite.vim'],
     \['▷  Edit Vim-Styling',
         \'edit ~/.vim/setup/style.vim'],
+    \['▷  Edit Aliases (Zsh)',
+        \'edit ~/.aliases.zsh'],
     \['▷  Edit Zsh',
         \'edit ~/.zshrc'],
     \['▷  Edit Tmux',
@@ -28,6 +30,8 @@ let g:unite_source_menu_menus.vim.command_candidates = [
         \'edit ~/.vim/Ultisnips/css.snippets'],
     \['▷  Edit PHP Snippets (UltiSnips)',
         \'edit ~/.vim/Ultisnips/php.snippets'],
+    \['▷  Edit HTM Snippets (UltiSnips)',
+        \'edit ~/.vim/Ultisnips/htm.snippets'],
 	\['▷  Edit JS Snippets (UltiSnips)',
 			\'edit ~/.vim/Ultisnips/javascript.snippets'],
     \]

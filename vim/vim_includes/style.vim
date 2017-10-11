@@ -6,10 +6,9 @@ set t_Co=256
 " colorscheme nord
 colorscheme nova
 let g:airline_theme='wombat'
-set cursorline
 set listchars=tab:▸\ ,eol:¬
+hi NonText ctermfg=7 guifg=gray
 let g:enable_bold_font = 1
-au BufNewFile,BufRead *.ss      setf xhtml
 
 function! s:update_fzf_colors()
   let rules =
