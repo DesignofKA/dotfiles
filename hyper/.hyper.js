@@ -6,13 +6,13 @@ module.exports = {
   config: {
     // default font size in pixels for all tabs
     hyperStatusLine: {
-       dirtyColor: 'salmon',
+    	dirtyColor: 'salmon',
         arrowsColor: 'white',
         fontSize: 14,
         footerTransparent: true,
      },
 
-    fontSize: 16,
+    fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: '"Fira Code", "Droid Sans Mono for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -39,11 +39,8 @@ module.exports = {
     css: '0px',
 
     // custom css to embed in the terminal window
-    termCSS: `
-        x-screen x-row {
-            font-variant-ligatures: initial;
-        }
-    `,
+    termCSS: '.xterm {line-height: 17px} .xterm-rows > div {display: block; line-height: 15px}',
+
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
       //
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -55,7 +52,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '20px',
+    padding: '0 0 0 20px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide

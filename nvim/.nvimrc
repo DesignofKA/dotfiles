@@ -24,6 +24,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
+Plug 'chrisbra/vim-diff-enhanced'
 
 " File Navigation 
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -39,6 +40,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'Julian/vim-textobj-brace'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " File Editing
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' }
@@ -104,7 +106,8 @@ endfunction
 autocmd! bufwritepost init.vim source % | :call RefreshUI()
 
 " ================ General Configuration  ======================
-autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent Set Configurations
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade | set ft=php " Fix blade auto-indent Set Configurations
+
 set autoindent
 set autoread " Set to auto read when a file is changed from the outside
 set backspace=indent,eol,start
@@ -188,6 +191,7 @@ autocmd FileType less :UltiSnipsAddFiletypes less
 autocmd FileType htm :UltiSnipsAddFiletypes htm
 autocmd FileType vue :UltiSnipsAddFiletypes javascript
 au BufNewFile,BufRead *.htm set filetype=html.htm.php
+au BufNewFile,BufRead *.blade.php set filetype=html.php
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
