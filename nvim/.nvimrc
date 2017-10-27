@@ -41,6 +41,7 @@ Plug 'beloglazov/vim-textobj-quotes'
 Plug 'Julian/vim-textobj-brace'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'ludovicchabant/vim-gutentags'
 
 " File Editing
 Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' }
@@ -63,6 +64,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color' " Shows colours in css
 Plug 'ryanoasis/vim-devicons' " Icons shown in vim
 Plug 'Yggdroot/indentLine'
+
 
 augroup lazy_load
     autocmd!
@@ -239,3 +241,16 @@ let g:markdown_enable_spell_checking = 0
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1
+
+set tags=tags
+set path=.
+
+let g:gutentags_cache_dir = '~/.vim/gutentags'
+
+let g:guten_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+                            \ '*.phar', '*.ini', '*.rst', '*.md',
+                            \ '*vendor/*/test*', '*vendor/*/Test*',
+                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+                            \ '*var/cache*', '*var/log*']
+
+

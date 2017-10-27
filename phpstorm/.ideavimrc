@@ -1,0 +1,43 @@
+let mapleader = "<Space>"
+
+nmap ; :
+vmap ; :
+
+set surround
+
+nmap <Leader>v :action :SplitVertically<CR>
+
+nmap <Leader>w :write<CR>
+
+nmap <C-j> 5j
+nmap <C-k> 5k
+vmap <C-j> 5j
+vmap <C-k> 5k
+
+nmap <C-l> $
+nmap <C-h> ^
+vmap <C-l> $h
+vmap <C-h> ^
+
+" Jump to next matching bracket
+noremap <c-p> %
+
+nmap - :action ActivateToolWindow<CR>
+
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap <CR> G
+nnoremap <BS> gg
+vnoremap <CR> G
+vnoremap <BS> gg
+
+nmap [<Space> O<esc>
+            
+nmap <C-\> :action CommentByLineComment<CR>
+vmap <C-\> :action CommentByLineComment<CR>
+
+nmap f :action AceJumpAction<CR>
+nmap F :action AceJumpAction<CR>
+
+nmap zf :action ExpandRegion<CR>
