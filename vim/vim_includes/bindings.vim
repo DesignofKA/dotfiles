@@ -208,6 +208,17 @@ nmap ga <Plug>(EasyAlign)
 " Move cursor to the bottom of the yank selection once yanked 
 vmap y y`]
 
+" Search
+map /  <Plug>(incsearch-forward)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+map z/ <Plug>(incsearch-fuzzy-/)
+
 " |===============================================================
 " | To Do List
 " |===============================================================

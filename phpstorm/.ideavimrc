@@ -4,6 +4,7 @@ nmap ; :
 vmap ; :
 
 set surround
+set showmode
 
 nmap <Leader>v :action :SplitVertically<CR>
 

@@ -1,6 +1,6 @@
 " ================ Startup  ====================== 
 set nocompatible "be iMproved, required
-let g:python3_host_prog = '/usr/local/opt/python3/bin/python3.5'
+let g:python3_host_prog = '/usr/local/opt/python3/bin/python3'
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
@@ -16,10 +16,10 @@ Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
 " File Browsing & Git
 Plug 'duggiefresh/vim-easydir'
-Plug 'airblade/vim-gitgutter', { 'on': 'EnterInsertMode' }
+Plug 'airblade/vim-gitgutter'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'tpope/vim-repeat', { 'on': 'EnterInsertMode' }
+Plug 'tpope/vim-repeat'
 Plug 'qpkorr/vim-bufkill'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
@@ -35,21 +35,23 @@ Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'shougo/unite.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'wellle/targets.vim', { 'on': 'EnterInsertMode' }
+Plug 'wellle/targets.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'beloglazov/vim-textobj-quotes'
 Plug 'Julian/vim-textobj-brace'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'on': 'EnterInsertMode' }
+Plug 'haya14busa/incsearch.vim' " Advanced searching
+Plug 'haya14busa/incsearch-fuzzy.vim'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " File Editing
-Plug 'AndrewRadev/splitjoin.vim', { 'on': 'EnterInsertMode' }
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'conradIrwin/vim-bracketed-paste' " Automatically sets :set paste on cmd-v paste from clipboard
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary' " Comments out code
-Plug 'tpope/vim-surround', { 'on': 'EnterInsertMode' }
+Plug 'tpope/vim-surround'
 
 " Auto Complete & Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -245,12 +247,13 @@ let g:unite_source_history_yank_enable = 1
 set tags=tags
 set path=.
 
-let g:gutentags_cache_dir = '~/.vim/gutentags'
+" let g:gutentags_cache_dir = '~/.vim/gutentags'
 
-let g:guten_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
-                            \ '*.phar', '*.ini', '*.rst', '*.md',
-                            \ '*vendor/*/test*', '*vendor/*/Test*',
-                            \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
-                            \ '*var/cache*', '*var/log*']
+" let g:guten_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
+"                             \ '*.phar', '*.ini', '*.rst', '*.md',
+"                             \ '*vendor/*/test*', '*vendor/*/Test*',
+"                             \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
+"                             \ '*var/cache*', '*var/log*']
 
+let g:incsearch#auto_nohlsearch = 1
 
