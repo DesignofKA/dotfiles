@@ -7,7 +7,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 fpath+=("/usr/local/share/zsh/site-functions")
 
-source /usr/local/share/antigen/antigen.zsh
+source ~/antigen.zsh
 
 # Load the oh-my-zsh's library.
 # antigen use oh-my-zsh
@@ -28,7 +28,7 @@ antigen apply
 
 plugins=(git zsh-completions)
 
-ZSH_THEME="pure"
+ZSH_THEME="refined"
 
 source $ZSH/oh-my-zsh.sh
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

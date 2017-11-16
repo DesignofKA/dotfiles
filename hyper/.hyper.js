@@ -8,7 +8,7 @@ module.exports = {
     hyperStatusLine: {
     	dirtyColor: 'salmon',
         arrowsColor: 'white',
-        fontSize: 14,
+        fontSize: 18,
         footerTransparent: true,
      },
 
