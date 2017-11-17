@@ -12,7 +12,7 @@ module.exports = {
         footerTransparent: true,
      },
 
-    fontSize: 14,
+    fontSize: 16,
 
     // font family with optional fallbacks
     fontFamily: '"Fira Code", "Droid Sans Mono for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -21,7 +21,7 @@ module.exports = {
     cursorColor: 'rgba(248,28,229,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
-    cursorShape: 'UNDERLINE',
+    cursorShape: 'BLOCK',
 
     // set to true for blinking cursor
     cursorBlink: false,

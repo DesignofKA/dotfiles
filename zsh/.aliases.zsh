@@ -131,4 +131,6 @@ function s()
 # Folder Jumps
 alias commerce='cd ~/code/mvad/ha/html/plugins/mvad/commerce'
 alias hatters='cd ~/code/mvad/ha/html/'
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'
