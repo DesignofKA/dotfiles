@@ -1,36 +1,20 @@
-# Your keymap
-#
-# Atom keymaps work similarly to style sheets. Just as style sheets use
-# selectors to apply styles to elements, Atom keymaps use selectors to associate
-# keystrokes with events in specific contexts. Unlike style sheets however,
-# each selector can only be declared once.
-#
-# You can create a new keybinding in this file by typing "key" and then hitting
-# tab.
-#
-# Here's an example taken from Atom's built-in keymap:
-#
-# 'atom-text-editor':
-#   'enter': 'editor:newline'
-#
-# 'atom-workspace':
-#   'ctrl-shift-p': 'core:move-up'
-#   'ctrl-p': 'core:move-down'
-#
-# You can find more information about keymaps in these guides:
-# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
-# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
-#
-# If you're having trouble with your keybindings not working, try the
-# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
-# Debugging Guide for more information:
-# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
-#
-# This file uses CoffeeScript Object Notation (CSON).
-# If you are unfamiliar with CSON, you can read more about it in the
-# Atom Flight Manual:
-# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 'atom-text-editor.vim-mode-plus.normal-mode':
   'space t': 'fuzzy-finder:toggle-file-finder'
   'space o': 'fuzzy-finder:toggle-buffer-finder'
   'space w': 'core:save'
+  'space e': 'application:open-your-keymap'
+  'space d': 'core:close'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'space space': 'vim-mode-plus:activate-linewise-visual-mode'
+  'alt-k': 'vim-mode-plus-user:move-selected-text-up'
+  'alt-j': 'vim-mode-plus-user:move-selected-text-down'
+  'alt-h': 'vim-mode-plus-user:move-selected-text-left'
+  'alt-l': 'vim-mode-plus-user:move-selected-text-right'
+  'ctrl-h': 'keystroke ^'
+  'ctrl-l': 'keystroke $'
+  'ctrl-k': 'keystroke 5 k'
+  'ctrl-j': 'keystroke 5 j'
+
+  'backspace': 'core:move-to-top'
+  'enter': 'core:move-to-bottom'

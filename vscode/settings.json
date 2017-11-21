@@ -1,0 +1,52 @@
+{
+    "workbench.colorTheme": "Material Theme",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#5C6BC0",
+        "list.activeSelectionForeground": "#5C6BC0",
+        "list.inactiveSelectionForeground": "#5C6BC0",
+        "list.highlightForeground": "#5C6BC0",
+        "scrollbarSlider.activeBackground": "#5C6BC050",
+        "editorSuggestWidget.highlightForeground": "#5C6BC0",
+        "textLink.foreground": "#5C6BC0",
+        "progressBar.background": "#5C6BC0",
+        "pickerGroup.foreground": "#5C6BC0",
+        "tab.activeBorder": "#5C6BC0"
+    },
+    "materialTheme.cache.workbench.settings": {
+        "accent": "Indigo"
+    },
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w"],
+            "after": [],
+            "commands": [
+                {
+                    "command": ":w"
+                }
+            ]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["5", "j"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["5", "k"]
+        },
+        {
+            "before": ["<C-h>"],
+            "after": ["^"]
+        },
+        {
+            "before": ["<C-l>"],
+            "after": ["$"]
+        },
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+    ]
+}
