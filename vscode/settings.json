@@ -18,13 +18,28 @@
     },
     "vim.leader": "<space>",
     "vim.easymotion": true,
+    "vim.useCtrlKeys": true,
+    "editor.lineHeight": "24",
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "boundary",
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": ["<leader>", "w"],
             "after": [],
             "commands": [
                 {
-                    "command": ":w"
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
                 }
             ]
         },
@@ -45,8 +60,26 @@
             "after": ["$"]
         },
         {
+            "before": ["<C-w>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
             "before": [";"],
             "after": [":"]
+        },
+        {
+            "before": ["<backspace>"],
+            "after": ["g", "g"]
+        },
+        {
+            "before": ["<cr>"],
+            "after": ["G"]
         },
     ]
 }
