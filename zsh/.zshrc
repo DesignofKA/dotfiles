@@ -36,7 +36,7 @@ export EDITOR='nvim'
 
 # User configuration
 export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
+export PATH="~/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
 
 # Function used to jump in and out of n/vim using ctrl-z
 fancy-ctrl-z () {
