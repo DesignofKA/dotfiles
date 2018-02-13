@@ -135,6 +135,6 @@ alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'
 # Remove zcompdump git definitions file
 function z.rf()
 {
-    rm -rf ~/.zcompdump ~/.antigen/.zcompdump
+    rm -rf ~/.zcompdump ~/.antigen/.zcompdump ~/.antigen/.zcompdump.zwc
     z.r
 }
