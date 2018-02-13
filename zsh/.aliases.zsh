@@ -8,7 +8,6 @@ alias t.r="tmux source-file ~/.tmux.conf"
 alias perm:f="sudo chown -R kelvinakposoe:admin"
 alias perm:a="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
-alias rm="trash"
 alias mv="mv"
 alias copy="cp -r"
 alias file="touch"
@@ -18,7 +17,9 @@ alias f="ag -g "" | fzf -m | pbcopy"
 alias oldf="fzf -m | pbcopy"
 alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
-# alias j="jobs"
+
+# Valet
+alias vr="valet restart"
 
 function j() {
     if [[ -n "$1" ]]; then
@@ -28,9 +29,7 @@ function j() {
     fi
 }
 
-
 alias sshc="ssh-connect"
-
 
 # Folder Navigation
 alias sites="~/Sites/"
@@ -129,8 +128,6 @@ function s()
 }
 
 # Folder Jumps
-alias commerce='cd ~/code/mvad/ha/html/plugins/mvad/commerce'
-alias hatters='cd ~/code/mvad/ha/html/'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'

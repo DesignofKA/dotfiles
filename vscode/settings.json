@@ -1,4 +1,6 @@
 {
+    "emmet.includeLanguages": {"blade": "html"},
+    "emmet.excludeLanguages": ["php"],
     "workbench.editor.showTabs": false,
     "editor.minimap.enabled": false,
     "editor.codeLens": false,

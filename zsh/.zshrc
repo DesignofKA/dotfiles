@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
-export EDITOR=/usr/local/bin/nvim  
-export VISUAL=/usr/local/bin/nvim  
+export EDITOR=/usr/local/bin/nvim
+export VISUAL=/usr/local/bin/nvim
 export TERM="xterm-256color"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -35,8 +35,10 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 # User configuration
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-export PATH="~/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+export PATH="$HOME/.cargo/bin:~/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # Function used to jump in and out of n/vim using ctrl-z
 fancy-ctrl-z () {

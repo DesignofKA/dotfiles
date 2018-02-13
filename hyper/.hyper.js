@@ -15,7 +15,7 @@ module.exports = {
     fontSize: 16,
 
     // font family with optional fallbacks
-    fontFamily: '"Fira Code", "Droid Sans Mono for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Fura Code", "Droid Sans Mono for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -39,7 +39,7 @@ module.exports = {
     css: '0px',
 
     // custom css to embed in the terminal window
-    termCSS: '.xterm {line-height: 17px} .xterm-rows > div {display: block; line-height: 15px}',
+    termCSS: '.xterm {line-height: 25px} .xterm-rows > div {display: block; line-height: 20px}',
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
       //
