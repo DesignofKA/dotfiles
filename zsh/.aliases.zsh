@@ -131,3 +131,10 @@ function s()
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'
+
+# Remove zcompdump git definitions file
+function z.rf()
+{
+    rm -rf ~/.zcompdump ~/.antigen/.zcompdump
+    z.r
+}
