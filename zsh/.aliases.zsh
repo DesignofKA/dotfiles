@@ -5,21 +5,13 @@ alias v.c="n ~/.vimrc"
 alias t.c="n ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
-alias perm:f="sudo chown -R kelvinakposoe:admin"
-alias perm:a="sudo chown -R kelvinakposoe:admin *"
 alias c="clear"
-alias mv="mv"
 alias copy="cp -r"
-alias file="touch"
-alias ex="exit"
+alias nf="touch"
 alias x="exit"
-alias f="ag -g "" | fzf -m | pbcopy"
-alias oldf="fzf -m | pbcopy"
 alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
-
-# Valet
-alias vr="valet restart"
+alias vr="valet restart" # Valet
 
 function j() {
     if [[ -n "$1" ]]; then
@@ -28,8 +20,6 @@ function j() {
         jobs
     fi
 }
-
-alias sshc="ssh-connect"
 
 # Folder Navigation
 alias sites="~/Sites/"
@@ -41,7 +31,7 @@ alias dots="cd ~/.dotfiles"
 # Laravel Commands
 alias pa="php artisan"
 alias pam="php artisan migrate"
-alias pam:"pha artisan migrate:refresh"
+alias pamr:"pha artisan migrate:refresh"
 alias tinker="php artisan tinker"
 
 # Gulp
@@ -54,7 +44,7 @@ alias ta="tmux a"
 alias tl="tmux ls"
 
 # Total size of folder
-alias tfu="du -sh"
+alias total="du -sh"
 
 # Git Commands
 alias nah='git reset --hard;git clean -df'
@@ -104,7 +94,6 @@ alias tdd="todo done"
 alias tde="todo edit"
 
 # HTML Boilerplate
-alias addgulp=""
 function addgulp()
 {
     cp ~/.dotfiles/mvad/gulp/package.json ~/.dotfiles/mvad/gulp/gulpfile.js .
@@ -114,6 +103,41 @@ function addgulp()
 }
 
 alias opu="../../../vendor/bin/phpunit"
+
+# Remove zcompdump git definitions file
+function z.rf()
+{
+    rm -rf ~/.zcompdump ~/.antigen/.zcompdump ~/.antigen/.zcompdump.zwc
+    exec zsh -l
+}
+
+# FASD
+# Function used to jump in and out of n/vim using ctrl-z
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+eval "$(fasd --init auto)"
+
+if [ $commands[fasd] ]; then # check if fasd is installed
+  fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
+  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init auto >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+  unset fasd_cache
+
+  alias v='f -e vim'
+  alias o='a -e open_command'
+fi
 
 unalias s # Unalias s from fasd
 function s()
@@ -125,16 +149,4 @@ function s()
     else
         echo 'No arguments passed for search'
     fi
-}
-
-# Folder Jumps
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'
-
-# Remove zcompdump git definitions file
-function z.rf()
-{
-    rm -rf ~/.zcompdump ~/.antigen/.zcompdump ~/.antigen/.zcompdump.zwc
-    z.r
 }

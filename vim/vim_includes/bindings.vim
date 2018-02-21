@@ -28,9 +28,6 @@ noremap <buffer> <silent> $ g$
 
 vmap t it
 
-" Sort lines in alphabetical order based on selection
-vmap <Leader>s :sort<cr>
-
 " |===============================================================
 " | Easy Motion 
 " |===============================================================
@@ -43,51 +40,34 @@ vmap f <plug>(easymotion-sl)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-map <C-[> <esc>
-
-" nmap <S-h> ^
-" nmap <S-l> $
-" vmap <S-h> ^
-" vmap <S-l> $h
-
-" vmap $ $h
-
 nmap <Left> <<
 nmap <Right> >>
 
 vmap <Left> <gv
 vmap <Right> >gv
 
-" |===============================================================
-" | Line Indentation
-" |===============================================================
-"
 nnoremap <C-h> ^
 nnoremap <C-l> $
 vmap <C-h> ^
 vmap <C-l> $h
 
-" Jump between lines
-
 " Paste to system clipboard
 vmap <leader>y "*y 
 
-" Reload Vimrc
-nmap <leader>sv :source $MYVIMRC<CR>
 
 " Open FZF
 
-" Save on enter (normal)
-autocmd VimEnter * noremap <leader><leader> V
 map <script> <leader>d :BD<CR>
 nnoremap <Leader>i :Ag 
 nnoremap <Leader>o :Buffers<return> 
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>q <silent>:call powerclose#close()<CR>
-nnoremap <leader>t :FZF<return>
+nnoremap <leader>t :Tags<return>
+nnoremap <leader>tr :!ctags -R --fields=+aimlS --languages=php<return>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
+autocmd VimEnter * noremap <leader><leader> :FZF<return> 
 
 " Tabs
 noremap <S-l> gt
@@ -100,15 +80,15 @@ vnoremap ; :
 vnoremap : ;
 
 " Vim Fugative Bindings
-nmap <leader>gs :Gstatus<CR>gg 
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>ga :Gwrite<cr>
-nmap <leader>gl :Glog<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gp :Gpush<cr>
-nmap <leader>gm :!Git commit -m "
-nmap <leader>gA :!Git add -A<cr>
-nmap <leader>G :!Git 
+nnoremap <leader>gs :Gstatus<CR>gg 
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>ga :Gwrite<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gm :!Git commit -m "
+nnoremap <leader>gA :!Git add -A<cr>
+nnoremap <leader>G :!Git 
 
 " Enter to end, Backspace to top
 nnoremap <CR> G
@@ -141,7 +121,6 @@ vmap <Up> [egv
 nmap <Down> ]e
 vmap <Down> ]egv
 
-
 " |===============================================================
 " | Commentary  
 " |===============================================================
@@ -156,13 +135,11 @@ imap hh <C-Y>,<esc>li
 " |===============================================================
 " | Movement in Insert mode 
 " |===============================================================
-" imap <C-k> <C-o><up>
-" imap <C-j> <C-o><down>
 imap <C-h> <C-o>h
 imap <C-l> <C-o>l
 
 " |===============================================================
-" | Dialog Boxes    
+" | Unite Menus    
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
 
@@ -188,7 +165,6 @@ vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
             \:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
 omap s :normal vs<cr>
 
-
 " function! IPhpInsertUse()
 "     call PhpInsertUse()
 "     call feedkeys('a',  'n')
@@ -201,8 +177,6 @@ omap s :normal vs<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
 " Move cursor to the bottom of the yank selection once yanked 
@@ -219,14 +193,7 @@ map g# <Plug>(incsearch-nohl-g#)
 
 map z/ <Plug>(incsearch-fuzzy-/)
 
-" |===============================================================
-" | To Do List
-" |===============================================================
-" Test Suite
-" nmap <silent> <leader>t :TestNearest<CR>
-" nmap <silent> <leader>T :TestFile<CR>
-" nmap <silent> <leader>a :TestSuite<CR>
-" nmap <silent> <leader>l :TestLast<CR>
-" nmap <silent> <leader>g :TestVisit<CR>
-"
 nnoremap <c-]> :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --select-1 --exit-0'})<CR>
+
+" Reload Vimrc
+nmap <leader>sv :source $MYVIMRC<CR>
