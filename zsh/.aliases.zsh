@@ -60,7 +60,7 @@ alias gb="git branch"
 alias gf="git fetch"
 alias gcl="git clone"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gclean="git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
+alias gclean="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
 
 unalias gp
 function gp() # Git push w/ condition to add all and push

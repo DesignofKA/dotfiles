@@ -19,6 +19,7 @@ antigen bundle hlissner/zsh-autopair
 antigen bundle andrewferrier/fzf-z
 antigen bundle gko/ssh-connect
 antigen bundle peterhurford/up.zsh
+antigen bundle laurenkt/zsh-vimto
 
 antigen apply # Tell Antigen that you're done.
 
@@ -26,6 +27,8 @@ plugins=(git zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
+
+bindkey -v # Add Vim 
 # Aliases
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.env-aliases.zsh ] && source ~/.env-aliases.zsh
