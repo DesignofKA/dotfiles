@@ -26,17 +26,17 @@ antigen bundle peterhurford/up.zsh
 # Tell Antigen that you're done.
 antigen apply
 
-plugins=(git zsh-completions)
+plugins=(git zsh-completions zsh-autosuggestions)
 
 ZSH_THEME="pure"
 
+bindkey '^ ' autosuggest-accept
+
 source $ZSH/oh-my-zsh.sh
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export EDITOR='nvim'
 
 # User configuration
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$HOME/.composer/vendor/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:$PATH"
 
 # Function used to jump in and out of n/vim using ctrl-z
 fancy-ctrl-z () {
@@ -64,6 +64,8 @@ if [ $commands[fasd] ]; then # check if fasd is installed
   alias v='f -e vim'
   alias o='a -e open_command'
 fi
+
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Aliases
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
