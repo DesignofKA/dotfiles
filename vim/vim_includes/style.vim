@@ -1,10 +1,11 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" set termguicolors
+set termguicolors
 syntax enable
 set background=dark
 set t_Co=256
-" colorscheme nord
-colorscheme nova
+colorscheme vim-material
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 let g:airline_theme='wombat'
 set listchars=tab:▸\ ,eol:¬
 hi NonText ctermfg=7 guifg=gray

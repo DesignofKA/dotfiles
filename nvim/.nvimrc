@@ -1,6 +1,7 @@
 " ================ Startup  ====================== 
 set nocompatible "be iMproved, required
-let g:python3_host_prog = '/usr/local/opt/python3/bin/python3'
+" let g:python3_host_prog = '/usr/local/opt/python3/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
@@ -17,7 +18,8 @@ Plug 'jwalton512/vim-blade', { 'for': 'php' }
 " File Browsing & Git
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'tpope/vim-repeat'
 Plug 'qpkorr/vim-bufkill'
@@ -60,7 +62,7 @@ Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
-Plug 'trevordmiller/nova-vim'
+Plug 'hzchirs/vim-material'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color' " Shows colours in css
@@ -246,14 +248,6 @@ let g:unite_source_history_yank_enable = 1
 
 set tags=tags
 set path=.
-
-" let g:gutentags_cache_dir = '~/.vim/gutentags'
-
-" let g:guten_ctags_exclude = ['*.css', '*.html', '*.js', '*.json', '*.xml',
-"                             \ '*.phar', '*.ini', '*.rst', '*.md',
-"                             \ '*vendor/*/test*', '*vendor/*/Test*',
-"                             \ '*vendor/*/fixture*', '*vendor/*/Fixture*',
-"                             \ '*var/cache*', '*var/log*']
 
 let g:incsearch#auto_nohlsearch = 1
 

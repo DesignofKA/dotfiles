@@ -25,15 +25,15 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \['▷  Edit HyperTerm',
         \'edit ~/.hyper.js'],
     \['▷  Edit All Snippets (UltiSnips)',
-        \'edit ~/.vim/Ultisnips/all.snippets'],
+        \'edit ~/.vim/UltiSnips/all.snippets'],
     \['▷  Edit CSS Snippets (UltiSnips)',
-        \'edit ~/.vim/Ultisnips/css.snippets'],
+        \'edit ~/.vim/UltiSnips/css.snippets'],
     \['▷  Edit PHP Snippets (UltiSnips)',
-        \'edit ~/.vim/Ultisnips/php.snippets'],
+        \'edit ~/.vim/UltiSnips/php.snippets'],
     \['▷  Edit HTM Snippets (UltiSnips)',
-        \'edit ~/.vim/Ultisnips/htm.snippets'],
+        \'edit ~/.vim/UltiSnips/htm.snippets'],
 	\['▷  Edit JS Snippets (UltiSnips)',
-			\'edit ~/.vim/Ultisnips/javascript.snippets'],
+		\'edit ~/.vim/UltiSnips/javascript.snippets'],
     \]
 " }}}
 
