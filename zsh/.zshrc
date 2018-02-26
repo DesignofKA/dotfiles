@@ -27,8 +27,9 @@ plugins=(git zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
-
 bindkey -v # Add Vim 
+export KEYTIMEOUT=1
+
 # Aliases
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.env-aliases.zsh ] && source ~/.env-aliases.zsh
