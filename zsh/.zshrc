@@ -23,7 +23,7 @@ antigen bundle laurenkt/zsh-vimto
 
 antigen apply # Tell Antigen that you're done.
 
-plugins=(git zsh-completions)
+plugins=(git zsh-completions zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
