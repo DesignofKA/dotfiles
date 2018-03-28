@@ -10,7 +10,7 @@ fpath+=("/usr/local/share/zsh/site-functions")
 
 source ~/antigen.zsh
 
-antigen bundle git # Bundles from the default repo (robbyrussell's oh-my-zsh).
+# antigen bundle git # Bundles from the default repo (robbyrussell's oh-my-zsh).
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-completions
@@ -28,9 +28,11 @@ plugins=(git zsh-completions zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 bindkey -v # Add Vim 
+bindkey '^ ' autosuggest-accept
 export KEYTIMEOUT=1
 
 # Aliases
+[ -f ~/.aliases-additions.zsh ] && source ~/.aliases-additions.zsh
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.env-aliases.zsh ] && source ~/.env-aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

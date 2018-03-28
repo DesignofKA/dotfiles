@@ -99,14 +99,16 @@ snippet kv
 '$1' => $0
 endsnippet
 
-snippet kv
-'$1' => $0
-endsnippet
-
 snippet :
 $1::('$2');
 endsnippet
 
 snippet dd
 dd($1);$0
+endsnippet
+
+snippet fore
+foreach ($$1 as $$2) {
+	$0
+}
 endsnippet
