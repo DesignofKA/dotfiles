@@ -175,5 +175,4 @@ bindsym Mod1+r mode "resize"
 # Please remove the following exec line:
 #######################################################################
 #
-exec_always ~/.config/compton.conf
-exec_always compton -b --config  $HOME/.i3/polybar.sh &
+exec_always $HOME/.i3/startup.sh &

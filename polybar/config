@@ -69,30 +69,6 @@ scroll-down = bspwm-deskprev
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/bspwm]
-type = internal/bspwm
-
-ws-icon-0 = web;
-ws-icon-1 = code;
-ws-icon-default = 
-
-format = <label-state> <label-mode>
-
-label-focused = %icon%
-label-focused-background = #88000000
-label-focused-underline= #ddd
-label-focused-padding = 4
-
-label-occupied = %icon%
-label-occupied-padding = 4
-
-label-urgent = %icon%
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #44ffffff
-label-empty-padding = 4
-
 [module/xworkspaces]
 type = internal/xworkspaces
 enable-click = true
@@ -114,23 +90,58 @@ label-urgent-foreground = ${colors.color6}
 label-empty = %icon%%{O5}
 label-empty-foreground = ${colors.color8}
 
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.foreground}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
 [module/i3]
 type = internal/i3
-;
-;strip-wsnumbers = true
-;
-;label-focused-padding = 3
-;label-unfocused-padding = 3
-;
-;label-focused-background = ${colors.background-alt}
-label-unfocused-background = ${colors.background-unf}
-;
-;label-mode-padding = 0
-;label-mode-background = ${colors.background-unf}
-;
-;label-visible-underline = #555555
-;label-visible-padding = 4
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
 
+;Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = 4
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/cpu]
 type = internal/cpu

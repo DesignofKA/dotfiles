@@ -1,43 +1,25 @@
-var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    path = require('path'),
-    less = require('gulp-less'),
-    gutil = require('gulp-util'),
-    fs = require("fs"),
-    lessSource = './assets/less/stylesheet.less',
-    // cssDest = './assets/css/';
-    cssDest = '.';
+{
+ "name": "Build",
+ "version": "1.0.0",
+ "description": "Stack Dependancies",
+ "main": "gulpfile.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "repository": {
+  "type": "git"
+ },
+ "author": "Kelvin Akposoe",
+ "license": "ISC",
+ "devDependencies": {
+  "gulp": "^3.9.1",
+  "gulp-autoprefixer": "^2.3.1",
+  "gulp-clean-css": "^3.5.0",
+  "gulp-less": "^3.3.2",
+  "gulp-notify": "^2.2.0",
+  "gulp-util": "^3.0.8",
+  "less-plugin-autoprefix": "^1.5.1",
+  "less-plugin-clean-css": "^1.5.1"
+ }
+}
 
-var fileContent  = fs.readFileSync(lessSource + 'stylesheet.less', "utf8"),
-    options = fileContent.slice(0, fileContent.indexOf("\n")),
-    options = options.slice(3),
-    options = JSON.parse('{' + options + '}');
-
-var LessPluginCleanCSS = require('less-plugin-clean-css'),
-    cleanCSSPlugin = new LessPluginCleanCSS({compatibility: options['cleancss']});
-
-// Autoprefixer
-var prefixer = options['autoprefixer'];
-prefixer = prefixer.join(', ');
-
-gulp.task('less', function () {
-
-    return gulp.src(lessSource)
-        .pipe(less({
-            plugins: [ cleanCSSPlugin ]
-        }))
-        // .pipe(autoprefixer({
-        //     browsers: prefixer,
-        //     cascade: false
-        // }))
-        .on('end', function() { gutil.log(prefixer); })
-        .pipe(gulp.dest(cssDest));
-});
-
-gulp.task('watch', function() {
-  gulp.watch('**/*.less', ['less']);
-});
-
-// Default Task
-gulp.task('default', ['less', 'watch'], function() {
-});
