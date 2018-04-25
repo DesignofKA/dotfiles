@@ -26,7 +26,7 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 2
+    x: 4
     y: 2
 
   # Window decorations
@@ -132,12 +132,12 @@ colors:
   bright:
     black:   '0x546e7a'
     red:     '0xf78c6c'
-    green:   '0x2e3c43'
-    yellow:  '0x314549'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
     blue:    '0xb2ccd6'
     magenta: '0xeeffff'
     cyan:    '0xff5370'
-    white: '0xeeffff'
+    white:   '0xeeffff'
 
 # Visual Bell
 #
