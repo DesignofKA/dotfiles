@@ -142,10 +142,12 @@ fi
 unalias s # Unalias s from fasd
 function s()
 {
-    if [[ -n "$1" && -n "$2" ]]; then
-        ag "$1" -i **/*.$2
-    elif [[ -n "$1" ]]; then
-            ag "$1" -i **/*
+    if [[ -n "$1" ]]; then
+        if [[ -n "$1" && -n "$2" ]]; then
+            ag -i -G "\.$2" "$1" 
+        else
+            ag "$1" -i *
+        fi
     else
         echo 'No arguments passed for search'
     fi

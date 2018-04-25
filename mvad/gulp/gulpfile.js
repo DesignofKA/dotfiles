@@ -6,9 +6,9 @@ var gulp = require('gulp'),
     fs = require("fs"),
     lessSource = './assets/less/stylesheet.less',
     // cssDest = './assets/css/';
-    cssDest = '.';
+    cssDest = './assets/css/';
 
-var fileContent  = fs.readFileSync(lessSource + 'stylesheet.less', "utf8"),
+var fileContent  = fs.readFileSync(lessSource, "utf8"),
     options = fileContent.slice(0, fileContent.indexOf("\n")),
     options = options.slice(3),
     options = JSON.parse('{' + options + '}');
