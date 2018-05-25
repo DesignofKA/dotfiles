@@ -67,6 +67,7 @@ nnoremap <leader>tr :!ctags -R --fields=+aimlS --languages=php<return>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
+nnoremap <leader>cm :%s///g<cr>
 autocmd VimEnter * noremap <leader><leader> :FZF<return>
 
 " Tabs

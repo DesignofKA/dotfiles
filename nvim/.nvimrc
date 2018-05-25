@@ -9,7 +9,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 call plug#begin('~/.vim/plugged') " File Syntax Highlight & Linting
 
 Plug 'othree/html5.vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
 Plug 'lumiliet/vim-twig', { 'for': ['htm','twig'] }
 Plug 'posva/vim-vue', { 'for': ['javascript','vue'] }
@@ -26,7 +26,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
-Plug 'chrisbra/vim-diff-enhanced'
 
 " File Navigation 
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -45,7 +44,6 @@ Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'on': 'EnterInsertMode' }
 Plug 'haya14busa/incsearch.vim' " Advanced searching
 Plug 'haya14busa/incsearch-fuzzy.vim'
-" Plug 'ludovicchabant/vim-gutentags'
 
 " File Editing
 Plug 'AndrewRadev/splitjoin.vim'
@@ -175,12 +173,6 @@ source ~/.vim/setup/bindings.vim
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" ================ Neomake settings =====================
-call neomake#configure#automake('w')
-let g:neomake_open_list = 2
-let g:neomake_less_enabled_makers = []
-let g:neomake_scss_enabled_makers = []
 
 let g:startify_change_to_dir = 0
 
