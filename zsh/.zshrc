@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v # Add Vim 
 bindkey '^ ' autosuggest-accept
 export KEYTIMEOUT=1
+bindkey '^\n' autosuggest-execute
 
 # Aliases
 [ -f ~/.aliases-additions.zsh ] && source ~/.aliases-additions.zsh

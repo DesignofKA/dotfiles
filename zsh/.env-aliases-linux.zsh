@@ -2,3 +2,4 @@
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias getssh='cat ~/.ssh/id_rsa.pub | pbcopy'
+alias aptget='sudo apt-get'
