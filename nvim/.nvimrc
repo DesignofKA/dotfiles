@@ -227,6 +227,9 @@ sunmap b
 sunmap e
 sunmap ge
 
+" ALE
+let g:ale_sign_column_always = 1
+
 " Indent Line
 let g:indentLine_char = '┊'
 let g:indentLine_color_gui = '#a8a8a8'
@@ -242,4 +245,15 @@ set tags=tags
 set path=.
 
 let g:incsearch#auto_nohlsearch = 1
+
+function! s:goyo_enter()
+    set wrap
+endfunction
+
+function! s:goyo_leave()
+    set nowrap
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
