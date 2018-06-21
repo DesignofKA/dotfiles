@@ -37,3 +37,6 @@ bindkey '^\n' autosuggest-execute
 [ -f ~/.aliases.zsh ] && source ~/.aliases.zsh
 [ -f ~/.env-aliases.zsh ] && source ~/.env-aliases.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="/home/kakposoe/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
