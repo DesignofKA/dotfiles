@@ -181,7 +181,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Move cursor to the bottom of the yank selection once yanked 
-vmap y y`]
+" vmap y y`]
 
 " Search
 map /  <Plug>(incsearch-forward)
