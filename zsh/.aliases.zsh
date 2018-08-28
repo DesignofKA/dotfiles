@@ -51,7 +51,7 @@ alias nah='git reset --hard;git clean -df'
 alias ga="git add"
 alias gd="git diff"
 alias gpu="git pull"
-alias gs="git status"
+alias gs="git status --short"
 alias gm="git commit"
 alias gmm="git commit -m"
 alias gc="git checkout"
@@ -60,7 +60,10 @@ alias gb="git branch"
 alias gf="git fetch"
 alias gcl="git clone"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gclean="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
+alias gclean="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+
+unalias l
+alias l="colorls -l --sd"
 
 unalias gp
 function gp() # Git push w/ condition to add all and push
@@ -151,4 +154,27 @@ function s()
     else
         echo 'No arguments passed for search'
     fi
+}
+
+function log.l {
+    echo "Printing contents of Laravel Log File"
+    echo "Press Ctrl + C to exit"
+    echo "Tip: Type 'log.c' to clear contents of Laravel Log File"
+    tail -f -n 450 storage/logs/laravel*.log \
+  | grep -i -E \
+    "^\[\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}\]|Next [\w\W]+?\:"
+}
+
+function log.c {
+    echo "Clearing contents of Laravel Log File"
+    echo > storage/logs/laravel*.log
+}
+
+function nr {
+    echo 'Restarting wifi'
+    nmcli radio wifi off
+    nmcli radio wifi on
+    echo 'Connecting to wifi'
+    sleep 3
+    nmcli dev wifi connect Mvad24 password murphyvarley1
 }

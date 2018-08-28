@@ -40,3 +40,5 @@ bindkey '^\n' autosuggest-execute
 
 export NVM_DIR="/home/kakposoe/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source $(dirname $(gem which colorls))/tab_complete.sh

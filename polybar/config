@@ -33,8 +33,12 @@ line-color = #f00
 
 # border-size = 4
 # border-color = #00000000
+border-top-size = 5 
+border-bottom-size = 5 
+border-color = ${colors.background}
 
 padding-left = 0
+padding-top = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -44,10 +48,11 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = "Font Awesome 5 Free:style=Regular:size=10;0"
 font-3 = "Font Awesome 5 Free:style=Solid:size=10;0"
+font-4 = "Font Awesome 5 Brands:style=Regular:size=10;0"
 
-modules-left = i3
-modules-center = xwindow
-modules-right = volume memory cpu temperature wlan date powermenu
+modules-left = volume
+modules-center = i3 
+modules-right = memory cpu temperature wlan date time powermenu
 
 tray-position = right
 tray-padding = 2
@@ -64,10 +69,6 @@ scroll-down = bspwm-deskprev
 
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -123,25 +124,32 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = 4
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 4
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+ws-icon-default = 
+ws-icon-0 = 1; 
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
 
 [module/cpu]
 type = internal/cpu
@@ -153,7 +161,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
@@ -183,8 +191,22 @@ ramp-signal-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 5
 
-date = %a %b %d,
+date = %d %B -  %A
 date-alt = %Y-%m-%d
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date%
+format-background = #88000000
+format-padding = 1
+
+[module/time]
+type = internal/date
+interval = 5
 
 time = %H:%M
 time-alt = %H:%M:%S
@@ -192,10 +214,9 @@ time-alt = %H:%M:%S
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label = %time%
 format-background = #88000000
-format-padding = 3
-
+format-padding = 1
 
 [module/volume]
 type = internal/volume
