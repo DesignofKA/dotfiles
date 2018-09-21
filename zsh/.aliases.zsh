@@ -178,3 +178,19 @@ function nr {
     sleep 3
     nmcli dev wifi connect Mvad24 password murphyvarley1
 }
+
+function ftp.up {
+    echo '### Starting FTP Server ###'
+    info=$(sudo docker container ls -a | grep -m 1 stilliard)
+    [[ $info =~ '^(\w+)' ]] && container=$match[1]
+    start='sudo docker start $container 2>&1'
+    echo 'Completed'
+}
+
+function ftp.down {
+    echo '### Stopping FTP Server ### '
+    info=$(sudo docker container ls -a | grep -m 1 stilliard)
+    [[ $info =~ '^(\w+)' ]] && container=$match[1]
+    stop='sudo docker container stop $container 2>&1'
+    echo 'Completed'
+}
