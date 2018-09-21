@@ -19,6 +19,7 @@ Plug 'jwalton512/vim-blade', { 'for': 'php' }
 " File Browsing & Git
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
@@ -27,6 +28,8 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
+Plug 'arnaud-lb/vim-php-namespace' " Add PHP Namespace to dependancies, requires .tags
+Plug 'craigemery/vim-autotag'
 
 " File Navigation 
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -161,6 +164,7 @@ set encoding=utf8
 " Save Folding
 autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
+autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 let mapleader = "\<Space>"
 " map <Space> <leader>
@@ -229,7 +233,10 @@ sunmap b
 sunmap e
 sunmap ge
 
-" ALE
+" ================ Vim AutoTags ======================
+let g:autotagTagsFile=".tags"
+
+" ================ ALE ======================
 let g:ale_sign_column_always = 1
 
 " Indent Line
@@ -258,4 +265,11 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'php': ['php', $HOME . '/.composer/vendor/bin/php-language-server.php'],
+    \ }
+
 
