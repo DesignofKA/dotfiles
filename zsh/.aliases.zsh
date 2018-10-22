@@ -97,6 +97,7 @@ alias tdd="todo done"
 alias tde="todo edit"
 
 # HTML Boilerplate
+# TODO change directory or remove
 function addgulp()
 {
     cp ~/.dotfiles/mvad/gulp/package.json ~/.dotfiles/mvad/gulp/gulpfile.js .
