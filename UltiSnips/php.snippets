@@ -17,14 +17,14 @@ public function __construct(${1})
 }
 endsnippet
 
-snippet pub 
+snippet pub
 public function $1($2)
 {
 $0
 }
 endsnippet
 
-snippet pro 
+snippet pro
 protected function $1($2)
 {
 $0
@@ -82,25 +82,6 @@ snippet $tb
 $table->boolean('$1');$0
 endsnippet
 
-snippet r:c
-Route::$1('$2', '$3@$4')
-$0
-endsnippet
-
-snippet r:p
-Route::post('$2', $3)
-endsnippet
-
-snippet r:g
-Route::get('$2', $3)
-endsnippet
-
-snippet r:gr
-Route::group(['$1' => '$4'], function() {
-	$0
-});
-endsnippet
-
 snippet kv
 '$1' => $0
 endsnippet
@@ -141,8 +122,45 @@ public function $1()
 }
 endsnippet
 
+# ================ Collection Methods ======================
 snippet c.e
 ->each(function ($$1, $key) {
 	$0
 })
+endsnippet
+
+snippet c.m
+->map(function ($$1, $key) {
+	$0
+})
+endsnippet
+
+snippet c.f
+->filter(function ($$1, $key) {
+	$0
+})
+endsnippet
+
+snippet c.i
+->implode('$1', '$0');
+endsnippet
+
+# ================ Route methods ======================
+snippet r.c
+Route::$1('$2', '$3@$4')
+$0
+endsnippet
+
+snippet r.p
+Route::post('$2', $3)
+endsnippet
+
+snippet r.g
+Route::get('$2', $3)
+endsnippet
+
+snippet r.gr
+Route::group(['$1' => '$4'], function() {
+	$0
+});
 endsnippet

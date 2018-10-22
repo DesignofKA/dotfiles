@@ -164,7 +164,6 @@ set encoding=utf8
 " Save Folding
 autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
-autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 
 let mapleader = "\<Space>"
 " map <Space> <leader>
