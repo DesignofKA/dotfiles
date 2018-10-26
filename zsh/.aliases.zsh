@@ -195,3 +195,15 @@ function ftp.down {
     stop='sudo docker container stop $container 2>&1'
     echo 'Completed'
 }
+
+function phpv() {
+    valet stop
+    sudo /etc/init.d/php7.0-fpm stop
+    sudo /etc/init.d/php7.1-fpm stop
+    sudo /etc/init.d/php${1}-fpm start
+    composer global update
+    valet install
+}
+
+alias php70="phpv 7.0"
+alias php71="phpv 7.1"
