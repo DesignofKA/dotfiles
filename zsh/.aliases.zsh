@@ -31,8 +31,9 @@ alias dots="cd ~/.dotfiles"
 # Laravel Commands
 alias pa="php artisan"
 alias pam="php artisan migrate"
-alias pamr:"pha artisan migrate:refresh"
+alias pamr="php artisan migrate:refresh"
 alias tinker="php artisan tinker"
+alias pu="./vendor/bin/phpunit"
 
 # Gulp
 alias g="gulp"
@@ -63,7 +64,7 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gclean="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 
 unalias l
-alias l="colorls -l --sd"
+alias l="colorls -a -l --sd"
 
 unalias gp
 function gp() # Git push w/ condition to add all and push

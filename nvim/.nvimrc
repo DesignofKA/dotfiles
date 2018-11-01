@@ -170,9 +170,9 @@ let mapleader = "\<Space>"
 map <lf> <cr>
 
 " ================ Source Files =====================
-source ~/.vim/setup/unite.vim
-source ~/.vim/setup/style.vim
-source ~/.vim/setup/bindings.vim
+source ~/.config/nvim/unite.vim
+source ~/.config/nvim/style.vim
+source ~/.config/nvim/bindings.vim
 
 " ================ Explore Bindings =====================
 set statusline+=%#warningmsg#
