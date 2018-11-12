@@ -44,6 +44,9 @@ alias tk="tmux kill-session -t"
 alias ta="tmux a"
 alias tl="tmux ls"
 
+# Cat alternative
+alias bat="cat"
+
 # Total size of folder
 alias total="du -sh"
 

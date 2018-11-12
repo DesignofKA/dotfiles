@@ -1,5 +1,5 @@
 rofi.show-icons:            false
-rofi.modi:                  drun,run,window,ssh
+rofi.modi:                  run,drun,window,ssh
 rofi.lines:                 7
 rofi.line-padding:          10
 rofi.matching:              fuzzy

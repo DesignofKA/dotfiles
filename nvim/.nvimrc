@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'arnaud-lb/vim-php-namespace' " Add PHP Namespace to dependancies, requires .tags
 Plug 'craigemery/vim-autotag'
+Plug 'majutsushi/tagbar'
 
 " File Navigation 
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -248,6 +249,9 @@ let g:markdown_enable_spell_checking = 0
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1
+
+let g:tagbar_left = 1
+let g:tagbar_autoclose = 1
 
 set tags=tags
 set path=.

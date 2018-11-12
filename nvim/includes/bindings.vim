@@ -1,4 +1,4 @@
-noremap Q @q
+    noremap Q @q
 vnoremap Q :norm @q<cr>
 
 " escape commands
@@ -62,8 +62,9 @@ nnoremap <Leader>i :Ag
 nnoremap <Leader>o :Buffers<return> 
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>q <silent>:call powerclose#close()<CR>
-nnoremap <leader>t :Tags<return>
-nnoremap <leader>tr :!ctags -R --fields=+aimlS --languages=php<return>
+" nnoremap <leader>t :Tags<return>
+nnoremap <leader>t :TagbarToggle<return>
+nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>

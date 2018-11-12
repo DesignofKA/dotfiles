@@ -181,12 +181,14 @@ workspace $ws1 output HDMI-0
 workspace $ws2 output HDMI-0
 workspace $ws3 output HDMI-0
 workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
 
 for_window [class="Alacritty"] move container to workspace $ws1
 for_window [class="Alacritty"] fullscreen enable
 for_window [class="Firefox"] move container to workspace $ws2
-for_window [class="Spotify"] move container to workspace $ws3
-for_window [class="Slack"] move container to workspace $ws4
+for_window [class="Insomnia"] move container to workspace $ws3
+for_window [class="Spotify"] move container to workspace $ws4
+for_window [class="Slack"] move container to workspace $ws5
 
 # Start alacritty windows
 exec --no-startup-id alacritty
@@ -194,9 +196,13 @@ exec --no-startup-id alacritty
 # Start firefox
 exec --no-startup-id /usr/local/firefox_dev/firefox -new-tab -url https://github.com
 
+# Start Insomnia
+exec --no-startup-id insomnia
+
 # Start spotify
 exec --no-startup-id spotify
 
-# Start spotify
+# Start slack
 exec --no-startup-id slack
+
 

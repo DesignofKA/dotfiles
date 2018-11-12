@@ -116,9 +116,14 @@ use App\\$0;
 endsnippet
 
 snippet test
-/** @test */
+/**
+ * $2.
+ *
+ * @return void
+ */
 public function $1()
 {
+	$0
 }
 endsnippet
 
@@ -163,4 +168,9 @@ snippet r.gr
 Route::group(['$1' => '$4'], function() {
 	$0
 });
+endsnippet
+
+
+snippet $$
+$this->$1 = ${1};
 endsnippet
