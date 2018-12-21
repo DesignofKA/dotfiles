@@ -105,39 +105,34 @@ render_timer: false
 # and cursor.background colors, otherwise invert the colors of the cursor.
 custom_cursor_colors: false
 
-# Colors (Material)
+# Colors (Tender)
 colors:
   # Default colors
   primary:
-    background: '0x263238'
-    foreground: '0xeeffff'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x263238'
-    cursor: '0xeeffff'
+    background: '0x282828'
+    foreground: '0xeeeeee'
 
   # Normal colors
   normal:
-    black:   '0x263238'
-    red:     '0xf07178'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0x82aaff'
-    magenta: '0xc792ea'
-    cyan:    '0x89ddff'
-    white:   '0xeeffff'
+    black:   '0x282828'
+    red:     '0xf43753'
+    green:   '0xc9d05c'
+    yellow:  '0xffc24b'
+    blue:    '0xb3deef'
+    magenta: '0xd3b987'
+    cyan:    '0x73cef4'
+    white:   '0xeeeeee'
 
   # Bright colors
   bright:
-    black:   '0x546e7a'
-    red:     '0xf78c6c'
-    green:   '0xc3e88d'
-    yellow:  '0xffcb6b'
-    blue:    '0xb2ccd6'
-    magenta: '0xeeffff'
-    cyan:    '0xff5370'
-    white:   '0xeeffff'
+    black:   '0x4c4c4c'
+    red:     '0xf43753'
+    green:   '0xc9d05c'
+    yellow:  '0xffc24b'
+    blue:    '0xb3deef'
+    magenta: '0xd3b987'
+    cyan:    '0x73cef4'
+    white:   '0xfeffff'
 
 # Visual Bell
 #

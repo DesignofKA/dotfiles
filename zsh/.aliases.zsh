@@ -33,12 +33,17 @@ alias pa="php artisan"
 alias pam="php artisan migrate"
 alias pamr="php artisan migrate:refresh"
 alias tinker="php artisan tinker"
+
+# PHP Unit Commands.
 alias pu="./vendor/bin/phpunit"
+alias pug="pu --group test"
+alias puf="pu --filter"
 
 # Gulp
 alias g="gulp"
 
 # Tmux & Tmuxinator
+alias txs="tmuxinator start"
 alias tn="tmux new -s"
 alias tk="tmux kill-session -t"
 alias ta="tmux a"
@@ -46,6 +51,9 @@ alias tl="tmux ls"
 
 # Cat alternative
 alias bat="cat"
+
+# Ping alternative
+alias ping="prettyping --nolegend"
 
 # Total size of folder
 alias total="du -sh"
@@ -109,8 +117,6 @@ function addgulp()
     echo 'gulpfile.js\npackage-lock.js\npackage.json\nnode_modules/\n.gitignore' >> .gitignore
     echo '** Gulp env has been created **'
 }
-
-alias opu="../../../vendor/bin/phpunit"
 
 # Remove zcompdump git definitions file
 function z.rf()

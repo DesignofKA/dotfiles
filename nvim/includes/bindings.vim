@@ -1,4 +1,4 @@
-    noremap Q @q
+noremap Q @q
 vnoremap Q :norm @q<cr>
 
 " escape commands
@@ -48,12 +48,12 @@ vmap <Right> >gv
 
 nnoremap <C-h> ^
 nnoremap <C-l> $
+
 vmap <C-h> ^
 vmap <C-l> $h
 
 " Paste to system clipboard
 vmap <leader>y "*y 
-
 
 " Open FZF
 
@@ -72,8 +72,8 @@ nnoremap <leader>cm :%s///g<cr>
 autocmd VimEnter * noremap <leader><leader> :FZF<return>
 
 " Tabs
-noremap <S-l> gt
-noremap <S-h> gT
+nnoremap <S-l> :bnext<return>
+nnoremap <S-h> :bprevious<return>
 
 " Change to Colon
 nnoremap ; :

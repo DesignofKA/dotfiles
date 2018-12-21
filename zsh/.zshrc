@@ -17,7 +17,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle hlissner/zsh-autopair
 antigen bundle andrewferrier/fzf-z
-antigen bundle gko/ssh-connect
 antigen bundle peterhurford/up.zsh
 antigen bundle laurenkt/zsh-vimto
 

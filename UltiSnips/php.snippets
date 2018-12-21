@@ -1,3 +1,7 @@
+snippet todo
+// TODO: $0
+endsnippet
+
 snippet php
 <?php 
 
@@ -10,6 +14,11 @@ class $2 {
 }
 endsnippet
 
+
+snippet $$
+$this->$1 = ${1};
+endsnippet
+
 # Function calls
 snippet _c "Constructor"
 public function __construct(${1})
@@ -20,7 +29,7 @@ endsnippet
 snippet pub
 public function $1($2)
 {
-$0
+	$0
 }
 endsnippet
 
@@ -35,14 +44,25 @@ snippet vpub
 public \$$0;
 endsnippet
 
+snippet vpubs
+public static \$$0;
+endsnippet
+
 snippet vpro
 protected \$$0;
 endsnippet
 
-snippet $f
-$faker->$0;
+snippet @p
+@param $1 $0
 endsnippet
 
+snippet @r
+@return $1
+endsnippet
+
+snippet @t
+@throws $1
+endsnippet
 
 snippet ??
 <?= $0 ?>
@@ -65,9 +85,24 @@ snippet $=
 $$1 = $2;$0
 endsnippet
 
+# ================ Test Methods ======================
 snippet $a
 $this->assert$1($2);$0
 endsnippet
+
+snippet $ac
+$this->assertCount($1);$0
+endsnippet
+
+snippet $ae
+$this->assertEquals($1);$0
+endsnippet
+
+snippet $f
+$faker->$0;
+endsnippet
+
+# ================ Laravel Schema Methods ======================
 
 # Laravel
 snippet $t
@@ -115,16 +150,45 @@ snippet usa
 use App\\$0;
 endsnippet
 
+# ================ Test Methods ======================
 snippet test
 /**
  * $2.
  *
+ * @test
+ * @dataProvider data$3
  * @return void
  */
-public function $1()
+public function $1($data, $expected, $options = null)
 {
+	// Arrange
 	$0
+	// Act
+
+	// Assert
 }
+endsnippet
+
+snippet prov
+/**
+ * $2 data provider.
+ */
+public function data$1()
+{
+	return [
+		'normal' => [
+			$0
+		]
+	];
+}
+endsnippet
+
+snippet @g
+@group test
+endsnippet
+
+snippet @d
+@dataProvider $0
 endsnippet
 
 # ================ Collection Methods ======================
@@ -150,6 +214,10 @@ snippet c.i
 ->implode('$1', '$0');
 endsnippet
 
+snippet fact
+factory($1::class)->create($2);$0
+endsnippet
+
 # ================ Route methods ======================
 snippet r.c
 Route::$1('$2', '$3@$4')
@@ -168,9 +236,4 @@ snippet r.gr
 Route::group(['$1' => '$4'], function() {
 	$0
 });
-endsnippet
-
-
-snippet $$
-$this->$1 = ${1};
 endsnippet
