@@ -14,7 +14,6 @@ class $2 {
 }
 endsnippet
 
-
 snippet $$
 $this->$1 = ${1};
 endsnippet
@@ -64,6 +63,18 @@ snippet @t
 @throws $1
 endsnippet
 
+snippet @fe
+@foreach($1 as $2)
+	$0
+@endforeach
+endsnippet
+
+snippet @if
+@if($1)
+	$0
+@endif
+endsnippet
+
 snippet ??
 <?= $0 ?>
 endsnippet
@@ -103,8 +114,6 @@ $faker->$0;
 endsnippet
 
 # ================ Laravel Schema Methods ======================
-
-# Laravel
 snippet $t
 $table->$1('$2');$0
 endsnippet
@@ -135,6 +144,7 @@ foreach ($$1 as $$2) {
 }
 endsnippet
 
+# ================ Laravel Schema Methods ======================
 snippet pubr
 public function $1(Request $request)
 {
@@ -192,6 +202,10 @@ snippet @d
 endsnippet
 
 # ================ Collection Methods ======================
+snippet coll
+collect($0)
+endsnippet
+
 snippet c.e
 ->each(function ($$1, $key) {
 	$0

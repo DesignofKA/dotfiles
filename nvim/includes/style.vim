@@ -3,18 +3,23 @@ if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+
 set termguicolors
 syntax enable
 set background=dark
+let ayucolor="dark"
 set t_Co=256
-colorscheme tender
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
+colorscheme ayu
+
+" let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1
 let g:airline_theme='tender'
 " let g:airline_theme='wombat'
 set listchars=tab:▸\ ,eol:¬
 hi NonText ctermfg=7 guifg=gray
 let g:enable_bold_font = 1
+
+" ================ FZF Colours ======================
 
 function! s:update_fzf_colors()
   let rules =

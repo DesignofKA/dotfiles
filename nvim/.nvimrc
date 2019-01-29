@@ -65,7 +65,8 @@ Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
-Plug 'hzchirs/vim-material'
+Plug 'ayu-theme/ayu-vim'
+" Plug 'hzchirs/vim-material'
 Plug 'jacoborus/tender.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

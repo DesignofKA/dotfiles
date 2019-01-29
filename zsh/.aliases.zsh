@@ -181,13 +181,12 @@ function log.c {
     echo > storage/logs/laravel*.log
 }
 
-function nr {
+function wifi {
     echo 'Restarting wifi'
     nmcli radio wifi off
     nmcli radio wifi on
     echo 'Connecting to wifi'
     sleep 3
-    nmcli dev wifi connect Mvad24 password murphyvarley1
 }
 
 function ftp.up {

@@ -161,6 +161,8 @@ nmap gm :LivedownToggle<CR>
 
 " Keeps current paste register in tact whilst replacing words
 vnoremap <leader>p "_dP
+vnoremap Y "+y
+vnoremap P "+p
 
 " change search result using cs then . to repeat
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
