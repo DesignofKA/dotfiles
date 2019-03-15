@@ -16,10 +16,13 @@ Plug 'lumiliet/vim-twig', { 'for': ['htm','twig'] }
 Plug 'posva/vim-vue', { 'for': ['javascript','vue'] }
 Plug 'jwalton512/vim-blade', { 'for': 'php' }
 
+Plug 'neomake/neomake'
+
 " File Browsing & Git
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
@@ -37,6 +40,7 @@ Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
 Plug 'bronson/vim-visual-star-search' " Searches for visually selected area using *
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'kshenoy/vim-signature' " Used for showing marks in gutter
 Plug 'shougo/unite.vim'
 Plug 'tpope/vim-unimpaired'
@@ -246,8 +250,8 @@ let g:indentLine_char = '┊'
 let g:indentLine_color_gui = '#a8a8a8'
 
 " For Vim Markdown
-let g:vim_markdown_folding_disabled = 1
-let g:markdown_enable_spell_checking = 0
+" let g:vim_markdown_folding_disabled = 1
+" let g:markdown_enable_spell_checking = 0
 
 " Add Unite Yank Source
 let g:unite_source_history_yank_enable = 1

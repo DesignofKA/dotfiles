@@ -15,7 +15,7 @@ class $2 {
 endsnippet
 
 snippet $$
-$this->$1 = ${1};
+$this->$1 = $${1};
 endsnippet
 
 # Function calls
@@ -40,14 +40,17 @@ $0
 endsnippet
 
 snippet vpub
+/** @var */
 public \$$0;
 endsnippet
 
 snippet vpubs
+/** @var */
 public static \$$0;
 endsnippet
 
 snippet vpro
+/** @var */
 protected \$$0;
 endsnippet
 
@@ -135,7 +138,11 @@ $1::$2('$0');
 endsnippet
 
 snippet dd
-dd($1);$0
+dd(${1:'Checking if error exists'});$0
+endsnippet
+
+snippet ddrc
+dd($response->getContent());$0
 endsnippet
 
 snippet fore
@@ -207,25 +214,37 @@ collect($0)
 endsnippet
 
 snippet c.e
-->each(function ($$1, $key) {
+->each(function ($${1:value}, $key) {
 	$0
 })
 endsnippet
 
 snippet c.m
-->map(function ($$1, $key) {
+->map(function ($${1:value}, $key) {
 	$0
 })
 endsnippet
 
 snippet c.f
-->filter(function ($$1, $key) {
+->filter(function ($${1:value}, $key) {
+	$0
+})
+endsnippet
+
+snippet c.fi
+->first(function ($${1:value}, $key) {
+	$0
+})
+endsnippet
+
+snippet c.r
+->reject(function ($${1:value}, $key) {
 	$0
 })
 endsnippet
 
 snippet c.i
-->implode('$1', '$0');
+->implode('$1', ${2:''});$0
 endsnippet
 
 snippet fact
@@ -250,4 +269,16 @@ snippet r.gr
 Route::group(['$1' => '$4'], function() {
 	$0
 });
+endsnippet
+
+snippet rj
+return response()->json(${1:[]}, ${2:200});$0
+endsnippet
+
+snippet log
+\Log::debug(${1});
+endsnippet
+
+snippet loge
+\Log::debug(json_encode($1));
 endsnippet

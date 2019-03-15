@@ -179,22 +179,33 @@ exec_always $HOME/.i3/startup.sh &
 
 workspace $ws1 output HDMI-0
 workspace $ws2 output HDMI-0
-workspace $ws3 output HDMI-0
-workspace $ws4 output HDMI-0
+workspace $ws3 output VGA-0
+workspace $ws4 output VGA-0
 workspace $ws5 output HDMI-0
+workspace $ws6 output VGA-0
 
-for_window [class="Alacritty"] move container to workspace $ws1
-for_window [class="Alacritty"] fullscreen enable
+workspace $ws3 gaps inner 0
+workspace $ws3 gaps outer 0
+
+# Setup monitors
+exec --no-startup-id xrandr --output HDMI-0 --auto --left-of VGA-0
+
 for_window [class="Firefox"] move container to workspace $ws2
 for_window [class="Insomnia"] move container to workspace $ws3
 for_window [class="Spotify"] move container to workspace $ws4
 for_window [class="Slack"] move container to workspace $ws5
+for_window [class="mysql-workbench-bin"] move container to workspace $ws6
 
 # Start alacritty windows
-exec --no-startup-id alacritty
+exec --no-startup-id alacritty --title term1
+
+for_window [title="term1"] move container to workspace $ws1
+for_window [title="term1"] fullscreen enable
+
+for_window [title="term2"] move container to workspace $ws3
 
 # Start firefox
-exec --no-startup-id /usr/local/firefox_dev/firefox -new-tab -url https://github.com
+exec --no-startup-id /usr/local/firefox_dev/firefox
 
 # Start Insomnia
 exec --no-startup-id insomnia
@@ -205,4 +216,5 @@ exec --no-startup-id spotify
 # Start slack
 exec --no-startup-id slack
 
-
+# Start MySQL Workbench
+# exec --no-startup-id mysql-workbench

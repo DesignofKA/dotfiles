@@ -211,5 +211,5 @@ autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

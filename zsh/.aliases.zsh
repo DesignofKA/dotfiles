@@ -5,7 +5,7 @@ alias v.c="n ~/.vimrc"
 alias t.c="n ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
-alias c="clear"
+alias cat="bat"
 alias copy="cp -r"
 alias nf="touch"
 alias x="exit"
@@ -30,6 +30,7 @@ alias dots="cd ~/.dotfiles"
 
 # Laravel Commands
 alias pa="php artisan"
+alias pacc="php artisan cache:clear"
 alias pam="php artisan migrate"
 alias pamr="php artisan migrate:refresh"
 alias tinker="php artisan tinker"
@@ -40,17 +41,13 @@ alias pug="pu --group test"
 alias puf="pu --filter"
 
 # Gulp
-alias g="gulp"
 
 # Tmux & Tmuxinator
-alias txs="tmuxinator start"
+alias ts="tmuxinator start"
 alias tn="tmux new -s"
 alias tk="tmux kill-session -t"
 alias ta="tmux a"
 alias tl="tmux ls"
-
-# Cat alternative
-alias bat="cat"
 
 # Ping alternative
 alias ping="prettyping --nolegend"
@@ -60,9 +57,11 @@ alias total="du -sh"
 
 # Git Commands
 alias nah='git reset --hard;git clean -df'
+alias g="git status"
 alias ga="git add"
 alias gd="git diff"
 alias gpu="git pull"
+alias gph="git push -u origin HEAD"
 alias gs="git status --short"
 alias gm="git commit"
 alias gmm="git commit -m"
@@ -167,13 +166,8 @@ function s()
     fi
 }
 
-function log.l {
-    echo "Printing contents of Laravel Log File"
-    echo "Press Ctrl + C to exit"
-    echo "Tip: Type 'log.c' to clear contents of Laravel Log File"
-    tail -f -n 450 storage/logs/laravel*.log \
-  | grep -i -E \
-    "^\[\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}\]|Next [\w\W]+?\:"
+function lutail {
+    tail -n 200 storage/logs/lumen-$(date +%Y-%m-%d).log | grep -iP "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]"
 }
 
 function log.c {
