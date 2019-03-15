@@ -1,8 +1,6 @@
 " ================ Startup  ====================== 
 set nocompatible "be iMproved, required
-" let g:python3_host_prog = '/usr/local/opt/python3/bin/python3'
-let g:python3_host_prog = '/usr/bin/python3'
-" let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
+let g:python3_host_prog = $PY_PATH
 
 " ================ Vim-Plug Includes  ======================
 " Set runtime path to Vundle
