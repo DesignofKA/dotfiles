@@ -28,6 +28,7 @@ alias lp="~/Sites/lara_projects"
 alias ll="~/Sites/lara_lessons"
 alias dots="cd ~/.dotfiles"
 
+
 # Laravel Commands
 alias pa="php artisan"
 alias pacc="php artisan cache:clear"
@@ -166,47 +167,36 @@ function s()
     fi
 }
 
-function lutail {
-    tail -n 200 storage/logs/lumen-$(date +%Y-%m-%d).log | grep -iP "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]"
-}
+# function lutail {
+#     tail -n 200 storage/logs/lumen-$(date +%Y-%m-%d).log | grep -iP "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]"
+# }
 
 function log.c {
     echo "Clearing contents of Laravel Log File"
     echo > storage/logs/laravel*.log
 }
 
-function wifi {
-    echo 'Restarting wifi'
-    nmcli radio wifi off
-    nmcli radio wifi on
-    echo 'Connecting to wifi'
-    sleep 3
-}
+# function wifi {
+#     echo 'Restarting wifi'
+#     nmcli radio wifi off
+#     nmcli radio wifi on
+#     echo 'Connecting to wifi'
+#     sleep 3
+# }
 
-function ftp.up {
-    echo '### Starting FTP Server ###'
-    info=$(sudo docker container ls -a | grep -m 1 stilliard)
-    [[ $info =~ '^(\w+)' ]] && container=$match[1]
-    start='sudo docker start $container 2>&1'
-    echo 'Completed'
-}
+# function phpv() {
+#     valet stop
+#     sudo /etc/init.d/php7.0-fpm stop
+#     sudo /etc/init.d/php7.1-fpm stop
+#     sudo /etc/init.d/php${1}-fpm start
+#     composer global update
+#     valet install
+# }
 
-function ftp.down {
-    echo '### Stopping FTP Server ### '
-    info=$(sudo docker container ls -a | grep -m 1 stilliard)
-    [[ $info =~ '^(\w+)' ]] && container=$match[1]
-    stop='sudo docker container stop $container 2>&1'
-    echo 'Completed'
-}
+# alias php70="phpv 7.0"
+# alias php71="phpv 7.1"
 
-function phpv() {
-    valet stop
-    sudo /etc/init.d/php7.0-fpm stop
-    sudo /etc/init.d/php7.1-fpm stop
-    sudo /etc/init.d/php${1}-fpm start
-    composer global update
-    valet install
+function weather()
+{
+    curl http://wttr.in/$1
 }
-
-alias php70="phpv 7.0"
-alias php71="phpv 7.1"

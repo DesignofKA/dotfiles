@@ -282,3 +282,11 @@ endsnippet
 snippet loge
 \Log::debug(json_encode($1));
 endsnippet
+
+snippet reql
+app('request')->$0;
+endsnippet
+
+snippet reqlh
+app('request')->has('$1');$0
+endsnippet
