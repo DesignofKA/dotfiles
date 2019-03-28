@@ -58,7 +58,7 @@ alias total="du -sh"
 
 # Git Commands
 alias nah='git reset --hard;git clean -df'
-alias g="git status"
+alias g="git status --short"
 alias ga="git add"
 alias gd="git diff"
 alias gpu="git pull"
