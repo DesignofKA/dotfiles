@@ -6,8 +6,6 @@ alias t.c="n ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
 alias cat="bat"
-alias copy="cp -r"
-alias nf="touch"
 alias x="exit"
 alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
@@ -22,10 +20,6 @@ function j() {
 }
 
 # Folder Navigation
-alias sites="~/Sites/"
-alias desk="cd ~/Desktop"
-alias lp="~/Sites/lara_projects"
-alias ll="~/Sites/lara_lessons"
 alias dots="cd ~/.dotfiles"
 
 
@@ -101,22 +95,6 @@ alias comp="composer"
 alias cgu="composer global update"
 alias compr="composer require"
 alias cda="composer dump-autoload"
-
-# Todo App Commands
-alias td="todo"
-alias tda="todo add"
-alias tdd="todo done"
-alias tde="todo edit"
-
-# HTML Boilerplate
-# TODO change directory or remove
-function addgulp()
-{
-    cp ~/.dotfiles/mvad/gulp/package.json ~/.dotfiles/mvad/gulp/gulpfile.js .
-    yarn
-    echo 'gulpfile.js\npackage-lock.js\npackage.json\nnode_modules/\n.gitignore' >> .gitignore
-    echo '** Gulp env has been created **'
-}
 
 # Remove zcompdump git definitions file
 function z.rf()
