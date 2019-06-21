@@ -67,6 +67,7 @@ Plug 'jceb/emmet.snippets', { 'on': 'EnterInsertMode' }
 Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 
 " Theme
+Plug 'luochen1990/rainbow'
 Plug 'ayu-theme/ayu-vim'
 " Plug 'hzchirs/vim-material'
 Plug 'jacoborus/tender.vim'
@@ -281,4 +282,4 @@ let g:LanguageClient_serverCommands = {
     \ 'php': ['php', $HOME . '/.composer/vendor/bin/php-language-server.php'],
     \ }
 
-
+let g:rainbow_active = 1

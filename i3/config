@@ -198,14 +198,14 @@ for_window [class="Firefox"] move container to workspace $ws2
 
 for_window [class="Insomnia"] move container to workspace $ws3
 for_window [class="DBeaver"] move container to workspace $ws3
-for_window [class="Insomnia"] floating enable
-for_window [class="DBeaver"] floating enable
+for_window [class="Insomnia"] layout tabbed
+for_window [class="DBeaver"] layout tabbed
 
 # Messaging
-for_window [class="Slack"] move container to workspace $ws4
 for_window [class="discord"] move container to workspace $ws4
-for_window [class="Slack"] floating enable
-for_window [class="discord"] floating enable
+for_window [class="Slack"] move container to workspace $ws4
+for_window [class="discord"] layout tabbed
+for_window [class="Slack"] layout tabbed
 
 for_window [class="Spotify"] move container to workspace $ws5
 
@@ -220,5 +220,5 @@ exec --no-startup-id dbeaver
 exec --no-startup-id spotify
 
 # Start messaging
-exec --no-startup-id slack
 exec --no-startup-id discord
+exec --no-startup-id slack

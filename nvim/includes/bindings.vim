@@ -64,7 +64,19 @@ nnoremap <leader>W :w!<cr>
 nnoremap <leader>q <silent>:call powerclose#close()<CR>
 " nnoremap <leader>t :Tags<return>
 nnoremap <leader>t :TagbarToggle<return>
-nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
+" nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
+nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
+nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
+
+" ctags --recurse --tag-relative --languages=-javascript,sql \
+"     --exclude=.git \
+"     --sort=yes --append \
+"     --PHP-kinds=+cf \
+"     --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
+"     --regex-PHP='/interface ([^ ]*)/\1/c/' \
+"     --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
+
+
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
@@ -208,6 +220,7 @@ function! IPhpInsertUse()
     call feedkeys('a',  'n')
 endfunction
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>re :call PhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

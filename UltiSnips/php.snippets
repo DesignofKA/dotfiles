@@ -55,7 +55,7 @@ protected \$$0;
 endsnippet
 
 snippet @p
-@param $1 $0
+@param   $1   $0
 endsnippet
 
 snippet @r
@@ -114,6 +114,10 @@ endsnippet
 
 snippet $f
 $faker->$0;
+endsnippet
+
+snippet $li
+$this->line($0);
 endsnippet
 
 # ================ Laravel Schema Methods ======================
@@ -247,6 +251,12 @@ snippet c.i
 ->implode('$1', ${2:''});$0
 endsnippet
 
+snippet c.t
+->tap(function ($${1:value}, $key) {
+	$0
+})
+endsnippet
+
 snippet fact
 factory($1::class)->create($2);$0
 endsnippet
@@ -271,6 +281,10 @@ Route::group(['$1' => '$4'], function() {
 });
 endsnippet
 
+snippet r
+return $0;
+endsnippet
+
 snippet rj
 return response()->json(${1:[]}, ${2:200});$0
 endsnippet
@@ -289,4 +303,10 @@ endsnippet
 
 snippet reqlh
 app('request')->has('$1');$0
+endsnippet
+
+snippet doc
+/**
+ * $0
+ */
 endsnippet
