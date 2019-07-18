@@ -282,4 +282,4 @@ let g:LanguageClient_serverCommands = {
     \ 'php': ['php', $HOME . '/.composer/vendor/bin/php-language-server.php'],
     \ }
 
-let g:rainbow_active = 1
+let g:rainbow_active = 0

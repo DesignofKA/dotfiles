@@ -35,7 +35,14 @@ endsnippet
 snippet pro
 protected function $1($2)
 {
-$0
+	$0
+}
+endsnippet
+
+snippet pri
+private function $1($2)
+{
+	$0
 }
 endsnippet
 
@@ -173,20 +180,10 @@ endsnippet
 
 # ================ Test Methods ======================
 snippet test
-/**
- * $2.
- *
- * @test
- * @dataProvider data$3
- * @return void
- */
-public function $1($data, $expected, $options = null)
+/** @test */
+public function $1()
 {
-	// Arrange
 	$0
-	// Act
-
-	// Assert
 }
 endsnippet
 
@@ -252,7 +249,7 @@ snippet c.i
 endsnippet
 
 snippet c.t
-->tap(function ($${1:value}, $key) {
+->tap(function ($collection) {
 	$0
 })
 endsnippet
