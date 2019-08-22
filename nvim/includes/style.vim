@@ -11,10 +11,7 @@ let ayucolor="dark"
 set t_Co=256
 colorscheme ayu
 
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1
 let g:airline_theme='tender'
-" let g:airline_theme='wombat'
 set listchars=tab:▸\ ,eol:¬
 hi NonText ctermfg=7 guifg=gray
 let g:enable_bold_font = 1

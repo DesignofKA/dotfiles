@@ -20,6 +20,12 @@ Plug 'neomake/neomake'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'phpactor/phpactor'
+Plug 'phpactor/ncm2-phpactor'
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -69,7 +75,6 @@ Plug 'mattn/emmet-vim', { 'on': 'EnterInsertMode' }
 " Theme
 Plug 'luochen1990/rainbow'
 Plug 'ayu-theme/ayu-vim'
-" Plug 'hzchirs/vim-material'
 Plug 'jacoborus/tender.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -283,3 +288,9 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 let g:rainbow_active = 0
+
+ " enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
