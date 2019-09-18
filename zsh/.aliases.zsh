@@ -1,3 +1,18 @@
+# Start fasd
+eval "$(fasd --init auto)"
+
+if [ $commands[fasd] ]; then # check if fasd is installed
+  fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
+  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init auto >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+  unset fasd_cache
+
+  alias v='f -e vim'
+  alias o='a -e open_command'
+fi
+
 # Aliases
 alias a.c="n ~/.aliases.zsh"
 alias z.c="n ~/.zshrc"
@@ -22,12 +37,12 @@ function j() {
 # Folder Navigation
 alias dots="cd ~/.dotfiles"
 
-
 # Laravel Commands
-alias pa="php artisan"
-alias pacc="php artisan cache:clear"
-alias pam="php artisan migrate"
-alias pamr="php artisan migrate:refresh"
+unalias a # Unalias a from fasd
+alias a="php artisan"
+alias acc="php artisan cache:clear"
+alias am="php artisan migrate"
+alias amr="php artisan migrate:refresh"
 alias tinker="php artisan tinker"
 
 # PHP Unit Commands.
@@ -117,19 +132,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-eval "$(fasd --init auto)"
-
-if [ $commands[fasd] ]; then # check if fasd is installed
-  fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
-  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-    fasd --init auto >| "$fasd_cache"
-  fi
-  source "$fasd_cache"
-  unset fasd_cache
-
-  alias v='f -e vim'
-  alias o='a -e open_command'
-fi
 
 unalias s # Unalias s from fasd
 function s()

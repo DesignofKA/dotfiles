@@ -88,11 +88,11 @@ augroup lazy_load
     autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+" function! DoRemote(arg)
+"   UpdateRemotePlugins
+" endfunction
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 call plug#end()
 

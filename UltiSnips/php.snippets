@@ -66,7 +66,7 @@ snippet @p
 endsnippet
 
 snippet @r
-@return $1
+@return   $1
 endsnippet
 
 snippet @t
@@ -288,6 +288,10 @@ endsnippet
 
 snippet rj
 return response()->json(${1:[]}, ${2:200});$0
+endsnippet
+
+snippet jd
+json_decode($1, true);$0
 endsnippet
 
 snippet log
