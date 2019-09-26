@@ -13,7 +13,6 @@ source ~/antigen.zsh
 # antigen bundle git # Bundles from the default repo (robbyrussell's oh-my-zsh).
 
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle hlissner/zsh-autopair
 antigen bundle andrewferrier/fzf-z
@@ -41,4 +40,3 @@ export NVM_DIR="/home/kakposoe/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source $(dirname $(gem which colorls))/tab_complete.sh
-source ~/.bin/tmuxinator.zsh

@@ -15,6 +15,7 @@ fi
 
 # Aliases
 alias a.c="n ~/.aliases.zsh"
+alias aa.c="n ~/.aliases-additions.zsh"
 alias z.c="n ~/.zshrc"
 alias v.c="n ~/.vimrc"
 alias t.c="n ~/.tmux.conf"
@@ -24,6 +25,7 @@ alias cat="bat"
 alias x="exit"
 alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
+alias nrw="npm run watch"
 alias vr="valet restart" # Valet
 
 function j() {
@@ -147,22 +149,21 @@ function s()
     fi
 }
 
-# function lutail {
-#     tail -n 200 storage/logs/lumen-$(date +%Y-%m-%d).log | grep -iP "\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]"
-# }
+unalias f # Unalias s from fasd
+function f()
+{
+    find . -iname $1 -type f
+}
 
 function log.c {
     echo "Clearing contents of Laravel Log File"
     echo > storage/logs/laravel*.log
 }
 
-# function wifi {
-#     echo 'Restarting wifi'
-#     nmcli radio wifi off
-#     nmcli radio wifi on
-#     echo 'Connecting to wifi'
-#     sleep 3
-# }
+function weather()
+{
+    curl http://wttr.in/$1
+}
 
 # function phpv() {
 #     valet stop
@@ -175,8 +176,3 @@ function log.c {
 
 # alias php70="phpv 7.0"
 # alias php71="phpv 7.1"
-
-function weather()
-{
-    curl http://wttr.in/$1
-}
