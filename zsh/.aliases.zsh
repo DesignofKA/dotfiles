@@ -25,6 +25,7 @@ alias cat="bat"
 alias x="exit"
 alias oldvim="/usr/local/bin/vim"
 alias n="nvim"
+alias nrp="npm run production"
 alias nrw="npm run watch"
 alias vr="valet restart" # Valet
 

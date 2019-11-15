@@ -40,3 +40,9 @@ export NVM_DIR="/home/kakposoe/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source $(dirname $(gem which colorls))/tab_complete.sh
+
+###-tns-completion-start-###
+if [ -f /Users/kelvin/.tnsrc ]; then 
+    source /Users/kelvin/.tnsrc 
+fi
+###-tns-completion-end-###

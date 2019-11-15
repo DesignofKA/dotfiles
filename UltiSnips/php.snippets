@@ -79,6 +79,10 @@ snippet @fe
 @endforeach
 endsnippet
 
+snippet @i
+@include($0)
+endsnippet
+
 snippet @if
 @if($1)
 	$0
@@ -87,11 +91,6 @@ endsnippet
 
 snippet ??
 <?= $0 ?>
-endsnippet
-
-snippet ?=
-<?= $1 ?>
-$0
 endsnippet
 
 snippet $
@@ -152,7 +151,7 @@ snippet :
 $1::$2('$0');
 endsnippet
 
-snippet dd
+snippet d
 dd(${1:'Checking if error exists'});$0
 endsnippet
 
@@ -264,16 +263,16 @@ endsnippet
 
 # ================ Route methods ======================
 snippet r.c
-Route::$1('$2', '$3@$4')
+Route::$1('$2', '$3@$4');
 $0
 endsnippet
 
 snippet r.p
-Route::post('$2', $3)
+Route::post('$2', $3);
 endsnippet
 
 snippet r.g
-Route::get('$2', $3)
+Route::get('$2', $3);
 endsnippet
 
 snippet r.gr

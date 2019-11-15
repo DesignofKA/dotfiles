@@ -10,34 +10,36 @@ call plug#begin('~/.vim/plugged') " File Syntax Highlight & Linting
 Plug 'othree/html5.vim'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vue'] }
-Plug 'lumiliet/vim-twig', { 'for': ['htm','twig'] }
 Plug 'posva/vim-vue', { 'for': ['javascript','vue'] }
 Plug 'jwalton512/vim-blade', { 'for': 'php' }
+Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'neomake/neomake'
 
+" Language Client
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+
 " File Browsing & Git
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'duggiefresh/vim-easydir'
 Plug 'airblade/vim-gitgutter'
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'phpactor/phpactor'
 Plug 'phpactor/ncm2-phpactor'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'tpope/vim-repeat'
 Plug 'qpkorr/vim-bufkill'
-Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'arnaud-lb/vim-php-namespace' " Add PHP Namespace to dependancies, requires .tags
 Plug 'craigemery/vim-autotag'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
 
 " File Navigation 
 Plug 'bkad/CamelCaseMotion' " Used for Camel Case Motions
@@ -50,13 +52,16 @@ Plug 'shougo/unite.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'wellle/targets.vim'
-Plug 'kana/vim-textobj-user'
-Plug 'beloglazov/vim-textobj-quotes'
-Plug 'Julian/vim-textobj-brace'
-Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'on': 'EnterInsertMode' }
 Plug 'haya14busa/incsearch.vim' " Advanced searching
 Plug 'haya14busa/incsearch-fuzzy.vim'
+
+" Text Blocks
+Plug 'kana/vim-textobj-user'
+Plug 'beloglazov/vim-textobj-quotes'
+Plug 'rhysd/vim-textobj-anyblock'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+" Plug 'Julian/vim-textobj-brace'
 
 " File Editing
 Plug 'AndrewRadev/splitjoin.vim'
@@ -88,11 +93,6 @@ augroup lazy_load
     autocmd InsertEnter * silent! EnterInsertMode | autocmd! lazy_load
 augroup END
 
-" function! DoRemote(arg)
-"   UpdateRemotePlugins
-" endfunction
-
-" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 call plug#end()
 
@@ -177,7 +177,6 @@ autocmd BufWinLeave .* mkview
 autocmd BufWinEnter .* silent loadview 
 
 let mapleader = "\<Space>"
-" map <Space> <leader>
 map <lf> <cr>
 
 " ================ Source Files =====================
@@ -205,7 +204,7 @@ autocmd FileType less :UltiSnipsAddFiletypes less
 autocmd FileType htm :UltiSnipsAddFiletypes htm
 autocmd FileType vue :UltiSnipsAddFiletypes javascript
 au BufNewFile,BufRead *.htm set filetype=html.htm.php
-au BufNewFile,BufRead *.blade.php set filetype=html.php
+au BufNewFile,BufRead *.blade.php set filetype=php.html
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
@@ -223,12 +222,6 @@ function! DirvishMapping()
     nmap <buffer> <esc> q
 endfunction
 """
-
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#disable_auto_complete = 0
 
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
@@ -248,6 +241,10 @@ let g:autotagTagsFile=".tags"
 
 " ================ ALE ======================
 let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Indent Line
 let g:indentLine_char = '┊'
@@ -291,6 +288,14 @@ let g:rainbow_active = 0
 
  " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
+" autocmd BUfEnter defaultunite call ncm2#disable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
+
+
+
+augroup custom_term
+    autocmd!
+    autocmd TermOpen * setlocal bufhidden=hide
+augroup END
