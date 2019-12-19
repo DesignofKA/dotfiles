@@ -7,7 +7,8 @@ snippet php
 
 namespace $1
 
-class $2 {
+class $2
+{
 
 	$0
 
@@ -155,8 +156,8 @@ snippet d
 dd(${1:'Checking if error exists'});$0
 endsnippet
 
-snippet ddrc
-dd($response->getContent());$0
+snippet dr
+dd(request()->all());$0
 endsnippet
 
 snippet fore
@@ -323,4 +324,3 @@ $0
 
 dd(DB::getQueryLog());
 endsnippet
-

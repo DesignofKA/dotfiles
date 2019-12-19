@@ -19,6 +19,7 @@ Plug 'neomake/neomake'
 " Language Client
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'natebosch/vim-lsc'
 
 " File Browsing & Git
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -126,8 +127,9 @@ endfunction
 autocmd! bufwritepost init.vim source % | :call RefreshUI()
 
 " ================ General Configuration  ======================
-autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade | set ft=php " Fix blade auto-indent Set Configurations
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade | set ft=php 
 
+" Fix blade auto-indent Set Configurations
 set autoindent
 set autoread " Set to auto read when a file is changed from the outside
 set backspace=indent,eol,start
@@ -288,7 +290,7 @@ let g:rainbow_active = 0
 
  " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
-" autocmd BUfEnter defaultunite call ncm2#disable_for_buffer()
+autocmd BufEnter menu call ncm2#disable_for_buffer()
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect

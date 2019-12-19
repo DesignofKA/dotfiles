@@ -1,0 +1,296 @@
+# ================ Imports ======================
+snippet imp
+import './$0';
+endsnippet
+
+snippet mat
+import 'package:flutter/material.dart';
+$0
+endsnippet
+
+snippet pack
+import 'package:flutter/$1.dart';
+$0
+endsnippet
+
+# ================ Variable types ======================
+snippet vs
+String $0;
+endsnippet
+
+snippet vf
+final $0;
+endsnippet
+
+# ================ Widget Classes ======================
+snippet sfw
+class ${1} extends StatefulWidget
+{
+	$1();
+
+	@override
+	_$1State createState() => _$1State();
+}
+
+class _$1State extends State<$1> {
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+
+		); // Container
+	}
+}
+endsnippet
+
+snippet sfwc
+class ${1} extends StatefulWidget
+{
+	$1();
+
+	@override
+	_$1State createState() => _$1State();
+}
+
+class _$1State extends State<$1> {
+
+endsnippet
+
+snippet slw
+class ${1} extends StatelessWidget
+{
+	$1();
+
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+			$0
+		); // Container
+	}
+}
+endsnippet
+
+snippet state
+class _$1State extends State<${1}> {
+	@override
+	Widget build(BuildContext context) {
+		return Scaffold(
+			body: Container(
+
+			), // Container
+		); // Scaffold
+		$0
+	}
+}
+endsnippet
+
+snippet wid
+${1:Widget}(
+
+), // $1
+endsnippet
+
+snippet t
+Text('$0'),
+endsnippet
+
+snippet sui
+ScreenUtil.instance = ScreenUtil(
+	width: 1125,
+	height: 2436,
+	allowFontScaling: true
+)..init(context);
+endsnippet
+
+snippet suh
+ScreenUtil().setHeight($0),
+endsnippet
+
+snippet suw
+ScreenUtil().setWidth($0),
+endsnippet
+
+snippet ei
+EdgeInsets.all($0),
+endsnippet
+
+snippet eio
+EdgeInsets.only($0),
+endsnippet
+
+snippet eis
+EdgeInsets.symmetric($0),
+endsnippet
+
+# ================ Widgets ======================
+snippet col
+Column(
+	children: <Widget>[
+		$0
+	], // <Widget>[]
+), // Column
+endsnippet
+
+snippet row
+Row(
+	children: <Widget>[
+		$0
+	], // <Widget>[]
+), // Row
+endsnippet
+
+snippet con
+Container(
+	child: $0
+), // Container
+endsnippet
+
+snippet stack
+Stack(
+	children: <Widget>[
+
+	], // <Widget>[
+), // Stack
+endsnippet
+
+snippet pad
+Padding(
+	padding: EdgeInsets.all($1),
+	child: $0
+), // Padding
+endsnippet
+
+snippet align
+Align(
+	alignment: Alignment.$1,
+	child: $0
+],),
+endsnippet
+
+snippet bd
+BoxDecoration(
+	color: Colors.$1,
+), // BoxDecoration
+endsnippet
+
+snippet tf
+TextField(
+	decoration: $1
+	controller: $2,
+	keyboardType: $0
+), // TextField
+endsnippet
+
+snippet ts
+TextStyle(
+	$1: $0,
+), // TextStyle
+endsnippet
+
+snippet flb
+FlatButton(
+	child: $0,
+), // FlatButton
+
+endsnippet
+snippet fb
+FittedBox(
+	child: $0,
+), // FittedBox
+endsnippet
+
+snippet sb
+SizedBox(
+	height: 20,
+), // SizedBox
+endsnippet
+
+snippet fsb
+FractionallySizedBox(
+	heightFactor: $0,
+), // FractionallySizedBox
+endsnippet
+
+snippet id
+InputDecoration(
+	$1: $0,
+), // InputDecoration
+endsnippet
+
+snippet card
+Card(
+	elevation: $1,
+	child: $0
+),
+endsnippet
+
+snippet text
+Text(
+	$1,
+	style: TextStyle($0)
+), // Text
+endsnippet
+
+snippet caa
+crossAxisAlignment: CrossAxisAlignment.$0,
+endsnippet
+
+snippet maa
+mainAxisAlignment: MainAxisAlignment.$0,
+endsnippet
+
+snippet lv
+ListView(
+	children: <Widget>[
+		$0
+	],
+), // ListView
+endsnippet
+
+snippet lvb
+ListView.builder(
+	itemCount: $1.length,
+	itemBuilder: (context, index) {
+		return $0;
+	},
+), // ListView
+endsnippet
+
+snippet gv
+GridView(
+	gridDelegate: SliverGridDelegateWithCrossAxisExtent(
+		maxCrossAxisExtent: $1,
+		childAspectRatio:  3 / 2,
+		crossAxisSpacing: 20,
+		mainAxisSpacing: 20,
+	), // SliverGridDelegateWithCrossAxisExtent
+	children: <Widget>[
+		$0
+	],
+), // GridView
+endsnippet
+
+# ================ Functions ======================
+snippet httpget
+Future<$1> fetchPost() async {
+	final response = await http.get('$2');
+
+	if (response.statusCode == 200) {
+		return ${1}.fromJson(json.decode(response.body));
+	} else {
+		throw Exception('Failed to load post');
+	}
+}
+endsnippet
+
+snippet map
+$1.map(($2) {
+	return $0;
+}).toList(),
+endsnippet
+
+
+snippet listmap
+List<Map<String, Object>> get $1 {
+	return $0;
+}
+endsnippet

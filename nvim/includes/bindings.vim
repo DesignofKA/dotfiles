@@ -1,8 +1,8 @@
 noremap Q @q
 vnoremap Q :norm @q<cr>
 
-" escape commands
-" ino jk <esc>
+" Removes Hightlights from search
+nnoremap <esc> :noh<return><esc>
 
 noremap <c-j> 5j
 noremap <c-k> 5k
@@ -65,8 +65,10 @@ nnoremap <leader>q <silent>:call powerclose#close()<CR>
 " nnoremap <leader>t :Tags<return>
 nnoremap <leader>t :TagbarToggle<return>
 " nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
-nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
-nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
+" nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
+" nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
+nnoremap <leader>rt :!ctags --recurse=yes --tag-relative=yes --exclude=.git --exclude=composer.phar --exclude='*.js' --exclude='*.vim' --langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cfi-vj<return>
+" nnoremap <leader>rt :!ctags -R --fields=+aimS --php-kinds=cdfint --languages=php --extras=+q --tag-relative=yes --exclude=".git" --exclude="vendor" \ --exclude="node_modules" --exclude="composer.phar" --totals=yes<return>
 
 " ctags --recurse --tag-relative --languages=-javascript,sql \
 "     --exclude=.git \
@@ -141,9 +143,6 @@ vmap <Down> ]egv
 vmap <C-\> <plug>Commentary
 nmap <C-\> <plug>CommentaryLine
 
-" Removes Hightlights from search
-noremap <esc> :noh<return><esc>
-"
 imap hh <C-Y>,<esc>li
 
 " |===============================================================
@@ -155,7 +154,7 @@ imap <C-l> <C-o>l
 " |===============================================================
 " | Unite Menus    
 " |===============================================================
-nnoremap <silent><Leader>e :Unite menu:vim -silent -start-insert -ignorecase -direction=botright<return>
+nnoremap <silent><Leader>e :Unite menu:vim -buffer-name=menu -silent -start-insert -ignorecase -direction=botright<return>
 
 " |===============================================================
 " | Window Navigation
