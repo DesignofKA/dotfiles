@@ -15,6 +15,15 @@ omap q iq
 nnoremap N Nzz
 nnoremap n nzz
 
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+nnoremap <C-t>w :call TrimWhitespace()<CR>
+" nnoremap <C-t> :%s/\s\+$//e<cr> | exe "normal ``"
+
 " Open File in FZF using Ctrl + o
 tnoremap <C-o> <cr>
 
@@ -83,7 +92,8 @@ nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>cm :%s///g<cr>
-autocmd VimEnter * noremap <leader><leader> :FZF<return>
+autocmd VimEnter * noremap <leader><leader> :call fzf#vim#gitfiles('--cached --exclude-standard --others', fzf#vim#with_preview('right'))<CR>
+" autocmd VimEnter * noremap <leader><leader> :FZF<return>
 
 " Tabs
 nnoremap <S-l> :bnext<return>

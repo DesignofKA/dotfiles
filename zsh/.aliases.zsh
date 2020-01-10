@@ -46,6 +46,16 @@ alias a="php artisan"
 alias acc="php artisan cache:clear"
 alias am="php artisan migrate"
 alias amr="php artisan migrate:refresh"
+
+function arl()
+{
+    if [[ -n "$1" ]]; then
+        php artisan route:list | grep $1
+    else
+        php artisan route:list
+    fi
+}
+
 alias tinker="php artisan tinker"
 
 # PHP Unit Commands.
