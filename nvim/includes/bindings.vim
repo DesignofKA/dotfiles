@@ -64,8 +64,6 @@ vmap <C-l> $h
 " Paste to system clipboard
 vmap <leader>y "*y 
 
-" Open FZF
-
 map <script> <leader>d :BD<CR>
 nnoremap <Leader>i :Ag 
 nnoremap <Leader>o :Buffers<return> 
@@ -92,8 +90,15 @@ nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>cm :%s///g<cr>
+
+" Open FZF
+let localenv=$LOCALENV
+
+if localenv == '1'
 autocmd VimEnter * noremap <leader><leader> :call fzf#vim#gitfiles('--cached --exclude-standard --others', fzf#vim#with_preview('right'))<CR>
-" autocmd VimEnter * noremap <leader><leader> :FZF<return>
+else
+autocmd VimEnter * noremap <leader><leader> :FZF<return>
+endif
 
 " Tabs
 nnoremap <S-l> :bnext<return>

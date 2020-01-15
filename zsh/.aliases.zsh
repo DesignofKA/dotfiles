@@ -46,6 +46,7 @@ alias a="php artisan"
 alias acc="php artisan cache:clear"
 alias am="php artisan migrate"
 alias amr="php artisan migrate:refresh"
+alias amc="php artisan make:controller"
 
 function arl()
 {
