@@ -295,8 +295,6 @@ autocmd BufEnter menu call ncm2#disable_for_buffer()
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-
-
 augroup custom_term
     autocmd!
     autocmd TermOpen * setlocal bufhidden=hide

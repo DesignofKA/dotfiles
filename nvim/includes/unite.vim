@@ -63,6 +63,9 @@ endfunction
 command! -nargs=* FZFGrep call FZFGrep(<f-args>)
 
 " Reverse the layout to make the FZF list top-down
+let localenv=$LOCALENV
+
+if localenv == '1'
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 " Using the custom window creation function
@@ -94,4 +97,5 @@ function! FloatingFZF()
   " open the new window, floating, and enter to it
   call nvim_open_win(buf, v:true, opts)
 endfunction
+endif
 
