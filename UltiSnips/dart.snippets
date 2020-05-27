@@ -5,7 +5,18 @@ endsnippet
 
 snippet mat
 import 'package:flutter/material.dart';
-$0
+endsnippet
+
+snippet fou
+import 'package:flutter/foundation.dart';
+endsnippet
+
+snippet prov
+import 'package:provider/provider.dart';
+endsnippet
+
+snippet http
+import 'package:http/http.dart' as http;
 endsnippet
 
 snippet pack
@@ -14,15 +25,19 @@ $0
 endsnippet
 
 # ================ Variable types ======================
-snippet vs
-String $0;
+snippet vfs
+final String $0;
+endsnippet
+
+snippet vfi
+final int $0;
 endsnippet
 
 snippet vf
-final $0;
+final $1 $0;
 endsnippet
 
-# ================ Widget Classes ======================
+# ================ Structure ======================
 snippet sfw
 class ${1} extends StatefulWidget
 {
@@ -52,12 +67,10 @@ class ${1} extends StatefulWidget
 }
 
 class _$1State extends State<$1> {
-
 endsnippet
 
 snippet slw
-class ${1} extends StatelessWidget
-{
+class ${1} extends StatelessWidget {
 	$1();
 
 	@override
@@ -83,30 +96,83 @@ class _$1State extends State<${1}> {
 }
 endsnippet
 
+# ================ Widget Classes ======================
+snippet sca
+Scaffold(
+	appBar: AppBar(
+	), // AppBar
+	body: Container(
+		$0
+	), // Container
+); // Scaffold
+endsnippet
+
+snippet cliprrect
+ClipRRect(
+	borderRadius: $1
+	child: $0
+), // ClipRRect
+endsnippet
+
+snippet ia
+Image.asset(
+	$1,
+	height: ,
+	width: ,
+	fit: 
+), // Image.asset
+endsnippet
+
+snippet in
+Image.network(
+	$1,
+	height: ,
+	width: ,
+	fit: 
+), // Image.network
+endsnippet
+
 snippet wid
 ${1:Widget}(
-
+	child: $0
 ), // $1
+endsnippet
+
+snippet cen
+Center(
+	child: $0
+), // Center
 endsnippet
 
 snippet t
 Text('$0'),
 endsnippet
 
-snippet sui
-ScreenUtil.instance = ScreenUtil(
-	width: 1125,
-	height: 2436,
-	allowFontScaling: true
-)..init(context);
+snippet ts
+TextStyle(
+	$1: $0,
+), // TextStyle
 endsnippet
 
-snippet suh
-ScreenUtil().setHeight($0),
+snippet text
+Text(
+	$1,
+	style: TextStyle($0)
+), // Text
 endsnippet
 
-snippet suw
-ScreenUtil().setWidth($0),
+snippet r
+Radius.circular($0)
+endsnippet
+
+snippet br
+BorderRadius.circular($0)
+endsnippet
+
+snippet bro
+BorderRadius.only(
+	$1:$0,
+), // BorderRadius.only
 endsnippet
 
 snippet ei
@@ -118,7 +184,10 @@ EdgeInsets.only($0),
 endsnippet
 
 snippet eis
-EdgeInsets.symmetric($0),
+EdgeInsets.symmetric(
+	vertical: $1,
+	horizontal: $0
+), // EdgeInsets.symmetric
 endsnippet
 
 # ================ Widgets ======================
@@ -130,6 +199,12 @@ Column(
 ), // Column
 endsnippet
 
+snippet con
+Container(
+	child: $0
+), // Container
+endsnippet
+
 snippet row
 Row(
 	children: <Widget>[
@@ -138,16 +213,17 @@ Row(
 ), // Row
 endsnippet
 
-snippet con
-Container(
+snippet ink
+InkWell(
+	onTap: $1,
 	child: $0
-), // Container
+), // InkWell
 endsnippet
 
 snippet stack
 Stack(
 	children: <Widget>[
-
+		$0
 	], // <Widget>[
 ), // Stack
 endsnippet
@@ -180,18 +256,12 @@ TextField(
 ), // TextField
 endsnippet
 
-snippet ts
-TextStyle(
-	$1: $0,
-), // TextStyle
-endsnippet
-
 snippet flb
 FlatButton(
 	child: $0,
 ), // FlatButton
-
 endsnippet
+
 snippet fb
 FittedBox(
 	child: $0,
@@ -218,16 +288,10 @@ endsnippet
 
 snippet card
 Card(
-	elevation: $1,
+	shape: $1,
+	elevation: $2,
 	child: $0
-),
-endsnippet
-
-snippet text
-Text(
-	$1,
-	style: TextStyle($0)
-), // Text
+), // Card
 endsnippet
 
 snippet caa
@@ -246,10 +310,21 @@ ListView(
 ), // ListView
 endsnippet
 
+snippet lin
+LinearGradient(
+	colors: [
+		color.withOpacity(0.7),
+		color,
+	],
+	begin: Alignment.topCenter,
+	end: Alignment.bottomCenter,
+), // LinearGradient
+endsnippet
+
 snippet lvb
 ListView.builder(
 	itemCount: $1.length,
-	itemBuilder: (context, index) {
+	itemBuilder: (ctx, index) {
 		return $0;
 	},
 ), // ListView
@@ -257,28 +332,89 @@ endsnippet
 
 snippet gv
 GridView(
-	gridDelegate: SliverGridDelegateWithCrossAxisExtent(
-		maxCrossAxisExtent: $1,
+	gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+		maxCrossAxisExtent: 200,
 		childAspectRatio:  3 / 2,
 		crossAxisSpacing: 20,
 		mainAxisSpacing: 20,
-	), // SliverGridDelegateWithCrossAxisExtent
+	), // SliverGridDelegateWithMaxCrossAxisExtent
 	children: <Widget>[
 		$0
-	],
+	], // <Widget>[]
 ), // GridView
 endsnippet
 
-# ================ Functions ======================
-snippet httpget
-Future<$1> fetchPost() async {
-	final response = await http.get('$2');
+snippet dtc
+return DefaultTabController(
+	length: 2,
+	initialIndex: 0,
+	child: Scaffold(
+		appBar: AppBar(
+			title: Text('$1'),
+			bottom: TabBar(
+				tabs: <Widget>[
+					Tab(
+						icon: Icon(
+							Icons.$2
+						), // Icon
+						text: '$3'
+					),
+				], // <Widget>[]
+			),
+		), // AppBar
+		body: TabBarView(
+			children: <Widget>[
+				$0
+			]
+		), // TabBarView
+	), // Scaffold
+); // DefaultTabController
+endsnippet
 
-	if (response.statusCode == 200) {
-		return ${1}.fromJson(json.decode(response.body));
-	} else {
-		throw Exception('Failed to load post');
-	}
+snippet btc
+bottomNavigationBar: BottomNavigationBar(
+	onTap: ,
+	backgroundColor: ,
+	unselectedItemColor: ,
+	selectedItemColor: ,
+	currentIndex: ,
+	// type: BottomNavigationBarType.shifting,
+	items: [
+		BottomNavigationBarItem(
+			backgroundColor: ,
+			icon: Icon(
+				Icons.category
+			),
+			title: Text('$0'),
+		), // BottomNavigationBarItem
+	],
+), // BottomNavigationBar
+endsnippet
+
+snippet toc
+Theme.of(context).$0
+endsnippet
+
+snippet noc
+Navigator.of(context).$0
+endsnippet
+
+snippet poc
+final $1 = Provider.of<$2>(context);$0
+endsnippet
+
+snippet rgbo
+Color.fromRGBO($1, $2, $3, $0),
+endsnippet
+
+snippet div
+Divider()
+endsnippet
+
+# ================ Functions ======================
+snippet future
+Future<$1> $2($3) async {
+	$0
 }
 endsnippet
 
@@ -292,5 +428,38 @@ endsnippet
 snippet listmap
 List<Map<String, Object>> get $1 {
 	return $0;
+}
+endsnippet
+
+# ================ ScreenUtil ======================
+snippet sui
+ScreenUtil.instance = ScreenUtil(
+	width: 1125,
+	height: 2436,
+	allowFontScaling: true
+)..init(context);
+endsnippet
+
+snippet suh
+ScreenUtil().setHeight($0),
+endsnippet
+
+snippet suw
+ScreenUtil().setWidth($0),
+endsnippet
+
+snippet p
+print($0);
+endsnippet
+
+snippet ss
+setState(() {
+	$0
+});
+endsnippet
+
+snippet vo
+void $1() {
+	$0
 }
 endsnippet

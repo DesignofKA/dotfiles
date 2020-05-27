@@ -64,18 +64,19 @@ vmap <C-l> $h
 " Paste to system clipboard
 vmap <leader>y "*y 
 
-map <script> <leader>d :BD<CR>
-nnoremap <Leader>i :Ag 
-nnoremap <Leader>o :Buffers<return> 
+nnoremap <Leader>c :CocAction<cr>
+map <script> <leader>d :BD<cr>
+nnoremap <Leader>i :Ag
+nnoremap <Leader>o :Buffers<return>
 nnoremap <leader>W :w!<cr>
-nnoremap <leader>q <silent>:call powerclose#close()<CR>
-" nnoremap <leader>t :Tags<return>
+nnoremap <leader>q <silent>:call powerclose#close()<cr>
 nnoremap <leader>t :TagbarToggle<return>
+" nnoremap <leader>t :Tags<return>
 " nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
 " nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
 " nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
-nnoremap <leader>rt :!ctags --recurse=yes --tag-relative=yes --exclude=.git --exclude=composer.phar --exclude='*.js' --exclude='*.vim' --langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cfi-vj<return>
 " nnoremap <leader>rt :!ctags -R --fields=+aimS --php-kinds=cdfint --languages=php --extras=+q --tag-relative=yes --exclude=".git" --exclude="vendor" \ --exclude="node_modules" --exclude="composer.phar" --totals=yes<return>
+nnoremap <leader>rt :!ctags --recurse=yes --tag-relative=yes --exclude=.git --exclude=composer.phar --exclude='*.js' --exclude='*.vim' --langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cfi-vj<return>
 
 " ctags --recurse --tag-relative --languages=-javascript,sql \
 "     --exclude=.git \
@@ -89,13 +90,14 @@ nnoremap <leader>rt :!ctags --recurse=yes --tag-relative=yes --exclude=.git --ex
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
-nnoremap <leader>cm :%s///g<cr>
+" nnoremap <leader>cm :%s///g<cr>
 
 " Open FZF
 let localenv=$LOCALENV
 
 if localenv == '1'
-autocmd VimEnter * noremap <leader><leader> :call fzf#vim#gitfiles('--cached --exclude-standard --others', fzf#vim#with_preview('right'))<CR>
+" autocmd VimEnter * noremap <leader><leader> :call fzf#vim#gitfiles('--cached --exclude-standard --others', fzf#vim#with_preview('right'))<CR>
+autocmd VimEnter * noremap <leader><leader> :call fzf#vim#files('./', fzf#vim#with_preview('right'))<CR>
 else
 autocmd VimEnter * noremap <leader><leader> :FZF<return>
 endif
@@ -239,4 +241,15 @@ autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)

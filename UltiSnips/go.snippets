@@ -1,0 +1,75 @@
+snippet f
+func $1() {
+	$0
+}
+endsnippet
+
+snippet fr
+func ($1) $2() {
+	$0
+}
+endsnippet
+
+snippet forl
+for i := 0; i < len($1); i++ {
+	$0
+}
+endsnippet
+
+snippet l
+len($0)
+endsnippet
+
+snippet ti
+type $1 interface {
+	$0
+}
+endsnippet
+
+snippet ts
+type $1 struct {
+	$0
+}
+endsnippet
+
+snippet r
+for $1 := range $2 {
+	$0
+}
+endsnippet
+
+snippet p
+fmt.Println($0)
+endsnippet
+
+snippet v
+$1 := $0
+endsnippet
+
+snippet vsr
+$1 := []$2{$0}
+endsnippet
+
+snippet vi
+$1 := []int{$0}
+endsnippet
+
+snippet vs
+$1 := []string{$0}
+endsnippet
+
+snippet vb
+$1 := []byte{$0}
+endsnippet
+
+snippet test
+func Test$1(t *testing.T) {
+	$0
+}
+endsnippet
+
+snippet ife
+if err != nil {
+	panic(err)
+}
+endsnippet

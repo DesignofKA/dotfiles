@@ -1,0 +1,4 @@
+{
+    "tsserver.enableJavascript": false,
+    "html.filetypes": ["html", "vue", "svelte", "blade.php"]
+}

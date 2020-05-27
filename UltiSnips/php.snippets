@@ -140,6 +140,12 @@ snippet $ts
 $table->string('$1');$0
 endsnippet
 
+snippet $tf
+$table->unsignedBigInteger('$1');
+$table->foreign('$2')->references('$3')->on('$4')->onDelete('cascade');
+$0
+endsnippet
+
 snippet $tb
 $table->boolean('$1');$0
 endsnippet

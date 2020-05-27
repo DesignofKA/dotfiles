@@ -23,12 +23,17 @@ alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
 alias cat="bat"
 alias x="exit"
-alias oldvim="/usr/local/bin/vim"
+
 alias n="nvim"
+
+# NPM
 alias nrp="npm run production"
 alias nrw="npm run watch"
-alias vr="valet restart" # Valet
 
+# Valet
+alias vr="valet restart"
+
+# List jobs or bring to foreground
 function j() {
     if [[ -n "$1" ]]; then
         fg %${1}
@@ -64,7 +69,9 @@ alias pu="./vendor/bin/phpunit"
 alias pug="pu --group test"
 alias puf="pu --filter"
 
-# Gulp
+# Pest Commands
+alias pe="./vendor/bin/pest"
+alias peg="./vendor/bin/pest --group=$1"
 
 # Tmux & Tmuxinator
 alias ts="tmuxinator start"
@@ -91,6 +98,7 @@ alias gm="git commit"
 alias gmm="git commit -m"
 alias gc="git checkout"
 alias gcb="git checkout -b"
+alias gcbf="git checkout -b feature\/$1"
 alias gb="git branch"
 alias gf="git fetch"
 alias gcl="git clone"
@@ -100,7 +108,7 @@ alias gclean="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git bra
 unalias l
 alias l="colorls -a -l --sd"
 
-unalias gp
+# unalias gp
 function gp() # Git push w/ condition to add all and push
 {
     if [[ -n "$1" ]]; then
@@ -108,6 +116,16 @@ function gp() # Git push w/ condition to add all and push
         git commit -m "$1"
     fi
     git push
+}
+
+# unalias gp
+function gr() # Git push w/ condition to add all and push
+{
+    if [[ -n "$1" ]]; then
+        git remote set-url $1 $2
+    else
+        git remote -v
+    fi
 }
 
 function gwip()
