@@ -60,3 +60,6 @@ let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
+
+" let g:ale_php_phpcs_executable='./vendor/bin/phpcs --standard=PSR2'
+let g:ale_php_phpcs_executable='./vendor/bin'

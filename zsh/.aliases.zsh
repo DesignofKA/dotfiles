@@ -26,6 +26,8 @@ alias x="exit"
 
 alias n="nvim"
 
+alias mk="mkdir"
+
 # NPM
 alias nrp="npm run production"
 alias nrw="npm run watch"
@@ -108,7 +110,7 @@ alias gclean="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git bra
 unalias l
 alias l="colorls -a -l --sd"
 
-# unalias gp
+unalias gp
 function gp() # Git push w/ condition to add all and push
 {
     if [[ -n "$1" ]]; then
@@ -118,7 +120,6 @@ function gp() # Git push w/ condition to add all and push
     git push
 }
 
-# unalias gp
 function gr() # Git push w/ condition to add all and push
 {
     if [[ -n "$1" ]]; then

@@ -1,4 +1,4 @@
-" ================ Startup  ====================== 
+" ================ Startup  ======================
 set nocompatible "be iMproved, required
 let g:python3_host_prog = $PY_PATH
 
@@ -50,7 +50,7 @@ endfunction
 autocmd! bufwritepost init.vim source % | :call RefreshUI()
 
 " ================ General Configuration  ======================
-autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade | set ft=php 
+autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
 source ~/.config/nvim/configs/general.vim
 
@@ -90,7 +90,7 @@ autocmd FileType htm :UltiSnipsAddFiletypes htm
 autocmd FileType vue :UltiSnipsAddFiletypes javascript
 
 au BufNewFile,BufRead *.htm set filetype=html.htm.php
-au BufNewFile,BufRead *.blade.php set filetype=php.html
+" au BufNewFile,BufRead *.blade.php set filetype=php.html
 
 " cronjob
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
@@ -111,11 +111,25 @@ source ~/.config/nvim/configs/camel-motion.vim
 let g:autotagTagsFile=".tags"
 
 " ================ ALE ======================
+let g:ale_fixers = {
+\ '*' : ['remove_trailing_lines', 'trim_whitespace'],
+\ 'php' : ['php_cs_fixer'],
+\}
+
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 1
+let g:ale_set_highlights = 1
+
+let g:ale_php_phpcs_use_global = 1
+" let g:ale_php_phpcs_standard = "psr4"
+
+let g:ale_php_cs_fixer_use_global = 1
+let g:ale_fix_on_save = 1
 
 " Indent Line
 let g:indentLine_char = '┊'

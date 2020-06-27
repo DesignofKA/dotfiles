@@ -189,6 +189,12 @@ use App\\$0;
 endsnippet
 
 # ================ Test Methods ======================
+snippet t 
+test('$1', function () {
+	$0
+});
+endsnippet
+
 snippet test
 /** @test */
 public function $1()
@@ -220,7 +226,7 @@ snippet @d
 endsnippet
 
 # ================ Collection Methods ======================
-snippet coll
+snippet cl
 collect($0)
 endsnippet
 
