@@ -15,13 +15,6 @@ omap q iq
 nnoremap N Nzz
 nnoremap n nzz
 
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-
-nnoremap <C-t>w :call TrimWhitespace()<CR>
 " nnoremap <C-t> :%s/\s\+$//e<cr> | exe "normal ``"
 
 " Open File in FZF using Ctrl + o
@@ -38,7 +31,7 @@ noremap <buffer> <silent> $ g$
 vmap t it
 
 " |===============================================================
-" | Easy Motion 
+" | Easy Motion
 " |===============================================================
 " map \ <Plug>(easymotion-prefix)
 " map  / <plug>(easymotion-sn)
@@ -62,7 +55,7 @@ vmap <C-h> ^
 vmap <C-l> $h
 
 " Paste to system clipboard
-vmap <leader>y "*y 
+vmap <leader>y "*y
 
 nnoremap <Leader>c :CocAction<cr>
 map <script> <leader>d :BD<cr>
@@ -113,7 +106,7 @@ vnoremap ; :
 vnoremap : ;
 
 " Vim Fugative Bindings
-nnoremap <leader>gs :Gstatus<CR>gg 
+nnoremap <leader>gs :Gstatus<CR>gg
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gl :Glog<cr>
@@ -121,7 +114,7 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>gm :!Git commit -m "
 nnoremap <leader>gA :!Git add -A<cr>
-nnoremap <leader>G :!Git 
+nnoremap <leader>G :!Git
 
 " Enter to end, Backspace to top
 nnoremap <CR> G
@@ -135,7 +128,7 @@ tnoremap jk <C-\><C-n>
 " Forces < and > movement in normal & visual mode
 " noremap <Up> <Nop>
 " noremap <Down> <Nop>
-" nnoremap <Left> <Nop> 
+" nnoremap <Left> <Nop>
 " nnoremap <Right> <Nop>
 
 " Tab bindings
@@ -155,7 +148,7 @@ nmap <Down> ]e
 vmap <Down> ]egv
 
 " |===============================================================
-" | Commentary  
+" | Commentary
 " |===============================================================
 vmap <C-\> <plug>Commentary
 nmap <C-\> <plug>CommentaryLine
@@ -163,13 +156,13 @@ nmap <C-\> <plug>CommentaryLine
 imap hh <C-Y>,<esc>li
 
 " |===============================================================
-" | Movement in Insert mode 
+" | Movement in Insert mode
 " |===============================================================
 imap <C-h> <C-o>h
 imap <C-l> <C-o>l
 
 " |===============================================================
-" | Unite Menus    
+" | Unite Menus
 " |===============================================================
 nnoremap <silent><Leader>e :Unite menu:vim -buffer-name=menu -silent -start-insert -ignorecase -direction=botright<return>
 
@@ -211,7 +204,7 @@ omap s :normal vs<cr>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" Move cursor to the bottom of the yank selection once yanked 
+" Move cursor to the bottom of the yank selection once yanked
 " vmap y y`]
 
 " Search

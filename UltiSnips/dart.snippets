@@ -52,7 +52,7 @@ class _$1State extends State<$1> {
 	Widget build(BuildContext context) {
 		return Container(
 
-		); // Container
+		);
 	}
 }
 endsnippet
@@ -77,7 +77,7 @@ class ${1} extends StatelessWidget {
 	Widget build(BuildContext context) {
 		return Container(
 			$0
-		); // Container
+		);
 	}
 }
 endsnippet
@@ -89,8 +89,8 @@ class _$1State extends State<${1}> {
 		return Scaffold(
 			body: Container(
 
-			), // Container
-		); // Scaffold
+			),
+		);
 		$0
 	}
 }
@@ -100,18 +100,18 @@ endsnippet
 snippet sca
 Scaffold(
 	appBar: AppBar(
-	), // AppBar
+	),
 	body: Container(
 		$0
-	), // Container
-); // Scaffold
+	),
+);
 endsnippet
 
 snippet cliprrect
 ClipRRect(
 	borderRadius: $1
 	child: $0
-), // ClipRRect
+),
 endsnippet
 
 snippet ia
@@ -119,8 +119,8 @@ Image.asset(
 	$1,
 	height: ,
 	width: ,
-	fit: 
-), // Image.asset
+	fit:
+),
 endsnippet
 
 snippet in
@@ -128,20 +128,20 @@ Image.network(
 	$1,
 	height: ,
 	width: ,
-	fit: 
-), // Image.network
+	fit:
+),
 endsnippet
 
 snippet wid
 ${1:Widget}(
 	child: $0
-), // $1
+),
 endsnippet
 
 snippet cen
 Center(
 	child: $0
-), // Center
+),
 endsnippet
 
 snippet t
@@ -151,14 +151,14 @@ endsnippet
 snippet ts
 TextStyle(
 	$1: $0,
-), // TextStyle
+),
 endsnippet
 
 snippet text
 Text(
 	$1,
 	style: TextStyle($0)
-), // Text
+),
 endsnippet
 
 snippet r
@@ -172,7 +172,7 @@ endsnippet
 snippet bro
 BorderRadius.only(
 	$1:$0,
-), // BorderRadius.only
+),
 endsnippet
 
 snippet ei
@@ -187,7 +187,7 @@ snippet eis
 EdgeInsets.symmetric(
 	vertical: $1,
 	horizontal: $0
-), // EdgeInsets.symmetric
+),
 endsnippet
 
 # ================ Widgets ======================
@@ -195,29 +195,29 @@ snippet col
 Column(
 	children: <Widget>[
 		$0
-	], // <Widget>[]
-), // Column
+	],
+),
 endsnippet
 
 snippet con
 Container(
 	child: $0
-), // Container
+),
 endsnippet
 
 snippet row
 Row(
 	children: <Widget>[
 		$0
-	], // <Widget>[]
-), // Row
+	],
+),
 endsnippet
 
 snippet ink
 InkWell(
 	onTap: $1,
 	child: $0
-), // InkWell
+),
 endsnippet
 
 snippet stack
@@ -225,27 +225,27 @@ Stack(
 	children: <Widget>[
 		$0
 	], // <Widget>[
-), // Stack
+),
 endsnippet
 
 snippet pad
 Padding(
 	padding: EdgeInsets.all($1),
 	child: $0
-), // Padding
+),
 endsnippet
 
 snippet align
 Align(
 	alignment: Alignment.$1,
 	child: $0
-],),
+),
 endsnippet
 
 snippet bd
 BoxDecoration(
 	color: Colors.$1,
-), // BoxDecoration
+),
 endsnippet
 
 snippet tf
@@ -253,37 +253,37 @@ TextField(
 	decoration: $1
 	controller: $2,
 	keyboardType: $0
-), // TextField
+),
 endsnippet
 
 snippet flb
 FlatButton(
 	child: $0,
-), // FlatButton
+),
 endsnippet
 
 snippet fb
 FittedBox(
 	child: $0,
-), // FittedBox
+),
 endsnippet
 
 snippet sb
 SizedBox(
 	height: 20,
-), // SizedBox
+),
 endsnippet
 
 snippet fsb
 FractionallySizedBox(
 	heightFactor: $0,
-), // FractionallySizedBox
+),
 endsnippet
 
 snippet id
 InputDecoration(
 	$1: $0,
-), // InputDecoration
+),
 endsnippet
 
 snippet card
@@ -291,7 +291,7 @@ Card(
 	shape: $1,
 	elevation: $2,
 	child: $0
-), // Card
+),
 endsnippet
 
 snippet caa
@@ -307,7 +307,7 @@ ListView(
 	children: <Widget>[
 		$0
 	],
-), // ListView
+),
 endsnippet
 
 snippet lin
@@ -318,7 +318,7 @@ LinearGradient(
 	],
 	begin: Alignment.topCenter,
 	end: Alignment.bottomCenter,
-), // LinearGradient
+),
 endsnippet
 
 snippet lvb
@@ -327,7 +327,7 @@ ListView.builder(
 	itemBuilder: (ctx, index) {
 		return $0;
 	},
-), // ListView
+),
 endsnippet
 
 snippet gv
@@ -337,11 +337,11 @@ GridView(
 		childAspectRatio:  3 / 2,
 		crossAxisSpacing: 20,
 		mainAxisSpacing: 20,
-	), // SliverGridDelegateWithMaxCrossAxisExtent
+	),
 	children: <Widget>[
 		$0
-	], // <Widget>[]
-), // GridView
+	],
+),
 endsnippet
 
 snippet dtc
@@ -356,19 +356,19 @@ return DefaultTabController(
 					Tab(
 						icon: Icon(
 							Icons.$2
-						), // Icon
+						),
 						text: '$3'
 					),
-				], // <Widget>[]
+				],
 			),
-		), // AppBar
+		),
 		body: TabBarView(
 			children: <Widget>[
 				$0
 			]
-		), // TabBarView
-	), // Scaffold
-); // DefaultTabController
+		),
+	),
+);
 endsnippet
 
 snippet btc
@@ -386,9 +386,9 @@ bottomNavigationBar: BottomNavigationBar(
 				Icons.category
 			),
 			title: Text('$0'),
-		), // BottomNavigationBarItem
+		),
 	],
-), // BottomNavigationBar
+),
 endsnippet
 
 snippet toc

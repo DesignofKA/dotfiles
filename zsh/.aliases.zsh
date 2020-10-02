@@ -72,8 +72,8 @@ alias pug="pu --group test"
 alias puf="pu --filter"
 
 # Pest Commands
-alias pe="./vendor/bin/pest"
-alias peg="./vendor/bin/pest --group=$1"
+alias p="./vendor/bin/pest"
+alias pg="./vendor/bin/pest --group=$1"
 
 # Tmux & Tmuxinator
 alias ts="tmuxinator start"
@@ -171,7 +171,7 @@ function s()
 {
     if [[ -n "$1" ]]; then
         if [[ -n "$1" && -n "$2" ]]; then
-            ag -i -G "\.$2" "$1" 
+            ag -i -G "\.$2" "$1"
         else
             ag "$1" -i *
         fi
