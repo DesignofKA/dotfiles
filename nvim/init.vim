@@ -1,6 +1,6 @@
 " ================ Startup  ======================
 set nocompatible "be iMproved, required
-let g:python3_host_prog = $PY_PATH
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " ================ Vim-Plug Includes  ======================
 call plug#begin('~/.vim/plugged')
@@ -80,7 +80,7 @@ let g:unite_source_history_yank_enable = 1
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips"]
 
 autocmd FileType less :UltiSnipsAddFiletypes css
 autocmd FileType scss :UltiSnipsAddFiletypes css

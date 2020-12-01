@@ -5,3 +5,4 @@ Plug 'posva/vim-vue', { 'for': ['javascript','vue'] }
 Plug 'jwalton512/vim-blade', { 'for': 'php' }
 Plug 'dart-lang/dart-vim-plugin',
 Plug 'evanleck/vim-svelte', { 'for': 'svelte' }
+Plug 'martinda/jenkinsfile-vim-syntax', { 'for': 'Jenkinsfile' }

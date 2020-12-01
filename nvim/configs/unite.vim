@@ -25,34 +25,34 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \['▷  Edit HyperTerm',
         \'edit ~/.hyper.js'],
     \['▷  All Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/all.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/all.snippets'],
     \['▷  CSS Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/css.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/css.snippets'],
     \['▷  Go Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/go.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/go.snippets'],
     \['▷  PHP Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/php.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/php.snippets'],
     \['▷  Dart Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/dart.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/dart.snippets'],
     \['▷  HTM Snippets (UltiSnips)',
-        \'edit ~/.vim/UltiSnips/htm.snippets'],
+        \'edit ~/.config/nvim/UltiSnips/htm.snippets'],
 	\['▷  JS Snippets (UltiSnips)',
-		\'edit ~/.vim/UltiSnips/javascript.snippets'],
+		\'edit ~/.config/nvim/UltiSnips/javascript.snippets'],
     \]
 " }}}
 
-"Grepping Using FZF #TODO File With :File: Name  
-function! s:escape(path)  
-return substitute(a:path, ' ', '\\ ', 'g')  
-endfunction  
-"TODO Extend To Other Handlers  
- function! AgHandler(line)  
-  let parts = split(a:line, ':')  
-  let [fn, lno] = parts[0 : 1]  
-  execute 'e '. s:escape(fn)  
-  execute lno  
-  normal! zz  
- endfunction  
+"Grepping Using FZF #TODO File With :File: Name
+function! s:escape(path)
+return substitute(a:path, ' ', '\\ ', 'g')
+endfunction
+"TODO Extend To Other Handlers
+ function! AgHandler(line)
+  let parts = split(a:line, ':')
+  let [fn, lno] = parts[0 : 1]
+  execute 'e '. s:escape(fn)
+  execute lno
+  normal! zz
+ endfunction
 function! FZFGrep(pattern, ...)
 let filter = a:0 > 0 ? a:1 : '*'
 let command = 'ag -i "'.a:pattern.'" '.filter
@@ -100,4 +100,3 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 endif
-

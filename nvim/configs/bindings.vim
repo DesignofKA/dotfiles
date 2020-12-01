@@ -59,26 +59,13 @@ vmap <leader>y "*y
 
 nnoremap <Leader>c :CocAction<cr>
 map <script> <leader>d :BD<cr>
-nnoremap <Leader>i :Ag
+nnoremap <Leader>i :Ag<cr>
 nnoremap <Leader>o :Buffers<return>
 nnoremap <leader>W :w!<cr>
 nnoremap <leader>q <silent>:call powerclose#close()<cr>
 nnoremap <leader>t :TagbarToggle<return>
 " nnoremap <leader>t :Tags<return>
-" nnoremap <leader>rt :!ctags -R --fields=+aimlS --languages=php<return>
-" nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
-" nnoremap <leader>rt :!ctags -R --PHP-kinds=cfi<return>
-" nnoremap <leader>rt :!ctags -R --fields=+aimS --php-kinds=cdfint --languages=php --extras=+q --tag-relative=yes --exclude=".git" --exclude="vendor" \ --exclude="node_modules" --exclude="composer.phar" --totals=yes<return>
 nnoremap <leader>rt :!ctags --recurse=yes --tag-relative=yes --exclude=.git --exclude=composer.phar --exclude='*.js' --exclude='*.vim' --langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cfi-vj<return>
-
-" ctags --recurse --tag-relative --languages=-javascript,sql \
-"     --exclude=.git \
-"     --sort=yes --append \
-"     --PHP-kinds=+cf \
-"     --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
-"     --regex-PHP='/interface ([^ ]*)/\1/c/' \
-"     --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/' \
-
 
 nnoremap <leader>v :vsp<cr><c-w><c-w>
 nnoremap <leader>w :w<cr>
@@ -189,13 +176,6 @@ vnoremap P "+p
 vnoremap <silent> s //e<c-r>=&selection=='exclusive'?'+1':''<cr><cr>
             \:<c-u>call histdel('search',-1)<bar>let @/=histget('search',-1)<cr>gv
 omap s :normal vs<cr>
-
-" function! IPhpInsertUse()
-"     call PhpInsertUse()
-"     call feedkeys('a',  'n')
-" endfunction
-" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 :map <F1> :set wrap!<CR>
 :map <F2> :set nopaste<CR>

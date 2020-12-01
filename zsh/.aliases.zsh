@@ -13,7 +13,7 @@ if [ $commands[fasd] ]; then # check if fasd is installed
   alias o='a -e open_command'
 fi
 
-# Aliases
+# Configuration Aliases
 alias a.c="n ~/.aliases.zsh"
 alias aa.c="n ~/.aliases-additions.zsh"
 alias z.c="n ~/.zshrc"
@@ -21,12 +21,18 @@ alias v.c="n ~/.vimrc"
 alias t.c="n ~/.tmux.conf"
 alias z.r=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias t.r="tmux source-file ~/.tmux.conf"
+
 alias cat="bat"
 alias x="exit"
-
 alias n="nvim"
-
 alias mk="mkdir"
+
+# Docker
+alias d.e="docker-compose exec app bash"
+alias d.up="docker-compose up -d"
+alias d.build="docker-compose up -d --build"
+alias d.stop="docker-compose stop"
+alias d.l="docker ps"
 
 # NPM
 alias nrp="npm run production"
@@ -54,6 +60,7 @@ alias acc="php artisan cache:clear"
 alias am="php artisan migrate"
 alias amr="php artisan migrate:refresh"
 alias amc="php artisan make:controller"
+alias amm="php artisan make:migration"
 
 function arl()
 {

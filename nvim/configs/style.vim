@@ -7,7 +7,7 @@ endif
 set termguicolors
 syntax enable
 set background=dark
-let ayucolor="dark"
+let ayucolor="mirage"
 set t_Co=256
 colorscheme ayu
 
