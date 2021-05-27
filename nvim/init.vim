@@ -167,6 +167,9 @@ let g:LanguageClient_serverCommands = {
 autocmd BufEnter * call ncm2#enable_for_buffer()
 autocmd BufEnter menu call ncm2#disable_for_buffer()
 
+" Add missing golang imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
