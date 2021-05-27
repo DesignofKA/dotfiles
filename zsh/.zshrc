@@ -25,7 +25,7 @@ plugins=(git zsh-completions zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey -v # Add Vim 
+bindkey -v # Add Vim
 bindkey '^ ' autosuggest-accept
 export KEYTIMEOUT=1
 bindkey '^\n' autosuggest-execute
@@ -42,7 +42,11 @@ export NVM_DIR="/home/kakposoe/.nvm"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 ###-tns-completion-start-###
-if [ -f /Users/kelvin/.tnsrc ]; then 
-    source /Users/kelvin/.tnsrc 
-fi
+if [ -f "$HOME/.tnsrc" ]; then . source "$HOME/.tnsrc"; fi
 ###-tns-completion-end-###
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi

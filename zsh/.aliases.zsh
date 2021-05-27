@@ -212,5 +212,5 @@ function weather()
 #     valet install
 # }
 
-# alias php70="phpv 7.0"
-# alias php71="phpv 7.1"
+alias 7.3='{ brew unlink php@7.4; brew link php@7.3 --force --overwrite; } &> /dev/null && php -v'
+alias 7.4='{ brew unlink php@7.3; brew link php@7.4 --force --overwrite; } &> /dev/null && php -v'
