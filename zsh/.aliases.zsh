@@ -28,11 +28,12 @@ alias n="nvim"
 alias mk="mkdir"
 
 # Docker
-alias d.e="docker-compose exec app bash"
-alias d.up="docker-compose up -d"
-alias d.build="docker-compose up -d --build"
-alias d.stop="docker-compose stop"
-alias d.l="docker ps"
+alias dce="docker-compose exec app bash"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+alias dcb="docker-compose up -d --build"
+alias dcs="docker-compose stop"
+alias dps="docker ps"
 
 # NPM
 alias nrp="npm run production"
@@ -107,8 +108,7 @@ alias gm="git commit"
 alias gmm="git commit -m"
 alias gc="git checkout"
 alias gcb="git checkout -b"
-alias gcbf="git checkout -b feature\/$1"
-alias gb="git branch"
+# alias gcbf="git checkout -b feature\/$1"
 alias gf="git fetch"
 alias gcl="git clone"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -127,7 +127,21 @@ function gp() # Git push w/ condition to add all and push
     git push
 }
 
-function gr() # Git push w/ condition to add all and push
+# Git checkout feature branch
+unalias gfb
+function gfb()
+{
+    local IFS="-"
+    git checkout -b feature/"${*}"
+}
+
+function gfixb()
+{
+    local IFS="-"
+    git checkout -b fix/"${*}"
+}
+
+function gr() # Set git remote
 {
     if [[ -n "$1" ]]; then
         git remote set-url $1 $2
@@ -140,6 +154,14 @@ function gwip()
 {
     git add -A
     git commit -m 'WIP'
+}
+
+
+unalias gb
+function gb() {
+    git rev-parse HEAD > /dev/null 2>&1 &&
+    git branch | grep -v '/HEAD\s' |
+    fzf --height 40% --reverse --ansi --multi --tac --no-multi | sed 's/^..//' | awk '{system("git checkout " $1)}'
 }
 
 # Jigsaw Commands
@@ -201,6 +223,21 @@ function log.c {
 function weather()
 {
     curl http://wttr.in/$1
+}
+
+function gcfb()
+{
+    git for-each-ref --format='%(refname:short)' refs/heads |
+    while read branch; do
+        if [[ $branch == fix* ]]; then
+            echo -n "Delete $branch?"
+            read SHOULDDELETE
+            if [[ "$SHOULDDELETE" =~ ^[Yy]$ ]]; then
+                # git branch -D $branch
+                echo "Deleted: $branch"
+            fi
+        fi
+    done
 }
 
 # function phpv() {
